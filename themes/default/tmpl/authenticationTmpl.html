@@ -1,0 +1,35 @@
+
+<script id="authenticationFormTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div class="fade in">
+    <div class="popup signin">
+      <header class="patterned black">
+        <h1 class="with-icon">Войти</h1><span data-bind="click: CloseForm" class="close-popup btn-circle btn-circle--drop btn-circle--white"></span>
+      </header>
+      <div class="content">
+        <form method="post" data-bind="submit: Login">
+          <div class="input-holder">
+            <input name="username" type="text" placeholder="Логин" required="required" data-bind="value: username" class="inline-input"/>
+            <div class="error__message">
+              <p data-bind="text: error"></p>
+            </div>
+          </div>
+          <div class="input-holder">
+            <input name="password" type="password" placeholder="Пароль" data-bind="value: password" class="inline-input"/>
+          </div>
+          <div class="input-holder input-holder--divider">
+            <input id="remember" name="remember_me" type="checkbox" data-bind="value: rememberMe" class="checkbox"/>
+            <label for="remember">запомнить меня</label>
+          </div>
+          <button type="submit" class="btn btn-lg">Войти</button>
+        </form>
+      </div>
+      <footer>
+        <ul>
+          <li><a href="https://seller.pokupo.ru/resetting/request" target="_blank">Восстановление пароля</a></li>
+          <li><a href="/#/registration_seller/" data-bind="click: ClickRegistration">Регистрация</a></li>
+        </ul>
+      </footer>
+    </div>
+  </div>
+</script>

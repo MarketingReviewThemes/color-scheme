@@ -1,0 +1,133 @@
+
+<script id="goodsTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div class="b-catalog-item">
+    <h1 data-bind="text: blocks.main.chortName, attr: {id : blocks.main.cssTitleToCart}" class="b-catalog-item__title">Converse Red</h1>
+    <h2 class="b-catalog-item__subtitle">ID 
+      <!-- ko text: id -->
+      <!-- /ko-->
+    </h2>
+    <div class="columns triple">
+      <div class="first column">
+        <div class="content">
+          <div data-bind="template: { name: 'goodsGalleryBlockTmpl', data: blocks }"></div>
+        </div>
+      </div>
+      <div class="second double column">
+        <div class="content">
+          <div class="b-catalog-item__seller-info slidedown"><span id="user_information_slidedown" data-target="info" class="slidedown__trigger">Информация о продавце</span>
+            <div data-target="info" class="slidedown__content hidden">
+              <div data-bind="embedWidget :{ widget : 'InfoSellerWidget-1.0', params : {data : sellerInfo, tmpl : {path: 'http://promodev.pokupo.ru/themes/default/tmpl/infoSellerTmpl.html'}}}" class="b-profile-info"></div>
+            </div>
+          </div>
+          <div class="columns triple columns--resp_fix">
+            <div class="first double column">
+              <div class="content">
+                <div class="b-catalog-item__description">
+                  <div class="b-stars">
+                    <div data-bind="attr: {style: 'width:' + blocks.main.ratingGoods + '%'}" class="b-stars__rating"></div>
+                  </div><!-- ko foreach: moreBlock --><!-- ko if: key == "opinion" --><!-- ko if: content --><span class="pseudo-link">
+                    <!-- ko text: content.params.length -->
+                    <!-- /ko--> отзыва</span><!-- /ko --><!-- /ko --><!-- /ko -->
+                  <p data-bind="html: blocks.main.fullName"></p>
+                  <p>Метки: 
+                    <!-- ko text: blocks.main.keyWords -->
+                    <!-- /ko-->
+                  </p>
+                  <div class="b-item__price"><!-- ko if: blocks.main.discount() > 0 -->
+                    <div class="b-price b-item__price--old"><span data-bind="text: blocks.main.sellGoods" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div>
+                    <div class="b-price"><span data-bind="text: blocks.main.sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko --><!-- ko if: blocks.main.discount() == 0 -->
+                    <div class="b-price"><span data-bind="text: blocks.main.sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
+                  </div><!-- ko if: blocks.main.discount() > 0 -->
+                  <div class="b-item__price-comment">
+                    <p>Ваша скидка 
+                      <!-- ko text: blocks.main.discount -->
+                      <!-- /ko-->
+                    </p>
+                  </div><!-- /ko -->
+                </div>
+              </div>
+            </div>
+            <div class="third column">
+              <div class="content b-catalog-item__actions">
+                <div class="increase">
+                  <p class="b-catalog-item__limits">На складе: <span data-bind="text: blocks.main.inStock" class="value"></span></p><!-- ko if: blocks.main.showSelectionCount -->
+                  <div style="margin-bottom:20px" class="b-increment-input"><span data-bind="click: blocks.main.ClickMinus" class="b-increment-input__darr"></span><span class="b-increment-input__input-wrapper">
+                      <input type="text" value="1" maxlength="3" autocomplete="off" data-bind="value: blocks.main.ordered" class="inline-input b-increment-input__input"/></span><span data-bind="click: blocks.main.ClickPlus" class="b-increment-input__uarr"></span></div><!-- /ko -->
+                </div><!-- ko if: blocks.main.showAddToCart -->
+                <button id="btn_to_cart" type="button" data-bind="click: blocks.main.AddToCart" class="btn"><i class="icon icon-cart"></i>В&nbsp;корзину</button><br/><!-- /ko --><!-- ko if: blocks.main.showBuy -->
+                <button type="button" data-bind="click: blocks.main.Buy" class="btn">Купить сразу</button><!-- /ko --><!-- ko if: blocks.main.IsFavorite -->
+                <div class="like_button active"><a href="javascript:void(0);" data-bind="click: blocks.main.ClickFavorites" class="pseudo-link">Избранный товар</a></div><!-- /ko --><!-- ko ifnot: blocks.main.IsFavorite -->
+                <div class="like_button"><a href="javascript:void(0);" data-bind="click:blocks.main.AddFavorites" class="pseudo-link">В избранное</a></div><!-- /ko -->
+                <div id="dialog-form-batch" style="display: none" title="Добавить комментарий к избранному товару.">
+                  <textarea name="comment" rows="10" cols="50" data-bind="value : blocks.main.comment"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="ya_share" data-yashareL10n="ru" data-yashareType="link" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,gplus" class="b-catalog-item__share yashare-auto-init"></div>
+        </div>
+      </div>
+    </div>
+    <div data-bind="template: { name: 'goodsMoreBlockTmpl' }" class="b-catalog-item__aux"></div><!-- ko foreach: moreBlock --><!-- ko if: key == "opinion" --><!-- ko if: content -->
+    <div data-bind="template: { name: 'goodsOpinionBlockTmpl' }" class="b-catalog-item__aux b-reviews"></div><!-- /ko --><!-- /ko --><!-- /ko -->
+    <div data-bind="embedWidget :{ widget : 'RelatedGoodsWidget-1.0', params : {id : id, typeView: 'carousel', count: 6, countTile : 6, tmpl : {path: 'http://promodev.pokupo.ru/themes/default/tmpl/relatedGoodsTmpl.html'}}}"></div>
+  </div>
+</script>
+<script id="goodsGalleryBlockTmpl" type="text/html">
+  <!-- version 1.0--><!-- ko if: main.discount() > 0 -->
+  <div class="b-catalog-item__badges">
+    <div class="b-catalog-item__badge b-catalog-item__badge--discount">
+      <!-- ko text: main.discount -->
+      <!-- /ko-->
+    </div>
+  </div><!-- /ko -->
+  <div class="b-catalog-item__photos"><img id="main_img_goods" src="" data-bind="attr: {src: main.routeBigImages, title: main.chortName, id : main.cssToCart }"/><!-- ko if: $parent.ShowGallery() --><!-- ko foreach: gallery --><img src="" data-bind="attr: {src: image, title: title }"/><!-- /ko --><!-- /ko -->
+  </div>
+</script>
+<script id="goodsMoreBlockTmpl" type="text/html">
+  <!-- version 1.0-->
+  <dl id="more_block" class="tabs tabs--noskin"><!-- ko foreach: moreBlock --><!-- ko ifnot: key == 'opinion' --><!-- ko if: content --><!-- ko if: $index() == 0 -->
+    <dt class="tab__trigger selected"><span data-bind="text: title"></span></dt>
+    <dd class="tab__content selected">
+      <div data-bind="template: { name: templateName }" class="content"></div>
+    </dd><!-- /ko --><!-- ko if: $index() != 0 -->
+    <dt class="tab__trigger"><span data-bind="text: title"></span></dt>
+    <dd class="tab__content">
+      <div data-bind="template: { name: templateName }" class="content"></div>
+    </dd><!-- /ko --><!-- /ko --><!-- /ko --><!-- /ko -->
+  </dl>
+</script>
+<script id="goodsDescriptionBlockTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div data-bind="html:content"></div>
+</script>
+<script id="goodsShippingBlockTmpl" type="text/html">
+  <!-- version 1.0--><!-- ko foreach: content.params -->
+  <div style="width: 100%; margin-bottom: 20px;">
+    <h3 style="margin-bottom: 10px" data-bind="text: nameMethodShipping"></h3>
+    <div style="float: left; width:70%">
+      <p data-bind="text: descMethodShipping"></p>
+    </div><!-- ko if: costShipping -->
+    <div style="float: left;"><b>
+        <!-- ko text: costShipping -->
+        <!-- /ko-->руб.</b></div><!-- /ko -->
+  </div>
+  <div style="clear: both; width: 100%;"></div><!-- /ko -->
+</script>
+<script id="goodsOpinionBlockTmpl" type="text/html">
+  <!-- version 1.0-->
+  <h1 class="with-button">Отзывы</h1>
+  <ul class="reviews-list"><!-- ko foreach: content.params -->
+    <li class="b-review">
+      <div class="b-review__info">
+        <div class="b-stars">
+          <div style="width:80%" data-bind="attr: {style: 'width: ' + value_opinion + '0%'}" class="b-stars__rating"></div>
+        </div><span data-bind="text: name_user" class="b-review__author"></span>
+      </div>
+      <div class="b-review__text">
+        <p data-bind="text: desc_opinion"></p>
+      </div>
+    </li><!-- /ko -->
+  </ul>
+</script>

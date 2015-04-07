@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+		<!-- iOS-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link sizes="192x192" href="touch-icon-192x192.png" rel="icon">
+		<link sizes="180x180" href="images/icons/apple-touch-icon-180x180.png" rel="apple-touch-icon">
+		<link sizes="152x152" href="images/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon">
+		<link sizes="144x144" href="images/icons/apple-touch-icon-144x144.png" rel="apple-touch-icon">
+		<link sizes="120x120" href="images/icons/apple-touch-icon-120x120.png" rel="apple-touch-icon">
+		<link sizes="114x114" href="images/icons/apple-touch-icon-114x114.png" rel="apple-touch-icon">
+		<link sizes="76x76" href="images/icons/apple-touch-icon-76x76.png" rel="apple-touch-icon">
+		<link sizes="72x72" href="images/icons/apple-touch-icon-72x72.png" rel="apple-touch-icon">
+		<link sizes="57x57" href="images/icons/apple-touch-icon-57x57.png" rel="apple-touch-icon">
+		<link href="images/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon">
+		<!-- Windows 8-->
+		<meta name="application-name" content="Личный кабинет">
+		<meta name="msapplication-tooltip" content="Description for pokupo">
+		<meta name="msapplication-navbutton-color" content="#ffa800">
+		<meta name="msapplication-TileColor" content="#00883c">
+		<meta name="msapplication-TileImage" content="images/icons/win8-bg.png">
+		<meta name="msapplication-square70x70logo" content="images/icons/win8-logo-70x70.png">
+		<meta name="msapplication-square150x150logo" content="images/icons/win8-logo-150x150.png">
+		<meta name="msapplication-square310x310logo" content="images/icons/win8-logo-310x310.png">
+		<meta name="msapplication-wide310x150logo" content="images/icons/win8-logo-310x150.png">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="msapplication-window" content="width=1024;height=768">
+		<!-- Windows-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- Windows Phone-->
+		<!--[if IE]> 
+    <meta name="imagetoolbar" content="no"></script>
+    <meta name="msthemecompatible" content="no"></script>
+    <![endif]-->
+		<!-- Blackberry and etc-->
+		<meta name="cleartype" content="on">
+		<meta name="HandheldFriendly" content="True">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<!-- No parse telephone and address-->
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="address=no">
+		<!-- SEO-->
+		<title>Тарифы</title>
+		<meta name="description" content="Description for pokupo">
+		<meta name="keywords" content="pokupo, project">
+		<meta name="copyright" content="©tabrisov">
+		<meta name="reply-to" content="jiexa@tabrisov.ru">
+		<link href="../styles/main.css" rel="stylesheet">
+		<link href="images/icons/favicon.ico" rel="shortcut icon">
+		<!--[if lt IE 9]> 
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="scripts/libs/nwmatcher.js"></script>
+    <script src="scripts/libs/ie8canvas.js"></script>
+    <![endif]-->
+	</head>
+	<body>
+		<div class="main">
+			<section class="header">
+				<div class="container">
+					<a href="/index.html" title="Pokupo.ru" class="logo"></a>
+					<div class="menu-login">
+						<div class="not-logged-in hidden"><a id="js-login" href="javascript:void(0);" title="Войти" class="menu-login__login">Вход</a><a href="javascript:void(0);" title="Зарегистрироваться" class="menu-login__register">Регистрация</a>
+						</div>
+						<div class="logged-in"><a href="https://seller.pokupo.ru/login" class="btn btn-sm"><i class="icon icon-store--small"></i>Мой магазин</a>
+						</div>
+					</div><span id="toggleNav"><i class="icon icon-menu"></i>Меню</span>
+					<ul class="menu b-navigation">
+						<li class="menu__item with-submenu"><a href="frontpage.html" target=""><span>Платформа</span></a>
+							<ul class="submenu">
+								<li class="submenu__item"><a href="about.html" target=""><span>О проекте</span></a>
+								</li>
+								<li class="submenu__item"><a href="http://shop.pokupo.ru/" target="_blank"><span>Торговый портал</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu__item active"><a href="rates.html" target=""><span>Тарифы</span></a>
+						</li>
+						<li class="menu__item with-submenu"><a href="#" target=""><span>Компания</span></a>
+							<ul class="submenu">
+								<li class="submenu__item"><a href="events.html" target=""><span>События</span></a>
+								</li>
+								<li class="submenu__item"><a href="aboutus.html" target=""><span>О нас</span></a>
+								</li>
+								<li class="submenu__item"><a href="community.html" target=""><span>Сообщество</span></a>
+								</li>
+								<li class="submenu__item"><a href="http://pokupo.livejournal.com/" target="_blank"><span>Блог</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu__item"><a href="partners.html" target=""><span>Партнёры</span></a>
+						</li>
+						<li class="menu__item with-submenu"><a href="javascript:void(0);" target=""><span>Помощь</span></a>
+							<ul class="submenu">
+								<li class="submenu__item"><a href="faq.html" target=""><span>Вопросы и ответы</span></a>
+								</li>
+								<li class="submenu__item"><a href="https://help.pokupo.ru" target="_blank"><span>Техническая поддержка</span></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<div class="submenu-bg"></div>
+				</div>
+			</section>
+			<section class="rates">
+				<div class="rates__bg-top orange patterned"></div>
+				<div class="rates__bg-bottom black patterned"></div>
+				<div class="container">
+					<h1 class="slider-status">Базовые тарифы</h1><a class="slider-control prev"><i class="icon"></i></a><a class="slider-control next"><i class="icon"></i></a>
+					<div class="slider">
+						<div data-title="Базовые тарифы" class="slide">
+							<div class="columns triple startup">
+								<div class="first column">
+									<div class="content rate grade-1">
+										<div class="rate__icon">
+											<div class="icon"></div>
+										</div>
+										<h1>Стартап I</h1>
+										<h2>Оборот до 30 т.р.</h2>
+										<p>
+											Ежемесячных платежей нет
+											<br/>Комиссия <strong class="num">1.5% </strong>от суммы продаж
+										</p>
+										<button type="button" class="btn btn-lg btn-red">Регистрация</button>
+									</div>
+								</div>
+								<div class="second column">
+									<div class="content rate grade-2">
+										<div class="rate__icon">
+											<div class="icon"></div>
+										</div>
+										<h1>Стартап II</h1>
+										<h2>Оборот 30&ndash;60&nbsp;т.р.</h2>
+										<p>
+											Ежемесячных платежей нет
+											<br/>Комиссия <strong class="num">1.0% </strong>от суммы продаж
+										</p>
+										<button type="button" class="btn btn-lg btn-red">Регистрация</button>
+									</div>
+								</div>
+								<div class="third column">
+									<div class="content rate grade-3">
+										<div class="rate__icon">
+											<div class="icon"></div>
+										</div>
+										<h1>Стартап III</h1>
+										<h2>Оборот 60&ndash;100&nbsp;т.р.</h2>
+										<p>
+											Ежемесячных платежей нет
+											<br/>Комиссия <strong class="num">0.5% </strong>от суммы продаж
+										</p>
+										<button type="button" class="btn btn-lg btn-red">Регистрация</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div data-title="Продвинутые тарифы" class="slide">
+							<div class="columns triple business">
+								<div class="first column">
+									<div class="content rate grade-1">
+										<div class="rate__icon">
+											<div class="icon"></div>
+										</div>
+										<h1>Бизнес I</h1>
+										<h2>Оборот 100&ndash;250&nbsp;т.р.</h2>
+										<p>
+											Ежемесячных платежей нет
+											<br/>Комиссия <strong class="num">1.5% </strong>от суммы продаж
+										</p>
+										<button type="button" class="btn btn-lg btn-red">Регистрация</button>
+									</div>
+								</div>
+								<div class="second column">
+									<div class="content rate grade-2">
+										<div class="rate__icon">
+											<div class="icon"></div>
+										</div>
+										<h1>Бизнес II</h1>
+										<h2>Оборот 250&ndash;500&nbsp;т.р.</h2>
+										<p>
+											Ежемесячных платежей нет
+											<br/>Комиссия <strong class="num">1.0% </strong>от суммы продаж
+										</p>
+										<button type="button" class="btn btn-lg btn-red">Регистрация</button>
+									</div>
+								</div>
+								<div class="third column">
+									<div class="content rate grade-3">
+										<div class="rate__icon">
+											<div class="icon"></div>
+										</div>
+										<h1>Бизнес III</h1>
+										<h2>Оборот 500&ndash;750&nbsp;т.р.</h2>
+										<p>
+											Ежемесячных платежей нет
+											<br/>Комиссия <strong class="num">0.5% </strong>от суммы продаж
+										</p>
+										<button type="button" class="btn btn-lg btn-red">Регистрация</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div data-title="Премиум тарифы" class="slide">
+							<div class="columns triple company">
+								<div class="first column">
+									<div class="content rate grade-1">
+										<div class="rate__icon">
+											<div class="icon"></div>
+										</div>
+										<h1>Компания I</h1>
+										<h2>Оборот 750&ndash;1000&nbsp;т.р.</h2>
+										<p>
+											Ежемесячных платежей нет
+											<br/>Комиссия <strong class="num">1.5% </strong>от суммы продаж
+										</p>
+										<button type="button" class="btn btn-lg btn-red">Регистрация</button>
+									</div>
+								</div>
+								<div class="second column">
+									<div class="content rate grade-2">
+										<div class="rate__icon">
+											<div class="icon"></div>
+										</div>
+										<h1>Компания II</h1>
+										<h2>Оборот 1000&ndash;1500&nbsp;т.р.</h2>
+										<p>
+											Ежемесячных платежей нет
+											<br/>Комиссия <strong class="num">1.0% </strong>от суммы продаж
+										</p>
+										<button type="button" class="btn btn-lg btn-red">Регистрация</button>
+									</div>
+								</div>
+								<div class="third column">
+									<div class="content rate grade-3">
+										<div class="rate__icon">
+											<div class="icon"></div>
+										</div>
+										<h1>Компания III</h1>
+										<h2>Оборот от 1500 т.р.</h2>
+										<p>
+											Ежемесячных платежей нет
+											<br/>Комиссия <strong class="num">0.5% </strong>от суммы продаж
+										</p>
+										<button type="button" class="btn btn-lg btn-red">Регистрация</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="rate__helper">
+						<p class="descr">Нужна помощь в выборе правильного тарифа?</p><a href="javascript:void(0);" class="btn btn-orange">Запросить свой тариф</a>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="container">
+					<h1>Вопросы и ответы</h1>
+					<div class="columns triple faq">
+						<div class="first column">
+							<div class="content">
+								<div class="faq__item">
+									<h1>Как Pokupo отличается от других платформ электронной коммерции?</h1>
+									<p>Pokupo могут быть добавлены к существующей веб-сайт и не требует от вас, чтобы начать все сначала. Кроме того, Ecwid имеет свободную планировку, а не бесплатная пробная версия.</p>
+								</div>
+								<div class="faq__item">
+									<h1>Могу ли я изменить или отменить планы?</h1>
+									<p>Да. Все планы доступны месяц к месяцу без каких-либо долгосрочных обязательств, так что вы можете изменить свой план в любое время.</p>
+								</div>
+							</div>
+						</div>
+						<div class="second column">
+							<div class="content">
+								<div class="faq__item">
+									<h1>В какой валюте я буду рассчитывается с?</h1>
+									<p>Все планы тарифицируются в долларах США.</p>
+								</div>
+								<div class="faq__item">
+									<h1>Вы предлагаем возвраты?</h1>
+									<p>Мы не предлагаем возвраты, однако, наша Бесплатный план позволяет вам начать продавать на полнофункциональной магазине. Вы можете перейти на премии, когда вы будете готовы!</p>
+								</div>
+							</div>
+						</div>
+						<div class="third column">
+							<div class="content">
+								<div class="faq__item">
+									<h1>Какие варианты оплаты вы поддерживаете?</h1>
+									<p>Pokupo поддерживает более 40 платежных провайдеров по всему миру, в том числе PayPal и Stripe, так что есть хороший шанс, мы поддерживаем нужный вариант.</p>
+								</div>
+								<div class="faq__item">
+									<h1>Вы предлагаете скидки для некоммерческих организаций?</h1>
+									<p>Да. Расскажите подробнее о вашей некоммерческой организации и получить 6 месяцев предприятие бесплатно.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="footer-overlay"></div>
+		</div>
+		<footer class="footer">
+			<div class="container">
+				<div class="columns">
+					<div class="first column">
+						<div class="content">
+							<ul>
+								<li><span class="contact"><i class="contact-icon copyright"></i>Pokupo.ru&nbsp;2014</span>
+								</li>
+								<li><a href="mailto:support@pokupo.ru" title="E-Mail" class="contact"><i class="contact-icon email"></i>support@pokupo.ru</a>
+								</li>
+								<li><a href="skype:pokupo.ru?chat" onclick="return skypeCheck()" title="Skype" class="contact"><i class="contact-icon skype"></i>pokupo.ru</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="fourth column">
+						<div class="content">
+							<ul class="social">
+								<li>
+									<a href="https://vk.com/pokupo" target="_blank" title="Вконтакте" class="social__icon vk"></a>
+								</li>
+								<li>
+									<a href="https://twitter.com/pokupo_ru" target="_blank" title="Твиттер" class="social__icon tw"></a>
+								</li>
+								<li>
+									<a href="http://pokupo.livejournal.com/" target="_blank" title="Живой журнал" class="social__icon lj"></a>
+								</li>
+								<li>
+									<a href="http://habrahabr.ru/company/pokupo/" target="_blank" title="Хабрахабр" class="social__icon hh"></a>
+								</li>
+								<li>
+									<a href="https://groups.google.com/d/forum/pokupo_ru" target="_blank" title="Гугл-плюс" class="social__icon gp"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="second column">
+						<div class="content">
+							<ul>
+								<li><a href="https://help.pokupo.ru/knowledgebase.php" title="База знаний">База знаний</a>
+								</li>
+								<li><a href="https://help.pokupo.ru/" title="Техническая поддержка">Техническая поддержка</a>
+								</li>
+								<li><a href="http://forum.pokupo.ru" title="Форум">Форум</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="third column">
+						<div class="content">
+							<ul>
+								<li><a href="javascript:void(0);" title="Пользовательское соглашение">Пользовательское соглашение</a>
+								</li>
+								<li><a href="javascript:void(0);" title="Правила конфиденциальности"> Правила конфиденциальности</a>
+								</li>
+								<li><a href="javascript:void(0);" title="Политика возврата платежей"> Политика возврата платежей</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+		<script src="http://vjs.zencdn.net/4.7/video.js"></script>
+		<script src="/scripts/libs/jquery.fancytree-all.js"></script>
+		<script src="/scripts/libs/fotorama.js"></script>
+		<script src="/scripts/libs/carousel.min.js"></script>
+		<script src="/scripts/libs/chosen.jquery.js"></script>
+		<script src="/scripts/libs/floatlabels.js"></script>
+		<script src="/scripts/libs/masked-input.js"></script>
+		<script src="/scripts/libs/placeholder.js"></script>
+		<script src="/scripts/libs/tooltip.js"></script>
+		<script src="/scripts/main.js"></script>
+	</body>
+</html>

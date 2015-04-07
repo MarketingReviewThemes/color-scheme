@@ -1,0 +1,23 @@
+
+<script id="userInformationTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="logged-in">
+    <div class="circles-menu">
+      <div class="circles-menu__item dropdown"><!-- ko if: iconUser --><a href="javascript:void(0);" data-target="profile" data-bind="attr: {style: backgroundImage}" class="icon__profile dropdown__trigger user_information_dropdown__trigger"><!-- ko if: countNewMessage() > 0 --><sup data-bind="text: countNewMessage" class="circles-menu__num"></sup><!-- /ko --></a><!-- /ko --><!-- ko ifnot: iconUser --><a href="javascript:void(0);" data-target="profile" class="with-icon icon__profile dropdown__trigger user_information_dropdown__trigger"><!-- ko if: countNewMessage() > 0 --><sup data-bind="text: countNewMessage" class="circles-menu__num"></sup><!-- /ko --></a><!-- /ko -->
+        <div data-target="profile" class="b-profile-menu dropdown__content hidden user_information_dropdown__content">
+          <p data-bind="text: login" class="b-profile-menu__name"></p>
+          <ul class="menu">
+            <li class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickProfile">Профиль</a></li>
+            <li class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickPurchases">Заказы</a></li>
+            <li class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickMessages">Сообщения<!-- ko if: countNewMessage() > 0 --><sup data-bind="text: countNewMessage" class="menu__item__num"></sup><!-- /ko --></a></li>
+            <li class="menu__item"><a id="js-logout" href="javascript:void(0);" data-bind="click: ClickLogout" class="b-profile-menu__logout">Выйти</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="authorizationLinkTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div class="not-logged-in"><a id="js-login" href="/#/login/" title="Войти" data-bind="click: ClickLogin" class="menu-login__login">Вход</a><a href="/#/registration_seller/" title="Зарегистрироваться" data-bind="click: ClickRegistration" class="menu-login__register">Регистрация</a></div>
+</script>

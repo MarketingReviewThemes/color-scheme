@@ -1,0 +1,246 @@
+
+<script id="messageTopicTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="profile">
+    <div class="container">
+      <div class="columns triple">
+        <div class="first double column">
+          <div class="content">
+            <h1 class="b-profile__header with-num">Сообщения<!-- ko if: countNewMessage() > 0 --><sup data-bind="text: countNewMessage" class="menu__item__num"></sup><!-- /ko -->
+            </h1>
+            <div class="b-mail__selectall">
+              <input id="select_all" type="checkbox" name="select_all" data-bind="attr:{id: cssSelectAll}"/>
+              <label for="select_all" data-bind="click: ClickSelectAll">Выбрать все</label>
+            </div>
+          </div>
+        </div>
+        <div class="third column">
+          <div class="content">
+            <button type="button" data-target="modal-message" class="btn btn-lg btn-inline b-mail__addbtn b-mail__addbtn--top open-modal btn_add_message"><i class="icon icon-addmail"></i>Новое сообщение</button>
+          </div>
+        </div>
+      </div>
+      <div class="b-mail"><!-- ko foreach: messages --><!-- ko if: IsNew -->
+        <div class="b-mail__item b-dialog unread">
+          <!-- ko template: {name: "messageOneTopicTmpl"} -->
+          <!-- /ko -->
+        </div><!-- /ko --><!-- ko ifnot: IsNew -->
+        <div class="b-mail__item b-dialog">
+          <!-- ko template: {name: "messageOneTopicTmpl"} -->
+          <!-- /ko -->
+        </div><!-- /ko --><!-- /ko -->
+        <div class="b-order-list__actions">
+          <div class="check_button"><span data-bind="click: ClickRead" class="pseudo-link">Отметить как прочитанное</span></div>
+          <div class="drop_button"><span data-bind="click: ClickDelete" class="pseudo-link">Удалить выбранные сообщения</span></div>
+        </div>
+      </div>
+      <div class="columns triple">
+        <div class="first double column"><!-- ko if: paging().length > 1 -->
+          <!-- ko template: {name: "messagePaginateTmpl" } -->
+          <!-- /ko --><!-- /ko -->
+        </div>
+        <div class="third column">
+          <div class="content">
+            <button type="button" data-target="modal-message" class="btn btn-lg btn-inline b-mail__addbtn open-modal btn_add_message"><i class="icon icon-addmail"></i>Новое сообщение</button>
+          </div>
+        </div>
+      </div>
+      <!-- ko template: { name: 'messageModalFormTmpl', data: modalForm } -->
+      <!-- /ko-->
+    </div>
+  </div>
+</script>
+<script id="messageOneTopicTmpl" type="text/html">
+  <div class="b-dialog__checkbox">
+    <input id="i-01" type="checkbox" data-bind="attr: {id: cssCheckboxMessage}"/>
+    <label for="" data-bind="click: ClickCheckboxMessage"> </label>
+  </div>
+  <div class="b-dialog__drop"><span rel="tooltip" title="Удалить" data-target="modal-confirm" data-bind="click:ClickDelete" class="open-modal btn-circle btn-circle--trash"></span></div>
+  <div class="b-dialog__body">
+    <div class="b-dialog__userpic"><!-- ko if: logoSrcUser --><!-- ko ifnot: IsMy --><a href="javascript:void(0);" data-bind="click: ClickTopic" class="b-profile-info__photo"><img data-bind="attr: {src: logoSrcUser}" src=""/></a><!-- /ko --><!-- ko if: IsMy --><!-- ko if: logoDstUser --><a href="javascript:void(0);" data-bind="click: ClickTopic" class="b-profile-info__photo"><img data-bind="attr: {src: logoDstUser}" src=""/></a><!-- /ko --><!-- ko ifnot: logoDstUser --><a href="javascript:void(0);" data-bind="click: ClickTopic" class="with-icon b-profile-info__photo"></a><!-- /ko --><!-- /ko --><!-- /ko --><!-- ko ifnot: logoSrcUser --><a href="javascript:void(0);" data-bind="click: ClickTopic" class="with-icon b-profile-info__photo"></a><!-- /ko -->
+    </div>
+    <div class="b-dialog__author"><!-- ko ifnot: IsMy -->
+      <!-- ko text: srcUser -->
+      <!-- /ko --><!-- /ko --><!-- ko if: IsMy -->
+      <!-- ko text: dstUser -->
+      <!-- /ko --><!-- /ko --><span class="b-dialog__date">
+        <!-- ko text: FormatDateMessage() -->
+        <!-- /ko --></span>
+    </div>
+    <div class="b-dialog__title"><a href="javascript:void(0);" data-bind="click: ClickTopic, text: nameTopic"></a><span class="b-dialog__title-num">(
+        <!-- ko text: countMessage -->
+        <!-- /ko -->)</span></div>
+    <div class="b-dialog__preview">
+      <p data-bind="html: textMessage"></p>
+    </div>
+  </div>
+</script>
+<script id="messageListTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <section class="profile">
+    <div class="container"><a href="javascript:void(0);" data-bind="click: ClickBack" class="btn btn-sm btn-thin btn__stepback"><i class="icon icon-back"></i>назад к списку сообщений</a>
+      <div class="columns">
+        <div class="first triple column">
+          <div class="content">
+            <h2 data-bind="text: nameTopic" class="b-profile__headline"></h2>
+          </div>
+        </div>
+        <div class="fourth column">
+          <div class="content b-chat-actions"><span id="js-toggleChat-collapse" data-state="1" data-bind="click: ClickExpand" class="b-chat-actions__item close-all pseudo-link">Развернуть всё</span><span id="js-toggleChat-expand" data-state="1" style="display: none;" data-bind="click: ClickCollapse" class="b-chat-actions__item close-all active pseudo-link">Свернуть всё</span><span rel="tooltip" title="Удалить" data-bind="click: ClickDelete" class="b-chat-actions__item btn-circle btn-circle--trash"></span></div>
+        </div>
+      </div>
+      <div class="b-chat"><!-- ko foreach: messages --><!-- ko if: IsNew --><!-- ko if: IsMy --><!-- ko if: isExpand -->
+        <div data-bind="click: ClickCollapse" class="b-chat__item b-dialog outgoing unread">
+          <!-- ko template: {name: "messageItemTmpl"} -->
+          <!-- /ko -->
+        </div><!-- /ko --><!-- ko ifnot: isExpand -->
+        <div data-bind="click: ClickExpand" class="b-chat__item b-dialog outgoing closed unread">
+          <!-- ko template: {name: "messageItemTmpl"} -->
+          <!-- /ko -->
+        </div><!-- /ko --><!-- /ko --><!-- ko ifnot: IsMy --><!-- ko if: isExpand -->
+        <div data-bind="click: ClickCollapse" class="b-chat__item b-dialog incoming unread">
+          <!-- ko template: {name: "messageItemTmpl"} -->
+          <!-- /ko -->
+        </div><!-- /ko --><!-- ko ifnot: isExpand -->
+        <div data-bind="click: ClickExpand" class="b-chat__item b-dialog incoming closed unread">
+          <!-- ko template: {name: "messageItemTmpl"} -->
+          <!-- /ko -->
+        </div><!-- /ko --><!-- /ko --><!-- /ko --><!-- ko ifnot: IsNew --><!-- ko if: IsMy --><!-- ko if: isExpand -->
+        <div data-bind="click: ClickCollapse" class="b-chat__item b-dialog outgoing">
+          <!-- ko template: {name: "messageItemTmpl"} -->
+          <!-- /ko -->
+        </div><!-- /ko --><!-- ko ifnot: isExpand -->
+        <div data-bind="click: ClickExpand" class="b-chat__item b-dialog outgoing closed">
+          <!-- ko template: {name: "messageItemTmpl"} -->
+          <!-- /ko  -->
+        </div><!-- /ko --><!-- /ko --><!-- ko ifnot: IsMy --><!-- ko if: isExpand -->
+        <div data-bind="click: ClickCollapse" class="b-chat__item b-dialog incoming">
+          <!-- ko template: {name: "messageItemTmpl"} -->
+          <!-- /ko  -->
+        </div><!-- /ko --><!-- ko ifnot: isExpand -->
+        <div data-bind="click: ClickExpand" class="b-chat__item b-dialog incoming closed">
+          <!-- ko template: {name: "messageItemTmpl"} -->
+          <!-- /ko-->
+        </div><!-- /ko --><!-- /ko --><!-- /ko --><!-- /ko -->
+      </div>
+      <!-- ko template: { name: 'messageSimpleFormTmpl', data: simpleForm } -->
+      <!-- /ko -->
+    </div>
+  </section>
+</script>
+<script id="messageItemTmpl" type="text/html">
+  <div class="b-dialog__body">
+    <div class="b-dialog__status"><!-- ko if: IsNew --><span class="pseudo-link">Не прочтено</span><!-- /ko --><!-- ko ifnot: IsNew --><span class="pseudo-link">Прочтено</span><!-- /ko -->
+    </div>
+    <div class="b-dialog__userpic">
+      <div class="b-profile-info__photo"><img src="" data-bind="attr: {src : logoSrcUser}"/></div>
+    </div>
+    <div class="b-dialog__author">
+      <!-- ko text: srcUser -->
+      <!-- /ko --><span class="b-dialog__date">
+        <!-- ko text: FormatDateMessage() -->
+        <!-- /ko --></span>
+    </div>
+    <div class="b-dialog__text">
+      <p>
+        <!-- ko text: textMessage -->
+        <!-- /ko -->
+      </p>
+    </div>
+  </div>
+</script>
+<script id="messageEmptyListTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="profile">
+    <div class="container">
+      <div class="columns triple">
+        <div class="first double column">
+          <div class="content">
+            <h1 class="b-profile__header with-num">Сообщения</h1>
+          </div>
+        </div>
+        <div class="third column">
+          <div class="content">
+            <button type="button" data-target="modal-message" class="btn btn-lg btn-inline b-mail__addbtn b-mail__addbtn--top open-modal btn_add_message"><i class="icon icon-addmail"></i>Новое сообщение</button>
+          </div>
+        </div>
+      </div>
+      <div class="b-mail">
+        <p data-bind="html: messageError"></p>
+      </div>
+      <!-- ko template: { name: 'messageModalFormTmpl', data: modalForm } -->
+      <!-- /ko -->
+    </div>
+  </div>
+</script>
+<script id="messageModalFormTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div id="modal-message" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"><span class="close-modal btn-circle btn-circle--drop btn-circle--orange"></span>
+          <h2 class="b-profile__headline">Новое сообщение</h2>
+        </div>
+        <div class="modal-body">
+          <form data-bind="attr: {id: cssFormMessage}" method="POST" target="upload_target" enctype="multipart/form-data">
+            <div class="input-holder">
+              <input id="topic_user" name="dst_user" type="text" placeholder="Адресат" data-bind="value: dstUser, event: { blur: OnBlurEvent }" class="block-input active-floatlabel"/><!-- ko if: dstUserError -->
+              <div class="error__message">
+                <p data-bind="text:dstUserError"></p>
+              </div><!-- /ko -->
+            </div>
+            <div class="input-holder">
+              <input id="topic_name" name="name_topic" type="text" placeholder="Тема беседы" value="" data-bind="value: topicName" class="block-input"/><!-- ko if: topicNameError -->
+              <div class="error__message">
+                <p data-bind="text: topicNameError"></p>
+              </div><!-- /ko -->
+            </div>
+            <div style="padding: 0;" class="input-holder">
+              <textarea id="topic_text" name="text_message" rows="5" data-bind="value: text"></textarea><!-- ko if: textError -->
+              <div class="error__message">
+                <p data-bind="text: textError"></p>
+              </div><!-- /ko -->
+            </div>
+            <div class="input-holder"><!-- ko if: copyMail -->
+              <input id="carboncopy" type="checkbox" name="copy_mail" value="yes" checked="checked" data-bind="checked: copyMail"/><!-- /ko --><!-- ko ifnot: copyMail -->
+              <input id="carboncopy" type="checkbox" name="copy_mail" value="no" data-bind="checked: copyMail"/><!-- /ko -->
+              <label for="carboncopy">Выслать копию на e-mail</label>
+            </div>
+            <button type="button" class="btn btn-lg btn-grey btn-inline close-modal">Отмена</button>
+            <button id="submit_modal_message_form" type="reset" data-bind="click: ClickSend" class="btn btn-lg">Отправить</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="messageSimpleFormTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <h2 class="b-profile__headline">Ответить</h2>
+  <form data-bind="attr: {id: cssFormMessage}" method="POST" target="upload_target" enctype="multipart/form-data">
+    <input type="hidden" name="id_topic" data-bind="value: topic.topicId()"/>
+    <textarea name="text_message" width="100%" rows="5" placeholder="Текст сообщения" data-bind="value: text"></textarea><!-- ko if: textError -->
+    <div data-bind="text: textError" class="error"></div><!-- /ko -->
+    <div class="input-holder"><!-- ko if: copyMail -->
+      <input id="carboncopy" type="checkbox" name="copy_mail" value="yes" checked="checked" data-bind="checked: copyMail"/><!-- /ko --><!-- ko ifnot: copyMail -->
+      <input id="carboncopy" type="checkbox" name="copy_mail" value="no" data-bind="checked: copyMail"/><!-- /ko -->
+      <label for="carboncopy">Выслать копию на e-mail</label>
+    </div>
+    <button type="submit" data-bind="click: ClickSend" class="btn btn-lg">Отправить</button>
+  </form>
+</script>
+<script id="messagePaginateTmpl" type="text/html">
+  <div class="content">
+    <div class="input-holder pagination">
+      <div class="radio-circles">
+        <ul class="menu"><!-- ko foreach: paging --><!-- ko if: current --><!-- ko if: title == '...' -->
+          <li class="menu__item"><span class="ellipsis">...</span></li><!-- /ko --><!-- ko ifnot: title == '...' -->
+          <li class="menu__item active"><a href="javascript:void(0);" data-bind="text: title, click: ClickLinkPage"></a></li><!-- /ko --><!-- /ko --><!-- ko ifnot: current --><!-- ko if: cssLink() == "first" -->
+          <li class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickLinkPage">&larr;</a></li><!-- /ko --><!-- ko if: cssLink() == "last" -->
+          <li class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickLinkPage">&rarr;</a></li><!-- /ko --><!-- ko if: cssLink() != "last" && cssLink() != "first" -->
+          <li class="menu__item"><a href="javascript:void(0);" data-bind="text: title, click: ClickLinkPage"></a></li><!-- /ko --><!-- /ko --><!-- /ko -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</script>

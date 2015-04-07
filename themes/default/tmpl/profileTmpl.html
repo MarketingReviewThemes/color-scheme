@@ -1,0 +1,371 @@
+
+<script id="personalInformationTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div class="profile">
+    <div class="container">
+      <div class="content">
+        <!-- ko template: { name: 'registrationDataTmpl', data: registrationData }-->
+        <!-- /ko-->
+        <!-- ko template: { name: 'postDataTmpl', data: postalAddress }-->
+        <!-- /ko-->
+        <!-- ko template: { name: 'contactsDataFormTmpl', data: contacts }-->
+        <!-- /ko-->
+      </div>
+    </div>
+  </div>
+</script>
+<script id="registrationDataTmpl" type="text/html">
+  <!-- version 1.0-->
+  <form data-bind="attr: {id: cssRegistrationDataForm}" method="POST" target="upload_target" enctype="multipart/form-data">
+    <fieldset class="b-fieldset">
+      <div class="b-profile-info b-profile-info--personal">
+        <div class="b-profile-info__actions"><span id="button_avatar_file" type="button" class="btn btn-xs"><span>Загрузить аватар</span>
+            <input id="avatar_file" name="avatar" type="file"/></span><span id="button_trash_avatar_file" style="display: none;" class="btn-circle btn-circle--trash"></span></div>
+        <div class="b-profile-info__summary"><!-- ko if: iconUser -->
+          <div class="b-profile-info__photo"><img src="javascript:void(0);" data-bind="attr: {src: iconUser}"/></div><!-- /ko --><!-- ko ifnot: iconUser -->
+          <div class="b-profile-info__photo with-icon"></div><!-- /ko -->
+          <h2 data-bind="text: fullName" class="b-profile__headline b-profile-info__title"></h2>
+          <ul class="b-profile-info__characters-list"><!-- ko if: dateRegistration -->
+            <li><span>На сайте с
+                <!-- ko text: dateRegistration -->
+                <!-- /ko --></span></li><!-- /ko -->
+            <li><span class="char">Псевдоним: </span><span data-bind="text: username" class="value"></span></li>
+            <li><span class="char">Рейтинг: </span><span class="value value--orange"><!-- ko if: rating  -->+<!-- /ko -->
+                <!-- ko text: rating-->
+                <!-- /ko --></span></li>
+          </ul>
+        </div>
+      </div>
+    </fieldset><!-- ko if: checkInfo() == 'yes' -->
+    <div data-for="fieldset-id" class="b-status b-status--fieldset b-status--done">Данные проверены</div><!-- /ko --><!-- ko if: checkInfo() == 'no' -->
+    <div data-for="fieldset-id" class="b-status b-status--fieldset b-status--warning">Данные не проверены</div><!-- /ko -->
+    <h2 class="b-profile__headline with-divider">Персональные данные</h2>
+    <fieldset class="b-fieldset">
+      <input id="fullname" type="text" placeholder="Введите ФИО в свободной форме" data-label="ФИО в свободной форме" class="block-input"/>
+      <div class="columns">
+        <div class="first double column">
+          <div class="content">
+            <div class="input-holder">
+              <input id="fullname__surname" type="text" placeholder="Фамилия" name="sname" data-bind="value: lastNameField" class="suggestion-input block-input"/><!-- ko if: errorLastName -->
+              <div class="error__message">
+                <p data-bind="text: errorLastName"></p>
+              </div><!-- /ko -->
+            </div>
+            <div class="input-holder">
+              <input id="fullname__name" type="text" placeholder="Имя" name="fname" data-bind="value: firstNameField" class="suggestion-input block-input"/><!-- ko if: errorFirstName -->
+              <div class="error__message">
+                <p data-bind="text: errorFirstName"></p>
+              </div><!-- /ko -->
+            </div><!-- ko ifnot: gender() && !isNew -->
+            <div id="fullname__gender" class="input-holder">
+              <input id="fullname__gender-male" type="radio" name="gender" value="m" data-bind="checked: gender" class="inline"/>
+              <label for="fullname__gender-male" data-bind="click: ClickItem.bind($data, 'm')">Мужской</label>
+              <input id="fullname__gender-female" type="radio" name="gender" value="w" data-bind="checked: gender" class="inline"/>
+              <label for="fullname__gender-female" data-bind="click: ClickItem.bind($data, 'w')">Женский</label><!-- ko if: errorGender -->
+              <div class="error__message">
+                <p data-bind="text: errorGender"></p>
+              </div><!-- /ko -->
+            </div><!-- /ko -->
+          </div>
+        </div>
+        <div class="third double column">
+          <div class="content">
+            <div class="input-holder">
+              <input id="fullname__patronymic" type="text" placeholder="Отчество" name="mname" data-bind="value: middleNameField" class="suggestion-input block-input"/><!-- ko if: errorMiddleName -->
+              <div class="error__message">
+                <p data-bind="text: errorMiddleName"></p>
+              </div><!-- /ko -->
+            </div>
+            <div class="input-holder">
+              <input id="birthDay" type="text" placeholder="Дата рождения" data-bind="value: birthDayField, attr: {id: cssBirthDay}" class="suggestion-input block-input"/>
+              <input name="bdate" type="hidden" data-bind="value: birthDayHiddenField"/><!-- ko if: errorBirthDay -->
+              <div class="error__message">
+                <p data-bind="text: errorBirthDay"></p>
+              </div><!-- /ko -->
+            </div>
+            <button data-bind="click: Submit" type="button" class="btn btn-lg input-action">Сохранить</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</script>
+<script id="postDataTmpl" type="text/html">
+  <!-- version 1.0--><!-- ko if: checkInfo() == 'yes' -->
+  <div data-for="another-fieldset-id" class="b-status b-status--fieldset b-status--done">Адрес подтверждён</div><!-- /ko --><!-- ko if: checkInfo() == 'no' -->
+  <div data-for="another-fieldset-id" class="b-status b-status--fieldset b-status--warning">Адрес не подтверждён</div><!-- /ko -->
+  <h2 class="b-profile__headline with-divider">Почтовый адрес</h2>
+  <fieldset class="b-fieldset">
+    <!-- input.no-label.block-input#address(type="text" placeholder="Введите адрес в свободной форме" data-label="Адрес в свободной форме")-->
+    <div class="columns">
+      <div class="first double column">
+        <div class="content">
+          <div class="input-holder">
+            <select name="address__country" data-bind="value: idCountry, attr: {id: cssCountryList}" data-placeholder="Страна" class="suggestion-input block-input country_list_profile"><!-- ko foreach: countryList --><!-- ko if: $parent.country() --><!-- ko if: $parent.country().id  == id -->
+              <option data-bind="text: name, value: id" selected="selected"></option><!-- /ko --><!-- ko ifnot: $parent.country().id  == id -->
+              <option data-bind="text: name, value: id"></option><!-- /ko --><!-- /ko --><!-- ko ifnot: $parent.country() -->
+              <option data-bind="text: name, value: id"></option><!-- /ko --><!-- /ko -->
+            </select><!-- ko if: errorCountry -->
+            <div class="error__message">
+              <p data-bind="text: errorCountry"></p>
+            </div><!-- /ko -->
+          </div>
+          <div class="input-holder">
+            <input id="address__region" type="text" placeholder="Регион" name="address__region" data-bind="value: customRegion, attr: {id: cssRegionList}, enable: country" class="suggestion-input block-input"/><!-- ko if: errorRegion -->
+            <div class="error__message">
+              <p data-bind="text: errorRegion"></p>
+            </div><!-- /ko -->
+          </div>
+          <div class="input-holder">
+            <input id="address__city" type="text" placeholder="Город" name="address__city" data-bind="value: customCity, attr: {id: cssCityList}, enable: customRegion" class="suggestion-input block-input"/><!-- ko if: errorCity -->
+            <div class="error__message">
+              <p data-bind="text: errorCity"></p>
+            </div><!-- /ko -->
+          </div>
+        </div>
+      </div>
+      <div class="third double column">
+        <div class="content">
+          <div class="input-holder">
+            <input id="address__street" type="text" placeholder="Улица" name="address__street" data-bind="value: customAddress, enable: customCity" class="suggestion-input block-input"/><!-- ko if: errorAddress -->
+            <div class="error__message">
+              <p data-bind="text: errorAddress"></p>
+            </div><!-- /ko -->
+          </div>
+          <div class="input-holder">
+            <input id="address__postalcode" type="text" placeholder="Почтовый индекс" name="address__postalcode" data-bind="value: postIndex" class="suggestion-input block-input"/><!-- ko if: errorPostIndex -->
+            <div class="error__message">
+              <p data-bind="text: errorPostIndex"></p>
+            </div><!-- /ko -->
+          </div>
+          <button data-bind="click: Submit" type="button" class="btn btn-lg input-action">Сохранить</button>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</script>
+<script id="contactsDataFormTmpl" type="text/html">
+  <!-- version 1.0-->
+  <h2 class="b-profile__headline with-divider">Данные аккаунта</h2>
+  <fieldset class="b-fieldset">
+    <div class="columns">
+      <div class="first double column">
+        <div class="content">
+          <div class="input-holder"><!-- ko if: emailIsConfirm() -->
+            <input id="account__email" type="email" placeholder="Электронная почта" data-bind="value: email" disabled="disabled" class="suggestion-input block-input"/><!-- /ko --><!-- ko ifnot: emailIsConfirm() -->
+            <input id="account__email" type="email" placeholder="Электронная почта" data-bind="value: email" name="account__email" class="suggestion-input block-input"/><!-- /ko --><!-- ko if: errorEmail -->
+            <div class="error__message error__message--big">
+              <p data-bind="text: errorEmail"></p>
+            </div><!-- /ko -->
+          </div>
+          <div data-bind="visible: emailIsConfirm()" class="b-status b-status--done">E-mail подтверждён</div>
+          <div data-bind="visible: !emailIsConfirm()">
+            <div data-bind="visible: isExistEmail"><span data-bind="click: SendMailToken" class="pseudo-link input-action input-action--right">Выслать код подтверждения</span></div>
+            <div data-bind="visible: sentEmailCode" class="input-holder">
+              <input type="text" placeholder="Код из смс-сообщения" name="account__sms" data-bind="value:emailToken" class="block-input"/><!-- ko if: errorEmailToken -->
+              <div class="error__message">
+                <p data-bind="text: errorEmailToken"></p>
+              </div><!-- /ko -->
+            </div>
+          </div><span data-bind="click: SubmitMailToken, visible: sentEmailCode" class="input-action pseudo-link">Подтвердить</span>
+        </div>
+      </div>
+      <div class="third double column">
+        <div class="content">
+          <div class="input-holder"><!-- ko if: phoneIsConfirm() -->
+            <input id="account__phone" type="tel" placeholder="Телефон" name="account__phone" data-bind="value: phone" disabled="disabled" class="block-input"/><!-- /ko --><!-- ko ifnot: phoneIsConfirm()  -->
+            <input id="account__phone" type="tel" placeholder="Телефон" name="account__phone" data-bind="value: phone, attr: {id : cssPhone}" class="masked-phone block-input"/><!-- /ko --><!-- ko if: errorPhone -->
+            <div class="error__message">
+              <p data-bind="text: errorPhone"></p>
+            </div><!-- /ko -->
+          </div>
+          <div data-bind="visible: phoneIsConfirm()" class="b-status b-status--done">Телефон подтвержден</div>
+          <div data-bind="visible: !phoneIsConfirm()">
+            <div data-bind="visible: isExistPhone"><span data-bind="click: SendPhoneToken" class="pseudo-link input-action input-action--right">Выслать код подтверждения</span></div>
+            <div data-bind="visible: sentCode" class="input-holder">
+              <input type="text" placeholder="Код из смс-сообщения" name="account__sms" data-bind="value:phoneToken" class="block-input"/><!-- ko if: errorPhoneToken -->
+              <div class="error__message">
+                <p data-bind="text: errorPhoneToken"></p>
+              </div><!-- /ko -->
+            </div>
+          </div><span data-bind="click: SubmitPhoneToken, visible: sentCode" class="input-action pseudo-link">Подтвердить</span>
+          <div data-bind="visible: !phoneIsConfirm() || !emailIsConfirm()">
+            <button data-bind="click: SubmitForm" type="button" class="btn btn-lg input-action">Сохранить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</script>
+<script id="deliveryAddressTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="profile">
+    <div class="container">
+      <div class="content">
+        <h2 class="b-profile__headline">Выберете основной адрес доставки</h2>
+        <table class="b-order-table">
+          <thead>
+            <tr>
+              <th class="b-order-table__action"></th>
+              <th>Адрес</th>
+              <th class="b-order-table__name">Получатель</th>
+              <th class="b-order-table__phone">Контактный телефон</th>
+              <th class="b-order-table__drop"></th>
+            </tr>
+          </thead>
+          <tbody><!-- ko foreach: addressList --><!-- ko if: isDefault -->
+            <tr class="b-order-table__item active">
+              <!-- ko template: { name: 'deliveryRowAddressTmpl'} -->
+              <!-- /ko -->
+            </tr><!-- /ko --><!-- ko ifnot: isDefault -->
+            <tr class="b-order-table__item">
+              <!-- ko template: { name: 'deliveryRowAddressTmpl'} -->
+              <!-- /ko -->
+            </tr><!-- /ko --><!-- /ko -->
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5">
+                <button type="button" data-bind="click: ClickAddAddress" class="btn btn-xs">Добавить новый адрес</button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="deliveryRowAddressTmpl" type="text/html">
+  <!-- version 1.0-->
+  <td data-bind="click: ClickItem" class="b-order-table__action"><!-- ko if: isDefault() -->
+    <input type="radio" checked="" data-bind="attr: {'name': 'is_default_' + id }"/><!-- /ko --><!-- ko ifnot: isDefault() -->
+    <input type="radio" data-bind="attr: {'name': 'is_default_' + id }"/><!-- /ko -->
+    <label rel="tooltip" title="Выбрать" data-bind="attr: {'for': 'is_default_' + id }"> </label>
+  </td>
+  <td data-bind="click: ClickItem">
+    <label for="tr_01">
+      <!-- ko text: postIndex -->
+      <!-- /ko -->,
+      <!-- ko text: country -->
+      <!-- /ko -->,
+      <!-- ko text: region -->
+      <!-- /ko -->,
+      <!-- ko text: city -->
+      <!-- /ko -->,
+      <!-- ko text: address -->
+      <!-- /ko -->
+    </label>
+  </td>
+  <td data-bind="text: addressee, click: ClickItem" class="b-order-table__name"></td>
+  <td data-bind="text: contactPhone, click: ClickItem" class="b-order-table__phone"></td>
+  <td class="b-order-table__drop">
+    <div rel="tooltip" title="Редактировать" data-bind="click: Edit" class="b-order-item__edit btn-circle btn-circle--edit"></div>
+    <div rel="tooltip" title="Удалить адрес" data-bind="click: Delete" class="b-order-item__drop btn-circle btn-circle--drop"></div>
+  </td>
+</script>
+<script id="deliveryAddressFormTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="profile">
+    <div class="container">
+      <div class="content">
+        <h2 class="b-profile__headline">Добавление адреса доставки</h2>
+        <fieldset class="b-fieldset">
+          <div class="columns">
+            <div class="first double column">
+              <div class="content">
+                <div class="input-holder">
+                  <select id="country_list_profile" name="address__country" data-bind="value: idCountry, attr: {id: cssCountryList}" data-placeholder="Страна" class="suggestion-input block-input country_list_profile"><!-- ko foreach: countryList --><!-- ko if: $parent.country() --><!-- ko if: $parent.country().id  == id -->
+                    <option data-bind="text: name, value: id" selected="selected"></option><!-- /ko --><!-- ko ifnot: $parent.country().id  == id -->
+                    <option data-bind="text: name, value: id"></option><!-- /ko --><!-- /ko --><!-- ko ifnot: $parent.country() -->
+                    <option data-bind="text: name, value: id"></option><!-- /ko --><!-- /ko -->
+                  </select><!-- ko if: errorCountry -->
+                  <div class="error__message">
+                    <p data-bind="text: errorCountry"></p>
+                  </div><!-- /ko -->
+                </div>
+                <div class="input-holder">
+                  <input id="address__region" type="text" placeholder="Регион" name="address__region" data-bind="value: customRegion, attr: {id: cssRegionList}, enable: country" class="suggestion-input block-input"/><!-- ko if: errorRegion -->
+                  <div class="error__message">
+                    <p data-bind="text: errorRegion"></p>
+                  </div><!-- /ko -->
+                </div>
+                <div class="input-holder">
+                  <input id="address__city" type="text" placeholder="Город" name="address__city" data-bind="value: customCity, attr: {id: cssCityList}, enable: customRegion" class="suggestion-input block-input"/><!-- ko if: errorCity -->
+                  <div class="error__message">
+                    <p data-bind="text: errorCity"></p>
+                  </div><!-- /ko -->
+                </div>
+                <div class="input-holder">
+                  <input id="address__street" type="text" placeholder="Адрес" name="address__street" data-bind="value: customAddress, enable: customCity" class="suggestion-input block-input"/><!-- ko if: errorAddress -->
+                  <div class="error__message">
+                    <p data-bind="text: errorAddress"></p>
+                  </div><!-- /ko -->
+                </div>
+              </div>
+            </div>
+            <div class="third double column">
+              <div class="content">
+                <div class="input-holder">
+                  <input id="address__postalcode" type="text" placeholder="Почтовый индекс" name="address__postalcode" data-bind="value: postIndex" class="suggestion-input block-input"/><!-- ko if: errorPostCode -->
+                  <div class="error__message">
+                    <p data-bind="text: errorPostCode"></p>
+                  </div><!-- /ko -->
+                </div>
+                <div class="input-holder">
+                  <input id="address__addressee" type="text" placeholder="Получатель" name="address__street" data-bind="value: addressee" class="suggestion-input block-input"/><!-- ko if: errorAddressee -->
+                  <div class="error__message">
+                    <p data-bind="text: errorAddressee"></p>
+                  </div><!-- /ko -->
+                </div>
+                <div class="input-holder">
+                  <input id="address__phone" type="text" placeholder="Контактный телефон" name="address__street" data-bind="value: contactPhone" class="masked-phone suggestion-input block-input"/><!-- ko if: errorContactPhone -->
+                  <div class="error__message">
+                    <p data-bind="text: errorContactPhone"></p>
+                  </div><!-- /ko -->
+                </div>
+                <div class="input-holder">
+                  <input id="makeDefault" type="checkbox" name="makeDefault" data-bind="checked: isDefault"/>
+                  <label for="makeDefault">Сделать основным адресом</label>
+                </div>
+                <button type="reset" data-bind="click: Back" class="btn btn-grey btn-lg btn-inline">Назад</button><!-- ko if: id -->
+                <button type="submit" data-bind="click: Edit" class="btn btn-lg">Сохранить</button><!-- /ko --><!-- ko ifnot: id -->
+                <button type="submit" data-bind="click: Submit" class="btn btn-lg">Сохранить</button><!-- /ko -->
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="securityTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="profile">
+    <div class="container">
+      <div class="content">
+        <h2 class="b-profile__headline">Изменить пароль</h2>
+        <form data-bind="attr: {id: cssSequrityForm}" method="POST" target="upload_target" enctype="multipart/form-data">
+          <div class="input-holder">
+            <input id="password" type="password" name="old_password" value="" placeholder="Текущий пароль" data-bind="value: oldPassword, attr : {id: cssOldPassword}" class="block-input"/><!-- ko if: errorOldPassword -->
+            <div class="error__message">
+              <p data-bind="text: errorOldPassword"></p>
+            </div><!-- /ko -->
+          </div>
+          <div class="input-holder">
+            <input id="newpassword" value="" placeholder="Новый пароль" name="new_password" type="password" data-bind="value: newPassword, attr : {id: cssNewPassword}" class="block-input"/><!-- ko if: errorNewPassword -->
+            <div class="error__message">
+              <p data-bind="text: errorNewPassword"></p>
+            </div><!-- /ko -->
+          </div>
+          <div class="input-holder">
+            <input id="newpassword" value="" placeholder="Повтор нового пароля" type="password" data-bind="value: newPassword, attr : {id: cssNewPassword}" class="block-input"/><!-- ko if: errorConfirmPassword -->
+            <div class="error__message">
+              <p data-bind="text: errorConfirmPassword"></p>
+            </div><!-- /ko -->
+          </div>
+          <button type="submit" data-bind="click: Submit" class="btn btn-lg">Сохранить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</script>

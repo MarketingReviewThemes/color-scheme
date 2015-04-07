@@ -1,0 +1,77 @@
+
+<script id="emptyCartGoodsTmpl" type="text/html">
+  <!-- version 1.0-->
+  <p>В корзине нет ни одного товара.</p>
+</script>
+<script id="cartGoodsTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div class="b-catalog-item">
+    <h1 class="b-catalog-item__title">Моя корзина</h1><!-- ko foreach: sellerBlock -->
+    <div data-bind="embedWidget :{ widget : 'InfoSellerWidget-1.0', params : {data : sellerInfo, tmpl : {path: 'http://promodev.pokupo.ru/themes/default/tmpl/infoSellerTmpl.html'}}}" class="b-profile-info b-profile-info--fullwidth"></div>
+    <ol class="b-order-list">
+      <!-- ko template: { name: 'HeaderBlockTmpl' }-->
+      <!-- /ko--><!-- ko foreach: goods -->
+      <!-- ko template: { name: 'GoodsBlockTmpl' }-->
+      <!-- /ko--><!-- /ko -->
+    </ol>
+    <!-- ko template: { name: 'FooterBlockTmpl' }-->
+    <!-- /ko-->
+    <div id="dialog-form-batch" style="display: none" title="Добавить комментарий к избранному товару">
+      <textarea name="comment" rows="10" cols="50" data-bind="value : comment"></textarea>
+    </div><!-- /ko -->
+  </div>
+</script>
+<script id="HeaderBlockTmpl" type="text/html">
+  <!-- version 1.0-->
+  <li class="b-order-item b-thead">
+    <div class="b-order-item__checkbox">
+      <input id="js-select-all" type="checkbox" data-bind="attr: {id: cssSelectAll}"/>
+      <label for="js-select-all" data-bind="click: ClickSelectAll"></label>
+    </div>
+    <div class="b-order-item__img"></div>
+    <div class="b-order-item__name">Наименование</div>
+    <div class="b-order-item__price">Цена</div>
+    <div class="b-order-item__qty">Количество</div>
+    <div class="b-order-item__cost">Стоимость</div>
+  </li>
+</script>
+<script id="GoodsBlockTmpl" type="text/html">
+  <!-- version 1.0-->
+  <li class="b-order-item">
+    <div class="b-order-item__checkbox">
+      <input type="checkbox" data-bind="attr: {id: cssCheckboxGoods}"/>
+      <label for="" data-bind="click: ClickOrder"></label>
+    </div>
+    <div class="b-order-item__img"><img src="" data-bind="attr: {src: routeImages, title: fullName }"/></div>
+    <div class="b-order-item__name"><a href="javascript:void(0);" data-bind="click: ClickGoods"><span data-bind="text: fullName"></span></a></div>
+    <div class="b-order-item__price"><span class="b-price"><span data-bind="text: sellEndCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></div>
+    <div class="b-order-item__qty">
+      <div class="limits-wrapper">
+        <p class="b-catalog-item__limits">На складе: <span data-bind="text: countReserv" class="value"></span></p>
+        <div class="b-increment-input"><span data-bind="click: ClickMinus" class="b-increment-input__darr"></span><span class="b-increment-input__input-wrapper">
+            <input type="text" value="1" maxlength="3" autocomplete="off" data-bind="value: ordered" class="inline-input b-increment-input__input"/></span><span data-bind="click: ClickPlus" class="b-increment-input__uarr"></span></div>
+      </div>
+    </div>
+    <div class="b-order-item__cost"><span class="b-price"><span data-bind="text: endSum" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></div>
+    <div class="b-order-item__delay"><!-- ko if: IsFavorite -->
+      <div class="like_button active"><a href="javascript:void(0);" data-bind="click: ClickFavorites" class="pseudo-link active">Избранный товар</a></div><!-- /ko --><!-- ko ifnot: IsFavorite -->
+      <div class="like_button"><a href="javascript:void(0);" data-bind="click: AddFavorites" class="pseudo-link">В избранное</a></div><!-- /ko -->
+    </div>
+    <div data-bind="click: ClickRemove" class="b-order-item__drop btn-circle btn-circle--drop"></div>
+  </li>
+</script>
+<script id="FooterBlockTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div class="b-order-list__actions bordered"><!-- ko ifnot: isDisabledButton -->
+    <div class="like_button"><span data-bind="click: ClickButchFavorites" class="pseudo-link">Отложить выбранные товары</span></div>
+    <div class="drop_button"><span data-bind="click: ClickButchRemove" class="pseudo-link">Удалить выбранные товары</span></div><!-- /ko --><!-- ko if: isDisabledButton -->
+    <div class="like_button"><span class="pseudo-link disabled">Отложить выбранные товары</span></div>
+    <div class="drop_button"><span class="pseudo-link disabled">Удалить выбранные товары</span></div><!-- /ko -->
+    <div class="empty_button"><span data-bind="click: ClickClearCurt" class="pseudo-link">Очистить корзину</span></div>
+  </div>
+  <div class="b-order-list__results">
+    <p class="b-order-list__amount">Итог:<span class="b-price"><span data-bind="text: tatalForPayment" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></p>
+    <p class="b-order-list__tobepaid">К оплате:<span class="b-price"><span data-bind="text: tatalForPayment" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></p>
+  </div>
+  <div class="b-order-list__buttons"><a href="javascript:void(0);" data-bind="click: ClickProceed" class="btn btn-grey btn-lg btn-inline">Продолжить покупки</a><a href="javascript:void(0);" data-bind="click: ClickIssueOrder" class="btn btn-lg">Оформить заказ</a></div>
+</script>

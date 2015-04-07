@@ -1,0 +1,76 @@
+
+<script id="advancedSearchFormTmpl" type="text/html">
+  <!-- version 1.1 -->
+  <section class="advanced-search slidedown">
+    <div class="container">
+      <div class="advanced-search-trigger"><span id="advansed_search_form_slidedown" data-target="search" class="advanced-search-trigger__text slidedown__trigger">Расширенный поиск</span></div>
+      <div data-target="search" class="b-advanced-search slidedown__content hidden">
+        <form action="" data-bind="submit: SubmitAdvancedSearchForm">
+          <div class="columns triple">
+            <div class="first column">
+              <div class="content">
+                <div class="b-location dropdown"><a id="advansed_search_form__category_dropdown__trigger" href="javascript:void(0);" data-target="location" class="b-location__current dropdown__trigger"><span id="js-multilocation" class="fancytree-checkbox part"></span>Все категории</a>
+                  <div id="advansed_search_form__category_dropdown__content" data-target="location" class="dropdown__content hidden">
+                    <div class="b-location__catalog">
+                      <div id="multilocation">
+                        <ul><!-- ko foreach: categories -->
+                          <li data-bind="css: {'selected' : select}, attr: {id: key}">
+                            <!-- ko text: title -->
+                            <!-- /ko--><!-- ko if: children -->
+                            <ul><!-- ko foreach: { data: children, as: 'children1' } -->
+                              <li data-bind="css: {'selected' : children1.select}, attr: {id: key}">
+                                <!-- ko text: children1.title -->
+                                <!-- /ko --><!-- ko if: children1.children -->
+                                <ul><!-- ko foreach: { data: children1.children, as: 'children2' } -->
+                                  <li data-bind="css: {'selected' : children2.select}, attr: {id: key}">
+                                    <!-- ko text: children2.title-->
+                                    <!-- /ko-->
+                                  </li><!-- /ko -->
+                                </ul><!-- /ko -->
+                              </li><!-- /ko -->
+                            </ul><!-- /ko -->
+                          </li><!-- /ko -->
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-holder">
+                  <select id="typeSeller" name="typeSeller" data-bind="css: cssTypeSeller, value: typeSeller" class="form_select"><!-- ko foreach: typesSellers -->
+                    <option data-bind="text: title, value: key"></option><!-- /ko -->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="second column">
+              <div class="content">
+                <div class="input-holder">
+                  <input name="keyWords" type="text" placeholder="Ключевые слова" data-bind="value: keyWords" class="no-label inline-input"/>
+                </div>
+                <div class="input-holder">
+                  <input name="exceptWords" type="text" placeholder="Исключить слова" data-bind="value: exceptWords" class="no-label inline-input"/>
+                </div>
+              </div>
+            </div>
+            <div class="third column">
+              <div class="content">
+                <div class="input-holder">
+                  <select id="typeSearch" name="typeSearch" data-bind="css: cssTypeSearch, value: typeSearch"><!-- ko foreach: typesSearch -->
+                    <option data-bind="text: title, value: key"></option><!-- /ko -->
+                  </select>
+                </div>
+                <div class="input-holder">
+                  <label for="minPrice">Цена</label>
+                  <input id="minPrice" type="text" placeholder="от" name="startCost" data-bind="value: startCost" class="no-label inline-input inline-input--small"/>
+                  <label for="maxPrice" class="separator">—</label>
+                  <input id="maxPrice" name="endCost" type="text" placeholder="до" data-bind="value: endCost" class="no-label inline-input inline-input--small"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-block b-advanced-search__submit">Начать расширенный поиск<i class="icon icon-search"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+</script>

@@ -1,0 +1,78 @@
+
+<script id="searchTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <section class="orange search">
+    <div class="container">
+      <div class="b-search">
+        <form action="" data-bind="submit: SubmitSearchForm">
+          <div class="b-search-holder">
+            <input type="search" placeholder="Поиск по каталогу..." data-bind="value: text" class="b-search__input"/>
+          </div>
+          <div class="b-location dropdown selector"><a href="javascript:void(0);" data-target="location" class="b-location__current dropdown__trigger selector__current search_dropdown__trigger"><!-- ko if: selectedCatigory -->
+              <!-- ko text: selectedCatigory -->
+              <!-- /ko --><!-- /ko --><!-- ko ifnot: selectedCatigory -->Все категории<!-- /ko --></a>
+            <div data-target="location" class="dropdown__content hidden search_dropdown__content">
+              <div class="b-location__catalog selector__options">
+                <ul data-bind="css: cssSelectList, value: selectedCatigoriesId" class="menu"><!-- ko foreach: categoriesTree -->
+                  <!-- ko template: { name: 'categorySelectListTmpl', data: $data} -->
+                  <!-- /ko --><!-- /ko -->
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button type="submit" data-bind="click: ClickSearchForm" class="b-search__button">Найти</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</script>
+<script id="categorySelectListTmpl" type="text/html">
+  <!-- version 1.0 --><!-- ko if: children().length > 0 --><!-- ko if: isSelected -->
+  <li class="menu__item with-submenu active">
+    <!-- ko template: { name: 'categorySelectListItemWithSubmenuTmpl'} -->
+    <!-- /ko -->
+  </li><!-- /ko --><!-- ko ifnot: isSelected -->
+  <li class="menu__item with-submenu">
+    <!-- ko template: { name: 'categorySelectListItemWithSubmenuTmpl'} -->
+    <!-- /ko -->
+  </li><!-- /ko --><!-- /ko --><!-- ko if: children().length == 0 --><!-- ko if: isSelected -->
+  <li class="menu__item active">
+    <!-- ko template: { name: 'categorySelectListItemTmpl'} -->
+    <!-- /ko -->
+  </li><!-- /ko --><!-- ko ifnot: isSelected -->
+  <li class="menu__item">
+    <!-- ko template: { name: 'categorySelectListItemTmpl'} -->
+    <!-- /ko -->
+  </li><!-- /ko --><!-- /ko -->
+</script>
+<script id="categorySelectSubListTmpl" type="text/html">
+  <!-- version 1.0 --><!-- ko if: children().length > 0 --><!-- ko if: isSelected -->
+  <li class="submenu__item with-submenu active">
+    <!-- ko template: { name: 'categorySelectListItemWithSubmenuTmpl'} -->
+    <!-- /ko -->
+  </li><!-- /ko --><!-- ko ifnot: isSelected -->
+  <li class="submenu__item with-submenu">
+    <!-- ko template: { name: 'categorySelectListItemWithSubmenuTmpl'} -->
+    <!-- /ko -->
+  </li><!-- /ko --><!-- /ko --><!-- ko if: children().length == 0 --><!-- ko if: isSelected -->
+  <li class="submenu__item active">
+    <!-- ko template: { name: 'categorySelectListItemTmpl'} -->
+    <!-- /ko -->
+  </li><!-- /ko --><!-- ko ifnot: isSelected -->
+  <li class="submenu__item">
+    <!-- ko template: { name: 'categorySelectListItemTmpl'} -->
+    <!-- /ko -->
+  </li><!-- /ko --><!-- /ko -->
+</script>
+<script id="categorySelectListItemTmpl" type="text/html">
+  <!-- version 1.0 --><a href="javascript:void(0);" data-bind="click: ClickItem"><span data-bind="text: title"></span></a>
+</script>
+<script id="categorySelectListItemWithSubmenuTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <!-- ko template: { name: 'categorySelectListItemTmpl'} -->
+  <!-- /ko -->
+  <ul class="submenu"><!-- ko foreach: children() -->
+    <!-- ko template: { name: 'categorySelectSubListTmpl', data: $data} -->
+    <!-- /ko --><!-- /ko -->
+  </ul>
+</script>

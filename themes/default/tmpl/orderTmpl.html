@@ -1,0 +1,444 @@
+
+<script id="orderFormStep1Tmpl" type="text/html">
+  <!-- version 1.0-->
+  <p>test</p>
+</script>
+<script id="orderLoginFormStep1Tmpl" type="text/html">
+  <!-- version 1.0-->
+</script>
+<script id="orderRegistrationFormStep1Tmpl" type="text/html">
+  <!-- version 1.0-->
+</script>
+<script id="orderConfirmFormStep1Tmpl" type="text/html">
+  <!-- version 1.0-->
+</script>
+<script id="orderProfileFormStep1Tmpl" type="text/html">
+  <!-- version 1.0-->
+  <h1>Оформление заказа</h1>
+  <div id="orderWizard" class="b-wizard">
+    <ul class="b-wizard__steps">
+      <li><a href="javascript:void(0);" class="selected">
+          <label class="b-wizard__step-num">1</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">2</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">3</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">4</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">5</label></a></li>
+    </ul>
+    <div class="b-wizard__holder">
+      <div id="step-1" class="content">
+        <form data-bind="attr: {id: cssRegistrationDataForm}" enctype="multipart/form-data" target="upload_target" method="POST">
+          <h2 class="b-wizard__step-title">Персональные данные</h2>
+          <p>Укажите свои персональные данные</p>
+          <div class="input-holder">
+            <div rel="tooltip" title="Введите ваше имя на сайте" class="tooltip__trigger">?</div>
+            <input type="text" name="sname" value="" placeholder="Фамилия" data-bind="value: lastName" class="block-input"/><!-- ko if: errorLastName -->
+            <div class="error__message">
+              <p data-bind="text: errorLastName"></p>
+            </div><!-- /ko -->
+          </div>
+          <div class="input-holder">
+            <input type="text" name="fname" value="" placeholder="Имя" data-bind="value: firstName" class="block-input"/><!-- ko if: errorFirstName -->
+            <div class="error__message">
+              <p data-bind="text: errorFirstName"></p>
+            </div><!-- /ko -->
+          </div>
+          <div class="input-holder">
+            <input type="text" name="mname" value="" placeholder="Отчество" data-bind="value: middleName" class="block-input"/><!-- ko if: errorMiddleName -->
+            <div class="error__message">
+              <p data-bind="text: errorMiddleName"></p>
+            </div><!-- /ko -->
+          </div>
+          <div class="input-holder">
+            <input id="birthDay" type="text" placeholder="Дата рождения" data-bind="attr: {id: cssBirthDay}" class="block-input"/>
+            <input name="bdate" type="hidden" data-bind="value: birthDayHiddenField"/><!-- ko if: errorBirthDay -->
+            <div class="error__message">
+              <p data-bind="text: errorBirthDay"></p>
+            </div><!-- /ko -->
+          </div>
+          <div id="gender" class="input-holder">
+            <input id="gender-male" type="radio" name="gender" value="m" data-bind="checked: gender" class="inline"/>
+            <label for="gender-male">Мужской</label>
+            <input id="gender-female" type="radio" name="gender" value="w" data-bind="checked: gender" class="inline"/>
+            <label for="gender-female">Женский</label><!-- ko if: errorGender -->
+            <div class="error__message">
+              <p data-bind="text: errorGender"></p>
+            </div><!-- /ko -->
+          </div>
+          <div style="padding-top: 13px;" class="input-holder">
+            <input id="skip_personal" name="skip_personal" type="checkbox" checked="checked" data-bind="click: SpecifyLater" class="checkbox"/>
+            <label for="skip_personal" class="block-label b-small-text">Указать позже</label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="b-wizard__actions">
+      <div class="b-wizard__loader">Loading</div><a href="javascript:void(0);" data-bind="click: SubmitForm" class="b-wizard__action btn-next-step">Продолжить</a>
+    </div>
+  </div>
+</script>
+<script id="orderFormStep2Tmpl" type="text/html">
+  <!-- version 1.0-->
+  <h1>Оформление заказа</h1>
+  <div id="orderWizard" class="b-wizard">
+    <ul class="b-wizard__steps">
+      <li><a href="javascript:void(0);" class="done">
+          <label data-bind="click: ClickStep1" class="b-wizard__step-num">1</label></a></li>
+      <li><a href="javascript:void(0);" class="selected">
+          <label class="b-wizard__step-num">2</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">3</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">4</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">5</label></a></li>
+    </ul>
+    <div class="b-wizard__holder">
+      <div id="step-22" class="content">
+        <h2 class="b-wizard__step-title">Выберите адрес доставки</h2>
+        <table class="b-order-table">
+          <thead>
+            <tr>
+              <th class="b-order-table__action">&nbsp;</th>
+              <th>Адрес</th>
+              <th class="b-order-table__name">Получатель</th>
+              <th class="b-order-table__phone">Контактный телефон</th>
+              <th class="b-order-table__drop">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody><!-- ko foreach: addressList --><!-- ko if: isDefault -->
+            <tr data-bind="click: ClickItem, css: cssIsDefault()" class="b-order-table__item active">
+              <!-- ko template: {name: 'orderFormRowStep2Tmpl' } -->
+              <!-- /ko-->
+            </tr><!-- /ko --><!-- ko ifnot: isDefault -->
+            <tr data-bind="click: ClickItem, css: cssIsDefault()" class="b-order-table__item">
+              <!-- ko template: {name: 'orderFormRowStep2Tmpl' }-->
+              <!-- /ko-->
+            </tr><!-- /ko --><!-- /ko -->
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5">
+                <button type="button" data-bind="click: ClickAddAddress" class="btn btn-xs">Добавить новый адрес</button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <div class="b-wizard__actions">
+      <div class="b-wizard__loader">Loading</div><a href="javascript:void(0);" data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a><a href="javascript:void(0);" data-bind="click: Submit" class="b-wizard__action btn-next-step">Продолжить</a>
+    </div>
+  </div>
+</script>
+<script id="orderFormRowStep2Tmpl" type="text/html">
+  <!-- version 1.0-->
+  <td class="b-order-table__action"><!-- ko if: isDefault() -->
+    <input type="radio" data-bind="attr: {'name': 'is_default_' + id }" checked="checked"/><!-- /ko --><!-- ko ifnot: isDefault() -->
+    <input type="radio" data-bind="attr: {'name': 'is_default_' + id }"/><!-- /ko -->
+    <label rel="tooltip" title="Выбрать" data-bind="attr: {'for': 'is_default_' + id }">&nbsp;</label>
+  </td>
+  <td>
+    <!-- ko text: postCode-->
+    <!-- /ko -->,
+    <!-- ko text: country-->
+    <!-- /ko -->,
+    <!-- ko text: region-->
+    <!-- /ko -->,
+    <!-- ko text: city-->
+    <!-- /ko -->,
+    <!-- ko text: address-->
+    <!-- /ko-->
+  </td>
+  <td data-bind="text: addressee" class="b-order-table__name"></td>
+  <td data-bind="text: contactPhone" class="b-order-table__phone"></td>
+  <td class="b-order-table__drop">
+    <div data-bind="click: Delete" class="b-order-item__drop btn-circle btn-circle--drop"></div>
+  </td>
+</script>
+<script id="orderDeliveryFormStep2Tmpl" type="text/html">
+  <!-- version 1.0-->
+  <h1>Оформление заказа</h1>
+  <div id="orderWizard" class="b-wizard">
+    <ul class="b-wizard__steps">
+      <li><a href="javascript:void(0);" class="done">
+          <label data-bind="click: ClickStep1" class="b-wizard__step-num">1</label></a></li>
+      <li><a href="javascript:void(0);" class="selected">
+          <label data-bind="click: ClickStep2" class="b-wizard__step-num">2 </label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">3</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">4</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">5</label></a></li>
+    </ul>
+    <div class="b-wizard__holder">
+      <div id="step-21" class="content">
+        <h2 class="b-wizard__step-title">Адрес доставки</h2>
+        <p>Для доставки покупок требуется указать почтовый адрес</p>
+        <div class="input-holder">
+          <select name="address__country" data-bind="value: idCountry, attr: {id: cssCountryList}" data-placeholder="Страна" class="suggestion-input block-input country_list_profile">
+            <option value=""> </option><!-- ko foreach: countryList --><!-- ko if: $parent.country() --><!-- ko if: $parent.country().id  == id -->
+            <option data-bind="text: name, value: id" selected="selected"></option><!-- /ko --><!-- ko ifnot: $parent.country().id  == id -->
+            <option data-bind="text: name, value: id"></option><!-- /ko --><!-- /ko --><!-- ko ifnot: $parent.country() -->
+            <option data-bind="text: name, value: id"></option><!-- /ko --><!-- /ko -->
+          </select><!-- ko if: errorCountry -->
+          <div class="error__message">
+            <p data-bind="text: errorCountry"></p>
+          </div><!-- /ko -->
+        </div>
+        <div class="input-holder">
+          <input type="text" placeholder="Регион" data-bind="value: customRegion, attr: {id: cssRegionList}, enable: country" class="block-input"/><!-- ko if: errorRegion -->
+          <div class="error__message">
+            <p data-bind="text: errorRegion"></p>
+          </div><!-- /ko -->
+        </div>
+        <div class="input-holder">
+          <input type="text" placeholder="Город" data-bind="value: customCity, attr: {id: cssCityList}, enable: customRegion" class="block-input"/><!-- ko if: errorCity -->
+          <div class="error__message">
+            <p data-bind="text: errorCity"></p>
+          </div><!-- /ko -->
+        </div>
+        <div class="input-holder">
+          <input type="text" placeholder="Улица, дом, квартира" data-bind="value: customAddress, attr: {id: cssAddress}, enable: customCity" class="block-input"/><!-- ko if: errorAddress -->
+          <div class="error__message">
+            <p data-bind="text: errorAddress"></p>
+          </div><!-- /ko -->
+        </div>
+        <div class="input-holder">
+          <input type="text" placeholder="Почтовый индекс" data-bind="value: postCode, attr: {id: cssPostCode}" class="block-input"/><!-- ko if: errorPostCode -->
+          <div class="error__message">
+            <p data-bind="text: errorPostCode"></p>
+          </div><!-- /ko -->
+        </div>
+        <div class="input-holder">
+          <input type="text" placeholder="ФИО получателя" data-bind="value: addressee" class="block-input"/><!-- ko if: errorAddressee -->
+          <div class="error__message">
+            <p data-bind="text: errorAddressee"></p>
+          </div><!-- /ko -->
+        </div>
+        <div class="input-holder">
+          <input type="text" placeholder="Телефон покупателя" data-bind="value: contactPhone, attr:{id:cssContactPhone}" class="block-input masked-phone"/><!-- ko if: errorContactPhone -->
+          <div class="error__message">
+            <p data-bind="text: errorContactPhone"></p>
+          </div><!-- /ko -->
+        </div>
+        <div style="padding-top: 13px;" class="input-holder">
+          <input id="set_main_address" type="checkbox" checked="" data-bind="checked: isDefault" class="checkbox"/>
+          <label for="set_main_address" class="block-label b-small-text">Основной адрес</label>
+        </div>
+      </div>
+    </div>
+    <div class="b-wizard__actions"><a href="javascript:void(0);" data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a><a href="javascript:void(0);" data-bind="click: Submit" class="b-wizard__action btn-next-step">Продолжить</a></div>
+  </div>
+</script>
+<script id="orderFormStep3Tmpl" type="text/html">
+  <!-- version 1.0-->
+  <h1>Оформление заказа</h1>
+  <div id="orderWizard" class="b-wizard">
+    <ul class="b-wizard__steps">
+      <li><a href="javascript:void(0);" data-bind="click: ClickStep1" class="done">
+          <label class="b-wizard__step-num">1</label></a></li>
+      <li><a href="javascript:void(0);" data-bind="click: ClickStep2" class="done">
+          <label class="b-wizard__step-num">2</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">3</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">4</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">5</label></a></li>
+    </ul>
+    <div class="b-wizard__holder">
+      <div id="step-3" class="content">
+        <h2 class="b-wizard__step-title">Выберите способ доставки</h2>
+        <table class="b-order-table">
+          <thead>
+            <tr>
+              <th class="b-order-table__action"></th>
+              <th class="b-order-table__logo">Способ доставки</th>
+              <th></th>
+              <th class="b-order-table__price">Стоимость</th>
+            </tr>
+          </thead>
+          <tbody><!-- ko foreach: shipping() -->
+            <tr data-bind="click: ClickItem" class="b-order-table__item">
+              <td class="b-order-table__action"><!-- ko if: isActive() -->
+                <input id="tr_31" type="radio" value="" checked="" name="is_default"/><!-- /ko --><!-- ko ifnot: isActive() -->
+                <input id="tr_31" type="radio" value="" name="is_default"/><!-- /ko -->
+                <label for="tr_31" rel="tooltip" title="Выбрать">&nbsp;</label>
+              </td>
+              <td class="b-order-table__logo"><img src="javascript:void(0);" data-bind="attr: {src: logoShippingCompany}"/></td>
+              <td><b data-bind="text: nameMethodShipping"></b><br/>
+                <!-- ko text: descMethodShipping-->
+                <!-- /ko-->
+              </td>
+              <td class="b-order-table__price"><!-- ko if: costShipping --><span class="b-price"><span data-bind="text: costShipping" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р </span></span><!-- /ko -->
+              </td>
+            </tr><!-- /ko -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="b-wizard__actions"><a href="javascript:void(0);" data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a><a href="javascript:void(0);" data-bind="click: Submit" class="b-wizard__action btn-next-step">Продолжить</a></div>
+  </div>
+</script>
+<script id="orderFormStep4Tmpl" type="text/html">
+  <!-- version 1.0-->
+  <h1>Оформление заказа</h1>
+  <div id="orderWizard" class="b-wizard">
+    <ul class="b-wizard__steps">
+      <li><a href="javascript:void(0);" data-bind="click: ClickStep1" class="done">
+          <label class="b-wizard__step-num">1</label></a></li>
+      <li><a href="javascript:void(0);" data-bind="click: ClickStep2" class="done">
+          <label class="b-wizard__step-num">2</label></a></li>
+      <li><a href="javascript:void(0);" data-bind="click: ClickStep3" class="selected">
+          <label class="b-wizard__step-num">3</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">4</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">5</label></a></li>
+    </ul>
+    <div class="b-wizard__holder">
+      <div id="step-4" class="content">
+        <h2 class="b-wizard__step-title">Выберите способ оплаты</h2>
+        <table class="b-order-table">
+          <thead>
+            <tr>
+              <th class="b-order-table__action"></th>
+              <th class="b-order-table__logo">Способ оплаты</th>
+              <th></th>
+              <th class="b-order-table__price">Комиссия</th>
+            </tr>
+          </thead>
+          <tbody><!-- ko foreach: payment -->
+            <tr data-bind="click: ClickItem, css: cssActive()" class="b-order-table__item">
+              <td class="b-order-table__action"><!-- ko if: isActive() -->
+                <input id="is_default" type="radio" checked="checked" name="is_default" class="addrN"/><!-- /ko --><!-- ko ifnot: isActive() -->
+                <input id="is_default" type="radio" name="is_default" class="addrN"/><!-- /ko -->
+                <label for="is_default" rel="tooltip" title="Выбрать">&nbsp;</label>
+              </td>
+              <td class="b-order-table__logo"><img src="javascript:void(0);" data-bind="attr: {src: logoPayment }"/></td>
+              <td>
+                <div class="b-order-table__text">
+                  <div rel="tooltip" data-bind="attr:{title: instrPayment}" class="tooltip__trigger">?</div><b data-bind="text: namePayment"></b>
+                  <div data-bind="html: descPayment"></div>
+                </div>
+              </td>
+              <td class="b-order-table__price"><span class="b-price"><span data-bind="text: costPayment" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></td>
+            </tr><!-- /ko -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="b-wizard__actions"><a href="javascript:void(0);" data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a><a href="javascript:void(0);" data-bind="click: Submit" class="b-wizard__action btn-next-step">Продолжить</a></div>
+  </div>
+</script>
+<script id="orderFormStep5Tmpl" type="text/html">
+  <!-- version 1.0-->
+  <h1>Оформление заказа</h1>
+  <div id="orderWizard" class="b-wizard">
+    <ul class="b-wizard__steps">
+      <li><a href="javascript:void(0);" data-bind="click: ClickStep1" class="done">
+          <label class="b-wizard__step-num">1</label></a></li>
+      <li><a href="javascript:void(0);" data-bind="click: ClickStep2" class="done">
+          <label class="b-wizard__step-num">2</label></a></li>
+      <li><a href="javascript:void(0);" data-bind="click: ClickStep3" class="done">
+          <label class="b-wizard__step-num">3</label></a></li>
+      <li><a href="javascript:void(0);" data-bind="click: ClickStep4" class="selected">
+          <label class="b-wizard__step-num">4</label></a></li>
+      <li><a href="javascript:void(0);">
+          <label class="b-wizard__step-num">5</label></a></li>
+    </ul>
+    <div class="b-wizard__holder">
+      <div id="step-5" class="content">
+        <h2 class="b-wizard__step-title">Подтвердите заказ</h2>
+        <table class="b-order-table b-order-table--header b-cart-table">
+          <thead>
+            <tr>
+              <th class="b-order-table__thumb"></th>
+              <th>Наименование</th>
+              <th class="b-order-table__title">Цена</th>
+              <th class="b-order-table__action">Количество</th>
+              <th class="b-order-table__price">Сумма</th>
+            </tr>
+          </thead>
+          <tbody><!-- ko foreach: goods -->
+            <tr class="b-order-table__item">
+              <td class="b-order-table__thumb"><img src="" data-bind="attr: {src: routeImage}"/></td>
+              <td class="b-order-table__title"><a href="javascript:void(0);" data-bind="click: ClickGoods, text: fullName"></a></td>
+              <td class="b-order-table__title"><span class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></td>
+              <td data-bind="text: count" class="b-order-table__action"></td>
+              <td class="b-order-table__price"><span class="b-price"><span data-bind="text: itogSellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></td>
+            </tr><!-- /ko -->
+          </tbody>
+        </table>
+        <ul class="b-tech"><!-- ko if: discount -->
+          <li class="b-tech__item">
+            <div class="b-tech__char"><span>Скидка:<i>
+                  <!-- ko text: discount-->
+                  <!-- /ko--></i></span></div>
+            <div class="b-tech__value"><span class="b-price"><span class="b-price__number">-
+                  <!-- ko text: discountSum-->
+                  <!-- /ko--></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></div>
+          </li><!-- /ko --><!-- ko if: realShipping -->
+          <li class="b-tech__item">
+            <div class="b-tech__char"><span>Доставка:<i>
+                  <!-- ko text: nameMethodShipping-->
+                  <!-- /ko--></i></span></div>
+            <div class="b-tech__value"><span class="b-price"><span data-bind="text: costShipping" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></div>
+          </li><!-- /ko -->
+          <li class="b-tech__item">
+            <div class="b-tech__char"><span>Способ оплаты:<i>
+                  <!-- ko text: namePayment-->
+                  <!-- /ko--></i></span></div>
+            <div data-bind="text: costPayment" class="b-tech__value"></div>
+          </li>
+          <li class="b-tech__item">
+            <div class="b-tech__char"><span>Всего:</span></div>
+            <div class="b-tech__value"><span class="b-price b-order__amount"><span data-bind="text: itog()" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></div>
+          </li>
+        </ul><!-- ko if: realShipping -->
+        <h2 class="b-wizard__step-title">Доставка</h2>
+        <table class="b-order-table b-order-table--header">
+          <thead>
+            <tr>
+              <th colspan="2">Компания</th>
+              <th>Адрес</th>
+              <th class="b-order-table__price">Получатель</th>
+              <th class="b-order-table__phone">Телефон</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="b-order-table__item">
+              <td class="b-order-table__logo"><img src="" data-bind="attr: {src: logoMethodShipping}"/></td>
+              <td class="b-order-table__title"><b>
+                  <!-- ko text: nameMethodShipping-->
+                  <!-- /ko--></b></td>
+              <td>
+                <!-- ko text: shippingPostCode-->
+                <!-- /ko-->,
+                <!-- ko text: shippingCountry-->
+                <!-- /ko-->,
+                <!-- ko text: shippingRegion-->
+                <!-- /ko-->,<br/>
+                <!-- ko text: shippingCity-->
+                <!-- /ko-->,
+                <!-- ko text: shippingAddress-->
+                <!-- /ko-->
+              </td>
+              <td data-bind="text: shippingAddressee" class="b-order-table__price"></td>
+              <td data-bind="text: shippingContactPhone" class="b-order-table__phone"></td>
+            </tr>
+          </tbody>
+        </table><!-- /ko -->
+        <div style="margin-bottom: 60px;" class="comment">
+          <textarea name="comment" value="" placeholder="Примечания к заказу" width="100%" rows="2" data-bind="value: commentBuyer"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="b-wizard__actions"><a href="javascript:void(0);" data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a><a href="javascript:void(0);" data-bind="click: ClickDelete" class="b-wizard__action btn-prev-step">Отменить заказ</a><a href="javascript:void(0);" data-bind="click: ClickConfirm" class="b-wizard__action btn-next-step">Подтверждаю</a></div>
+  </div>
+</script>

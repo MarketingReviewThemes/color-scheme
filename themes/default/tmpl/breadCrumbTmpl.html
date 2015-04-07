@@ -1,0 +1,6 @@
+
+<script id="breadCrumbTmpl" type="text/html">
+  <!-- version 1.0-->
+  <p><!-- ko if: showReturn --><a href="javascript:void(0);" data-bind="click: Return" class="backwards-arrow"></a><span class="divider"> / </span><a href="javascript:void(0);" data-bind="click: ToHomepage">Главная</a><span class="divider"> / </span><!-- /ko --><!-- ko ifnot: showReturn --><a href="javascript:void(0);" data-bind="click: ToHomepage">Главная</a><span class="divider"> / </span><!-- /ko --><!-- ko foreach: crumbs --><a href="javascript:void(0);" data-bind="text: title, click: ClickItem"></a><span class="divider"> / </span><!-- /ko --><span data-bind="text: lastItem" class="current">Кеды</span>
+  </p>
+</script>

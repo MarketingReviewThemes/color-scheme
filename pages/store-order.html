@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+		<!-- iOS-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link sizes="192x192" href="touch-icon-192x192.png" rel="icon">
+		<link sizes="180x180" href="images/icons/apple-touch-icon-180x180.png" rel="apple-touch-icon">
+		<link sizes="152x152" href="images/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon">
+		<link sizes="144x144" href="images/icons/apple-touch-icon-144x144.png" rel="apple-touch-icon">
+		<link sizes="120x120" href="images/icons/apple-touch-icon-120x120.png" rel="apple-touch-icon">
+		<link sizes="114x114" href="images/icons/apple-touch-icon-114x114.png" rel="apple-touch-icon">
+		<link sizes="76x76" href="images/icons/apple-touch-icon-76x76.png" rel="apple-touch-icon">
+		<link sizes="72x72" href="images/icons/apple-touch-icon-72x72.png" rel="apple-touch-icon">
+		<link sizes="57x57" href="images/icons/apple-touch-icon-57x57.png" rel="apple-touch-icon">
+		<link href="images/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon">
+		<!-- Windows 8-->
+		<meta name="application-name" content="Просмотр товара">
+		<meta name="msapplication-tooltip" content="Description for pokupo">
+		<meta name="msapplication-navbutton-color" content="#ffa800">
+		<meta name="msapplication-TileColor" content="#00883c">
+		<meta name="msapplication-TileImage" content="images/icons/win8-bg.png">
+		<meta name="msapplication-square70x70logo" content="images/icons/win8-logo-70x70.png">
+		<meta name="msapplication-square150x150logo" content="images/icons/win8-logo-150x150.png">
+		<meta name="msapplication-square310x310logo" content="images/icons/win8-logo-310x310.png">
+		<meta name="msapplication-wide310x150logo" content="images/icons/win8-logo-310x150.png">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="msapplication-window" content="width=1024;height=768">
+		<!-- Windows-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- Windows Phone-->
+		<!--[if IE]> 
+    <meta name="imagetoolbar" content="no"></script>
+    <meta name="msthemecompatible" content="no"></script>
+    <![endif]-->
+		<!-- Blackberry and etc-->
+		<meta name="cleartype" content="on">
+		<meta name="HandheldFriendly" content="True">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<!-- No parse telephone and address-->
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="address=no">
+		<!-- SEO-->
+		<title>Оформление заказа</title>
+		<meta name="description" content="Description for pokupo">
+		<meta name="keywords" content="pokupo, project">
+		<meta name="copyright" content="©tabrisov">
+		<meta name="reply-to" content="jiexa@tabrisov.ru">
+		<link href="../styles/main.css" rel="stylesheet">
+		<link href="images/icons/favicon.ico" rel="shortcut icon">
+		<!--[if lt IE 9]> 
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="scripts/libs/nwmatcher.js"></script>
+    <script src="scripts/libs/ie8canvas.js"></script>
+    <![endif]-->
+	</head>
+	<body>
+		<div class="main">
+			<!-- header -->
+			<section class="header">
+				<div class="container">
+					<a href="/index.html" title="Pokupo.ru" class="logo"></a>
+					<div class="menu-login">
+						<div class="not-logged-in hidden"><a id="js-login" href="javascript:void(0);" title="Войти" class="menu-login__login">Вход</a><a href="javascript:void(0);" title="Зарегистрироваться" class="menu-login__register">Регистрация</a>
+						</div>
+						<div class="logged-in"><a href="https://seller.pokupo.ru/login" class="btn btn-sm"><i class="icon icon-store--small"></i>Мой магазин</a>
+						</div>
+					</div><span id="toggleNav"><i class="icon icon-menu"></i>Меню</span>
+					<ul class="menu b-navigation">
+						<li class="menu__item with-submenu"><a href="frontpage.html" target=""><span>Платформа</span></a>
+							<ul class="submenu">
+								<li class="submenu__item"><a href="about.html" target=""><span>О проекте</span></a>
+								</li>
+								<li class="submenu__item"><a href="http://shop.pokupo.ru/" target="_blank"><span>Торговый портал</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu__item"><a href="rates.html" target=""><span>Тарифы</span></a>
+						</li>
+						<li class="menu__item with-submenu"><a href="#" target=""><span>Компания</span></a>
+							<ul class="submenu">
+								<li class="submenu__item"><a href="events.html" target=""><span>События</span></a>
+								</li>
+								<li class="submenu__item"><a href="aboutus.html" target=""><span>О нас</span></a>
+								</li>
+								<li class="submenu__item"><a href="community.html" target=""><span>Сообщество</span></a>
+								</li>
+								<li class="submenu__item"><a href="http://pokupo.livejournal.com/" target="_blank"><span>Блог</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu__item"><a href="partners.html" target=""><span>Партнёры</span></a>
+						</li>
+						<li class="menu__item with-submenu"><a href="javascript:void(0);" target=""><span>Помощь</span></a>
+							<ul class="submenu">
+								<li class="submenu__item"><a href="faq.html" target=""><span>Вопросы и ответы</span></a>
+								</li>
+								<li class="submenu__item"><a href="https://help.pokupo.ru" target="_blank"><span>Техническая поддержка</span></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<div class="submenu-bg"></div>
+				</div>
+			</section>
+			<!-- /header -->
+			<!-- subheader -->
+			<section class="subheader">
+				<div class="container">
+					<a href="../index.html" title="Pokupo.ru" class="logo">
+						<!-- span.logo__title название магазина-->
+						<img src="../images/logo/example__white.png" alt="" title="">
+					</a>
+					<div class="menu-login">
+						<div class="not-logged-in hidden"><a id="js-login" href="javascript:void(0);" title="Войти" class="menu-login__login">Вход</a><a href="javascript:void(0);" title="Зарегистрироваться" class="menu-login__register">Регистрация</a>
+						</div>
+						<div class="logged-in">
+							<div class="circles-menu">
+								<div class="circles-menu__item dropdown"><a href="javascript:void(0);" data-target="profile" class="with-icon icon__profile with-userpic dropdown__trigger"><sup class="circles-menu__num">4</sup></a>
+									<div data-target="profile" class="b-profile-menu dropdown__content hidden">
+										<p class="b-profile-menu__name">Сибилев
+											<br/>Игорь</p>
+										<ul class="menu">
+											<li class="menu__item"><a href="profile.html">Профиль</a>
+											</li>
+											<li class="menu__item"><a href="profile-favorite.html">Избранное</a>
+											</li>
+											<li class="menu__item"><a href="profile-orders.html">Заказы</a>
+											</li>
+											<li class="menu__item"><a href="profile-mail.html">Сообщения<sup class="menu__item__num">4</sup></a>
+											</li>
+											<li class="menu__item"><a id="js-logout" href="javascript:void(0);" class="b-profile-menu__logout">Выйти</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="circles-menu__item dropdown"><a href="javascript:void(0);" data-target="cart" class="with-icon icon__cart dropdown__trigger"><sup class="circles-menu__num">19</sup></a>
+									<div data-target="cart" class="b-cart-menu dropdown__content hidden">
+										<p>Корзина</p>
+										<div class="b-cart-menu__body"><i class="b-cart-menu__patch"></i>
+											<ol class="b-cart-menu__goods">
+												<li class="b-cart-menu__goods-item b-order-item">
+													<div class="b-order-item__name"><span>Converse White</span>
+													</div>
+													<div class="b-order-item__qty"><span class="b-increment-group"><span class="b-increment-group__darr"></span><span class="b-increment-group__qty">5</span><span class="b-increment-group__uarr"></span></span>
+													</div>
+													<div class="b-order-item__cost b-price"><span class="b-price__number">9000</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span>
+													</div>
+													<div class="b-order-item__drop btn-circle btn-circle--drop"></div>
+												</li>
+												<li class="b-cart-menu__goods-item b-order-item">
+													<div class="b-order-item__name"><span>Converse Red</span>
+													</div>
+													<div class="b-order-item__qty"><span class="b-increment-group"><span class="b-increment-group__darr"></span><span class="b-increment-group__qty">2</span><span class="b-increment-group__uarr"></span></span>
+													</div>
+													<div class="b-order-item__cost b-price"><span class="b-price__number">4900</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span>
+													</div>
+													<div class="b-order-item__drop btn-circle btn-circle--drop"></div>
+												</li>
+												<li class="b-cart-menu__goods-item b-order-item">
+													<div class="b-order-item__name"><span>Штукатурка гипсовая для&nbsp;наружных работ</span>
+													</div>
+													<div class="b-order-item__qty"><span class="b-increment-group"><span class="b-increment-group__darr"></span><span class="b-increment-group__qty">12</span><span class="b-increment-group__uarr"></span></span>
+													</div>
+													<div class="b-order-item__cost b-price"><span class="b-price__number">35<i class="b-price__separator"></i>880</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span>
+													</div>
+													<div class="b-order-item__drop btn-circle btn-circle--drop"></div>
+												</li>
+											</ol><a href="javascript:void(0);" class="btn btn-md b-cart-menu__order-button">Оформить</a><a href="javascript:void(0);" class="b-cart-menu__cart-button">В корзину</a>
+											<p class="b-cart-menu__results">Итог:<span class="b-cart-menu__amount b-price"><span class="b-price__number">49<i class="b-price__separator"></i>780</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<ul class="menu b-user-navigation">
+						<li class="menu__item"><a href="javascript:void(0);"><span>Главная</span></a>
+						</li>
+						<li class="menu__item"><a href="javascript:void(0);"><span>Как купить</span></a>
+						</li>
+						<li class="menu__item"><a href="javascript:void(0);"><span>Доставка</span></a>
+						</li>
+						<li class="menu__item"><a href="javascript:void(0);"><span>Гарантии</span></a>
+						</li>
+						<li class="menu__item"><a href="javascript:void(0);"><span>Отзывы</span></a>
+						</li>
+						<li class="menu__item"><a href="javascript:void(0);"><span>О нас</span></a>
+						</li>
+						<li class="menu__item"><a href="javascript:void(0);"><span>Контакты</span></a>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!-- /subheader -->
+			<!-- search -->
+			<section class="orange search">
+				<div class="container">
+					<div class="b-search">
+						<div class="b-search-holder">
+							<input type="search" placeholder="Поиск по каталогу..." class="b-search__input">
+						</div>
+						<div class="b-location dropdown selector"><a href="javascript:void(0);" data-target="location" class="b-location__current dropdown__trigger selector__current">Все категории</a>
+							<div data-target="location" class="dropdown__content hidden">
+								<div class="b-location__catalog selector__options">
+									<ul class="menu">
+										<li class="menu__item active"><a href="#"><span>Все разделы</span></a>
+										</li>
+										<li class="menu__item"><a href="#"><span>Компьютерная техника</span></a>
+										</li>
+										<li class="menu__item"><a href="#"><span>Бытовая техника</span></a>
+										</li>
+										<li class="menu__item"><a href="#"><span>Телефоны и связь</span></a>
+										</li>
+										<li class="menu__item"><a href="#"><span>Фото и оптика</span></a>
+										</li>
+										<li class="menu__item with-submenu"><a href="#"><span>Одежда, обувь, акксессуары</span></a>
+											<ul class="submenu">
+												<li class="submenu__item"><a href="#"><span>Кроссовки</span></a>
+												</li>
+												<li class="submenu__item"><a href="#"><span>Кеды</span></a>
+												</li>
+												<li class="submenu__item"><a href="#"><span>Босоножки</span></a>
+												</li>
+												<li class="submenu__item"><a href="#"><span>Туфли</span></a>
+												</li>
+												<li class="submenu__item"><a href="#"><span>Ботильоны</span></a>
+												</li>
+												<li class="submenu__item"><a href="#"><span>Сандалии</span></a>
+												</li>
+												<li class="submenu__item"><a href="#"><span>Балетки</span></a>
+												</li>
+												<li class="submenu__item"><a href="#"><span>Сапоги</span></a>
+												</li>
+												<li class="submenu__item"><a href="#"><span>Резиновая обувь</span></a>
+												</li>
+											</ul>
+										</li>
+										<li class="menu__item"><a href="#"><span>Подарки и праздники</span></a>
+										</li>
+										<li class="menu__item"><a href="#"><span>Книги, учебники и журналы</span></a>
+										</li>
+										<li class="menu__item"><a href="#"><span>Мебель, интерьеры и обиход</span></a>
+										</li>
+										<li class="menu__item"><a href="#"><span>Другое</span></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="b-search__button">Найти</button>
+					</div>
+				</div>
+			</section>
+			<section class="advanced-search slidedown">
+				<div class="container">
+					<div class="advanced-search-trigger"><span data-target="search" class="advanced-search-trigger__text slidedown__trigger">Расширенный поиск</span>
+					</div>
+					<div data-target="search" class="b-advanced-search slidedown__content hidden">
+						<div class="columns triple">
+							<div class="first column">
+								<div class="content">
+									<div class="b-location dropdown"><a href="javascript:void(0);" data-target="location" class="b-location__current dropdown__trigger"><span id="js-multilocation" class="fancytree-checkbox part"></span>Все категории</a>
+										<div data-target="location" class="dropdown__content hidden">
+											<div class="b-location__catalog">
+												<div id="multilocation" style="text-align:left"></div>
+											</div>
+										</div>
+									</div>
+									<div class="input-holder">
+										<select name="select">
+											<option value="0" selected>Все продавцы</option>
+											<option value="1">Частное лицо</option>
+											<option value="2">Компания</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="second column">
+								<div class="content">
+									<div class="input-holder">
+										<input name="login" type="text" placeholder="Ключевые слова" class="no-label inline-input">
+									</div>
+									<div class="input-holder">
+										<input name="login" type="text" placeholder="Исключить слова" class="no-label inline-input">
+									</div>
+								</div>
+							</div>
+							<div class="third column">
+								<div class="content">
+									<div class="input-holder">
+										<select name="select">
+											<option value="0" selected>Любое из слов</option>
+											<option value="1">Все слова</option>
+										</select>
+									</div>
+									<div class="input-holder hidden">
+										<label for="currency">Валюта</label>
+										<div class="radio-circles">
+											<ul class="menu">
+												<li class="menu__item active"><a href="javascript:void(0);"><i class="icon icon__currency--rub"></i></a>
+												</li>
+												<li class="menu__item"><a href="javascript:void(0);"><i class="icon icon__currency--dol"></i></a>
+												</li>
+												<li class="menu__item"><a href="javascript:void(0);"><i class="icon icon__currency--btc"></i></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="input-holder">
+										<label for="minPrice">Цена</label>
+										<input id="minPrice" name="minPrice" type="text" placeholder="от" class="no-label inline-input inline-input--small">
+										<label for="maxPrice" class="separator">—</label>
+										<input id="maxPrice" name="maxPrice" type="text" placeholder="до" class="no-label inline-input inline-input--small">
+									</div>
+								</div>
+							</div>
+						</div><span class="btn btn-block b-advanced-search__submit">Начать расширенный поиск <i class="icon icon-search"></i></span>
+					</div>
+				</div>
+			</section>
+			<!-- /search -->
+			<!-- content -->
+			<!-- /content -->
+			<!-- content -->
+			<section class="register">
+				<div class="container">
+					<div class="b-thermometer">
+						<p><a href="../index.html">Главная </a><span class="divider">/ </span><a href="javascript:void(0);">Регистрация покупателя</a><span class="divider">/ </span><span class="current">Шаг 1</span>
+						</p>
+					</div>
+					<div class="doc">
+						<h1>Оформление заказа</h1>
+						<form action="#">
+							<div id="orderWizard" class="b-wizard">
+								<ul class="b-wizard__steps">
+									<li>
+										<a href="#step-1">
+											<label class="b-wizard__step-num">1</label>
+										</a>
+									</li>
+									<li>
+										<a href="#step-21">
+											<label class="b-wizard__step-num">2.1</label>
+										</a>
+									</li>
+									<li>
+										<a href="#step-22">
+											<label class="b-wizard__step-num">2.2</label>
+										</a>
+									</li>
+									<li>
+										<a href="#step-3">
+											<label class="b-wizard__step-num">3</label>
+										</a>
+									</li>
+									<li>
+										<a href="#step-4">
+											<label class="b-wizard__step-num">4</label>
+										</a>
+									</li>
+									<li>
+										<a href="#step-5">
+											<label class="b-wizard__step-num">5</label>
+										</a>
+									</li>
+								</ul>
+								<div id="step-1">
+									<h2 class="b-wizard__step-title">Персональные данные</h2>
+									<p>Укажите свои персональные данные</p>
+									<div class="input-holder">
+										<div rel="tooltip" title="Введите ваше имя на сайте" class="tooltip__trigger">?</div>
+										<input type="text" name="family" value="" placeholder="Фамилия" class="block-input">
+									</div>
+									<div class="input-holder">
+										<input type="text" name="name" value="" placeholder="Имя" class="block-input">
+									</div>
+									<div class="input-holder">
+										<input type="text" name="patronymic" value="" placeholder="Отчество" class="block-input">
+									</div>
+									<div class="input-holder">
+										<input type="text" name="date" value="" placeholder="Дата рождения" class="block-input">
+									</div>
+									<div style="padding-top:13px" class="input-holder">
+										<input id="skip_personal" name="skip_personal" type="checkbox" checked class="checkbox">
+										<label for="skip_personal" class="block-label b-small-text">Указать позже</label>
+									</div>
+								</div>
+								<div id="step-21">
+									<h2 class="b-wizard__step-title">Адрес доставки</h2>
+									<p>Для доставки покупок требуется указать почтовый адрес</p>
+									<div class="input-holder">
+										<select name="country" value="" placeholder="Страна">
+											<option value="1" selected>Россия</option>
+											<option value="2">Украина</option>
+											<option value="3">Белорусь</option>
+										</select>
+									</div>
+									<div class="input-holder">
+										<input type="text" name="family" value="" placeholder="Регион" class="block-input">
+									</div>
+									<div class="input-holder">
+										<input type="text" name="name" value="" placeholder="Город" class="block-input">
+									</div>
+									<div class="input-holder">
+										<input type="text" name="patronymic" value="" placeholder="Улица, дом, квартира" class="block-input">
+									</div>
+									<div class="input-holder">
+										<input type="text" name="date" value="" placeholder="Почтовый индекс" class="block-input">
+									</div>
+									<div class="input-holder">
+										<input type="text" name="fio" value="" placeholder="ФИО получателя" class="block-input">
+									</div>
+									<div class="input-holder">
+										<input type="text" name="phone" value="" placeholder="Телефон покупателя" class="block-input">
+									</div>
+									<div style="padding-top:13px" class="input-holder">
+										<input id="set_main_address" name="set_main_address" type="checkbox" checked class="checkbox">
+										<label for="set_main_address" class="block-label b-small-text">Основной адрес</label>
+									</div>
+								</div>
+								<div id="step-22">
+									<h2 class="b-wizard__step-title">Выберите адрес доставки</h2>
+									<table class="b-order-table responsive-table">
+										<thead>
+											<tr>
+												<th class="b-order-table__action"></th>
+												<th>Адрес</th>
+												<th class="b-order-table__name">Получатель</th>
+												<th class="b-order-table__phone">Контактный телефон</th>
+												<th class="b-order-table__drop"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="b-order-table__item">
+												<td data-title="Выбрать" class="b-order-table__action">
+													<input id="tr_01" type="radio" value="1" name="radio">
+													<label for="tr_01" rel="tooltip" title="Выбрать">&nbsp;</label>
+												</td>
+												<td data-title="Адрес">309070, Россия, г. Белгород, ул. Кривошеина 8, кв 13</td>
+												<td data-title="Получатель" class="b-order-table__name">Сибилев Игорь</td>
+												<td data-title="Телефон" class="b-order-table__phone">+7 913 123 45-67-89</td>
+												<td data-title="Удалить" class="b-order-table__drop">
+													<div class="b-order-item__drop btn-circle btn-circle--drop"></div>
+												</td>
+											</tr>
+											<tr class="b-order-table__item active">
+												<td data-title="Выбрать" class="b-order-table__action">
+													<input id="tr_02" type="radio" value="2" name="radio" checked>
+													<label for="tr_02" rel="tooltip" title="Выбрать">&nbsp;</label>
+												</td>
+												<td data-title="Адрес">309070, Россия, г. Белгород, ул. Ленина 15, кв 20</td>
+												<td data-title="Получатель" class="b-order-table__name">Константин Константинопольский</td>
+												<td data-title="Телефон" class="b-order-table__phone">+7 913 123 45-67-89</td>
+												<td data-title="Удалить" class="b-order-table__drop">
+													<div class="b-order-item__drop btn-circle btn-circle--drop"></div>
+												</td>
+											</tr>
+											<tr class="b-order-table__item">
+												<td data-title="Выбрать" class="b-order-table__action">
+													<input id="tr_03" type="radio" value="3" name="radio">
+													<label for="tr_03" rel="tooltip" title="Выбрать">&nbsp;</label>
+												</td>
+												<td data-title="Адрес">309070, Россия, г. Белгород, ул. Кривошеина 8, кв 13</td>
+												<td data-title="Получатель" class="b-order-table__name">Сибилев Игорь</td>
+												<td data-title="Телефон" class="b-order-table__phone">+7 913 123 45-67-89</td>
+												<td data-title="Удалить" class="b-order-table__drop">
+													<div class="b-order-item__drop btn-circle btn-circle--drop"></div>
+												</td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="5">
+													<button type="button" class="btn btn-xs">Добавить новый адрес</button>
+												</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+								<div id="step-3">
+									<h2 class="b-wizard__step-title">Выберите способ доставки</h2>
+									<table class="b-order-table responsive-table">
+										<thead>
+											<tr>
+												<th class="b-order-table__logo"></th>
+												<th>Способ доставки</th>
+												<th class="b-order-table__price">Стоимость</th>
+												<th class="b-order-table__action"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="b-order-table__item active">
+												<td data-title="Лого" class="b-order-table__logo">
+													<img src="../images/pages/order/ems.png">
+												</td>
+												<td data-title="Способ доставки"><b>Доставка EMS почтой</b>
+													<br>Доставка по России и регионам выполняет EMS Почта России</td>
+												<td data-title="Стоимость" class="b-order-table__price"><span class="b-price"><span class="b-price__number">800</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+												</td>
+												<td data-title="Выбрать" class="b-order-table__action">
+													<input id="tr_11" type="radio" value="1" name="radio2" checked>
+													<label for="tr_11" rel="tooltip" title="Выбрать">&nbsp;</label>
+												</td>
+											</tr>
+											<tr class="b-order-table__item">
+												<td data-title="Лого" class="b-order-table__logo">
+													<img src="../images/pages/order/dl.png">
+												</td>
+												<td data-title="Способ доставки"><b>Деловые Линии</b>
+													<br>Доставка по России и регионам выполняет транспортная компания Деловые Линиии</td>
+												<td data-title="Стоимость" class="b-order-table__price"><span class="b-price"><span class="b-price__number">1200</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+												</td>
+												<td data-title="Выбрать" class="b-order-table__action">
+													<input id="tr_12" type="radio" value="2" name="radio2">
+													<label for="tr_12" rel="tooltip" title="Выбрать">&nbsp;</label>
+												</td>
+											</tr>
+											<tr class="b-order-table__item">
+												<td data-title="Лого" class="b-order-table__logo"></td>
+												<td data-title="Способ доставки"><b>Курьерская доставка</b>
+													<br>В крупных городах это наиболее востребованный способ и популярнейшая служба доставки.</td>
+												<td data-title="Стоимость" class="b-order-table__price"><span class="b-price"><span class="b-price__number">900</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+												</td>
+												<td data-title="Выбрать" class="b-order-table__action">
+													<input id="tr_13" type="radio" value="3" name="radio2">
+													<label for="tr_13" rel="tooltip" title="Выбрать">&nbsp;</label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div id="step-4">
+									<h2 class="b-wizard__step-title">Выберите способ оплаты</h2>
+									<table class="b-order-table">
+										<thead>
+											<tr>
+												<th class="b-order-table__logo"></th>
+												<th>Способ оплаты</th>
+												<th class="b-order-table__price">К оплате</th>
+												<th class="b-order-table__action"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="b-order-table__item">
+												<td class="b-order-table__logo">
+													<img src="../images/pages/order/zpay.png">
+												</td>
+												<td>
+													<div class="b-order-table__text tooltip">
+														<div class="tooltip__trigger">?
+															<div class="tooltip__content">
+																<p>Описание для платёжной системы.</p>
+																<div class="tooltip__before"></div>
+																<div class="tooltip__after"></div>
+															</div>
+														</div><b>Z-Payment</b>
+														<br>Система приема и обработки платежей Z-Payment это шлюз для приема платежей из различных систем, в процессе оплаты предоставляется выбор любого способов оплаты, которых насчитывается более 30.
+													</div>
+												</td>
+												<td class="b-order-table__price"><span class="b-price"><span class="b-price__number">23<i class="b-price__separator"></i>800</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+												</td>
+												<td class="b-order-table__action">
+													<input id="tr_31" type="radio" value="1" name="radio3">
+													<label for="tr_31" rel="tooltip" title="Выбрать">&nbsp;</label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div id="step-5">
+									<h2 class="b-wizard__step-title">Подтвердите заказ</h2>
+									<table class="b-order-table b-order-table--header b-cart-table responsive-table">
+										<thead>
+											<tr>
+												<th class="b-order-table__thumb"></th>
+												<th>Наименование</th>
+												<th class="b-order-table__price">Цена</th>
+												<th class="b-order-table__action">Количество</th>
+												<th class="b-order-table__price">Сумма</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="b-order-table__item">
+												<td data-title="" class="b-order-table__thumb">
+													<img src="../images/catalog/goods01.jpg">
+												</td>
+												<td data-title="Наименование" class="b-order-table__title"><a href="javascript:void(0);">Converse Red</a>
+												</td>
+												<td data-title="Цена" class="b-order-table__price"><span class="b-price"><span class="b-price__number">2880</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+												</td>
+												<td data-title="Количество" class="b-order-table__qty">1</td>
+												<td data-title="Стоимость" class="b-order-table__price"><span class="b-price"><span class="b-price__number">12<i class="b-price__separator"></i>440</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+												</td>
+											</tr>
+											<tr class="b-order-table__item">
+												<td data-title="" class="b-order-table__thumb">
+													<img src="../images/catalog/goods02.jpg">
+												</td>
+												<td data-title="Наименование" class="b-order-table__title"><a href="javascript:void(0);">Штукатурка гипсовая для&nbsp;наружных работ с&nbsp;нормальной влажностью</a>
+												</td>
+												<td data-title="Цена" class="b-order-table__price"><span class="b-price"><span class="b-price__number">2400</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+												</td>
+												<td data-title="Количество" class="b-order-table__qty">1</td>
+												<td data-title="Стоимость" class="b-order-table__price"><span class="b-price"><span class="b-price__number">27<i class="b-price__separator"></i>0</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+												</td>
+											</tr>
+											<tr class="b-order-table__item">
+												<td data-title="" class="b-order-table__thumb">
+													<img src="../images/catalog/goods03.jpg">
+												</td>
+												<td data-title="Наименование" class="b-order-table__title"><a href="javascript:void(0);">Converse Red</a>
+												</td>
+												<td data-title="Цена" class="b-order-table__price"><span class="b-price"><span class="b-price__number">1800</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+												</td>
+												<td data-title="Количество" class="b-order-table__qty">1</td>
+												<td data-title="Стоимость" class="b-order-table__price"><span class="b-price"><span class="b-price__number">18<i class="b-price__separator"></i>290</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<ul class="b-tech">
+										<li class="b-tech__item">
+											<div class="b-tech__char"><span>Скидка: <i>30%</i></span>
+											</div>
+											<div class="b-tech__value"><span class="b-price"><span class="b-price__number">-3700</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+											</div>
+										</li>
+										<li class="b-tech__item">
+											<div class="b-tech__char"><span>Доставка: <i>EMS почтой</i></span>
+											</div>
+											<div class="b-tech__value"><span class="b-price"><span class="b-price__number">880</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+											</div>
+										</li>
+										<li class="b-tech__item">
+											<div class="b-tech__char"><span>Способ оплаты: <i>Z-Payment</i></span>
+											</div>
+											<div class="b-tech__value">0</div>
+										</li>
+										<li class="b-tech__item">
+											<div class="b-tech__char"><span>Всего: </span>
+											</div>
+											<div class="b-tech__value"><span class="b-price b-order__amount"><span class="b-price__number">35<i class="b-price__separator"></i>880</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+											</div>
+										</li>
+									</ul>
+									<h2 class="b-wizard__step-title">Доставка</h2>
+									<table class="b-order-table b-order-table--header responsive-table">
+										<thead>
+											<tr>
+												<th colspan="2">Компания</th>
+												<th>Адрес</th>
+												<th class="b-order-table__price">Получатель</th>
+												<th class="b-order-table__phone">Телефон</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="b-order-table__item">
+												<td data-title="" class="b-order-table__logo">
+													<img src="../images/pages/order/ems.png">
+												</td>
+												<td data-title="Компания" class="b-order-table__title"><b>Доставка EMS-Post</b>
+												</td>
+												<td data-title="Адрес">
+													309070, Россия, г. Белгород,
+													<br/>ул. Ленина 15, кв 20
+												</td>
+												<td data-title="Получатель" class="b-order-table__price">Сибилев Игорь</td>
+												<td data-title="Телефон" class="b-order-table__phone">8 913 123-45-67</td>
+											</tr>
+										</tbody>
+									</table>
+									<div style="margin-bottom: 60px" class="comment">
+										<textarea name="comment" value="" placeholder="Примечания к заказу" width="100%" rows="2"></textarea>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+			<!-- /content -->
+			<div class="footer-overlay"></div>
+		</div>
+		<!-- footer -->
+		<footer class="footer">
+			<div class="container">
+				<div class="columns">
+					<div class="first column">
+						<div class="content">
+							<ul>
+								<li><span class="contact"><i class="contact-icon copyright"></i>Pokupo.ru&nbsp;2014</span>
+								</li>
+								<li><a href="mailto:support@pokupo.ru" title="E-Mail" class="contact"><i class="contact-icon email"></i>support@pokupo.ru</a>
+								</li>
+								<li><a href="skype:pokupo.ru?chat" onclick="return skypeCheck()" title="Skype" class="contact"><i class="contact-icon skype"></i>pokupo.ru</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="fourth column">
+						<div class="content">
+							<ul class="social">
+								<li>
+									<a href="https://vk.com/pokupo" target="_blank" title="Вконтакте" class="social__icon vk"></a>
+								</li>
+								<li>
+									<a href="https://twitter.com/pokupo_ru" target="_blank" title="Твиттер" class="social__icon tw"></a>
+								</li>
+								<li>
+									<a href="http://pokupo.livejournal.com/" target="_blank" title="Живой журнал" class="social__icon lj"></a>
+								</li>
+								<li>
+									<a href="http://habrahabr.ru/company/pokupo/" target="_blank" title="Хабрахабр" class="social__icon hh"></a>
+								</li>
+								<li>
+									<a href="https://groups.google.com/d/forum/pokupo_ru" target="_blank" title="Гугл-плюс" class="social__icon gp"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="second column">
+						<div class="content">
+							<ul>
+								<li><a href="https://help.pokupo.ru/knowledgebase.php" title="База знаний">База знаний</a>
+								</li>
+								<li><a href="https://help.pokupo.ru/" title="Техническая поддержка">Техническая поддержка</a>
+								</li>
+								<li><a href="http://forum.pokupo.ru" title="Форум">Форум</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="third column">
+						<div class="content">
+							<ul>
+								<li><a href="javascript:void(0);" title="Пользовательское соглашение">Пользовательское соглашение</a>
+								</li>
+								<li><a href="javascript:void(0);" title="Правила конфиденциальности"> Правила конфиденциальности</a>
+								</li>
+								<li><a href="javascript:void(0);" title="Политика возврата платежей"> Политика возврата платежей</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- /footer -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+		<script src="http://vjs.zencdn.net/4.7/video.js"></script>
+		<script src="/scripts/libs/jquery.fancytree-all.js"></script>
+		<script src="/scripts/libs/fotorama.js"></script>
+		<script src="/scripts/libs/carousel.min.js"></script>
+		<script src="/scripts/libs/chosen.jquery.js"></script>
+		<script src="/scripts/libs/floatlabels.js"></script>
+		<script src="/scripts/libs/masked-input.js"></script>
+		<script src="/scripts/libs/placeholder.js"></script>
+		<script src="/scripts/libs/tooltip.js"></script>
+		<script src="/scripts/libs/jquery.wizard.js"></script>
+		<script src="/scripts/main.js"></script>
+	</body>
+</html>

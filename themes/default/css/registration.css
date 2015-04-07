@@ -1,0 +1,29 @@
+/* Хэлперы и переменные */
+.h1-with-progress-bar {
+  text-align: center;
+}
+.h1-with-progress-bar h1 {
+  position: relative;
+}
+.h1-with-progress-bar h1:after {
+  background-image: url("../images/sprite.png");
+  background-position: -772px -264px;
+  width: 60px;
+  height: 75px;
+  content: '';
+  position: absolute;
+  top: -140px;
+  left: 50%;
+  margin: 0 0 0 -30px;
+}
+#progressCircle {
+  border: 2px solid #ffa800;
+  border-radius: 100px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 12px;
+}
+p.error_form {
+  color: #ed1c24;
+}

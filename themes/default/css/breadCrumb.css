@@ -1,0 +1,72 @@
+/* Хэлперы и переменные */
+.b-thermometer {
+  font-size: 13px;
+  line-height: 20px;
+  text-align: left;
+  position: relative;
+  top: -34px;
+  margin: 0 190px -30px 0;
+  white-space: nowrap;
+}
+.b-thermometer p {
+  margin-bottom: 15px;
+  margin-left: 3px;
+}
+.b-thermometer a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(23,122,147,0.25);
+  -webkit-transition: color, border-bottom-color 0.1s ease-in-out;
+       -o-transition: color, border-bottom-color 0.1s ease-in-out;
+          transition: color, border-bottom-color 0.1s ease-in-out;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 20px;
+}
+.b-thermometer a:hover {
+  color: #ffa800;
+  border-bottom: 1px solid rgba(255,168,0,0.4);
+}
+.b-thermometer a:active,
+.b-thermometer a:focus {
+  color: #c28000;
+  border-bottom: 1px solid rgba(194,128,0,0.4);
+}
+.b-thermometer .divider,
+.b-thermometer .current {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 20px;
+}
+.b-thermometer .divider {
+  color: #000;
+  margin: 0 4px;
+}
+.b-thermometer .current {
+  color: #999;
+}
+.nosidebar .b-thermometer {
+  padding-left: 165px;
+  height: 60px;
+  margin-bottom: -24px;
+  top: -25px;
+}
+.nosidebar .b-thermometer p {
+  line-height: 60px;
+  margin: 0;
+}
+@media only screen and (max-width: 640px) {
+  .b-thermometer a {
+    max-width: 80px;
+  }
+  .b-thermometer .current {
+    display: none;
+  }
+  .nosidebar .b-thermometer {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    top: 0;
+  }
+}

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+		<!-- iOS-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link sizes="192x192" href="touch-icon-192x192.png" rel="icon">
+		<link sizes="180x180" href="images/icons/apple-touch-icon-180x180.png" rel="apple-touch-icon">
+		<link sizes="152x152" href="images/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon">
+		<link sizes="144x144" href="images/icons/apple-touch-icon-144x144.png" rel="apple-touch-icon">
+		<link sizes="120x120" href="images/icons/apple-touch-icon-120x120.png" rel="apple-touch-icon">
+		<link sizes="114x114" href="images/icons/apple-touch-icon-114x114.png" rel="apple-touch-icon">
+		<link sizes="76x76" href="images/icons/apple-touch-icon-76x76.png" rel="apple-touch-icon">
+		<link sizes="72x72" href="images/icons/apple-touch-icon-72x72.png" rel="apple-touch-icon">
+		<link sizes="57x57" href="images/icons/apple-touch-icon-57x57.png" rel="apple-touch-icon">
+		<link href="images/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon">
+		<!-- Windows 8-->
+		<meta name="application-name" content="Содержание Покупо">
+		<meta name="msapplication-tooltip" content="Description for pokupo">
+		<meta name="msapplication-navbutton-color" content="#ffa800">
+		<meta name="msapplication-TileColor" content="#00883c">
+		<meta name="msapplication-TileImage" content="images/icons/win8-bg.png">
+		<meta name="msapplication-square70x70logo" content="images/icons/win8-logo-70x70.png">
+		<meta name="msapplication-square150x150logo" content="images/icons/win8-logo-150x150.png">
+		<meta name="msapplication-square310x310logo" content="images/icons/win8-logo-310x310.png">
+		<meta name="msapplication-wide310x150logo" content="images/icons/win8-logo-310x150.png">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="msapplication-window" content="width=1024;height=768">
+		<!-- Windows-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- Windows Phone-->
+		<!--[if IE]> 
+    <meta name="imagetoolbar" content="no"></script>
+    <meta name="msthemecompatible" content="no"></script>
+    <![endif]-->
+		<!-- Blackberry and etc-->
+		<meta name="cleartype" content="on">
+		<meta name="HandheldFriendly" content="True">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<!-- No parse telephone and address-->
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="address=no">
+		<!-- SEO-->
+		<title>О проекте</title>
+		<meta name="description" content="Description for pokupo">
+		<meta name="keywords" content="pokupo, project">
+		<meta name="copyright" content="©tabrisov">
+		<meta name="reply-to" content="jiexa@tabrisov.ru">
+		<link href="../styles/main.css" rel="stylesheet">
+		<link href="images/icons/favicon.ico" rel="shortcut icon">
+		<!--[if lt IE 9]> 
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="scripts/libs/nwmatcher.js"></script>
+    <script src="scripts/libs/ie8canvas.js"></script>
+    <![endif]-->
+	</head>
+	<body>
+		<div class="main">
+			<!-- header -->
+			<section class="header">
+				<div class="container">
+					<a href="/index.html" title="Pokupo.ru" class="logo"></a>
+					<div class="menu-login">
+						<div class="not-logged-in hidden"><a id="js-login" href="javascript:void(0);" title="Войти" class="menu-login__login">Вход</a><a href="javascript:void(0);" title="Зарегистрироваться" class="menu-login__register">Регистрация</a>
+						</div>
+						<div class="logged-in"><a href="https://seller.pokupo.ru/login" class="btn btn-sm"><i class="icon icon-store--small"></i>Мой магазин</a>
+						</div>
+					</div><span id="toggleNav"><i class="icon icon-menu"></i>Меню</span>
+					<ul class="menu menu--opened b-navigation">
+						<li class="menu__item with-submenu active"><a href="frontpage.html" target=""><span>Платформа</span></a>
+							<ul class="submenu active">
+								<li class="submenu__item active"><a href="about.html" target=""><span>О проекте</span></a>
+								</li>
+								<li class="submenu__item"><a href="http://shop.pokupo.ru/" target="_blank"><span>Торговый портал</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu__item"><a href="rates.html" target=""><span>Тарифы</span></a>
+						</li>
+						<li class="menu__item with-submenu"><a href="#" target=""><span>Компания</span></a>
+							<ul class="submenu">
+								<li class="submenu__item"><a href="events.html" target=""><span>События</span></a>
+								</li>
+								<li class="submenu__item"><a href="aboutus.html" target=""><span>О нас</span></a>
+								</li>
+								<li class="submenu__item"><a href="community.html" target=""><span>Сообщество</span></a>
+								</li>
+								<li class="submenu__item"><a href="http://pokupo.livejournal.com/" target="_blank"><span>Блог</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu__item"><a href="partners.html" target=""><span>Партнёры</span></a>
+						</li>
+						<li class="menu__item with-submenu"><a href="javascript:void(0);" target=""><span>Помощь</span></a>
+							<ul class="submenu">
+								<li class="submenu__item"><a href="faq.html" target=""><span>Вопросы и ответы</span></a>
+								</li>
+								<li class="submenu__item"><a href="https://help.pokupo.ru" target="_blank"><span>Техническая поддержка</span></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<div class="submenu-bg active"></div>
+				</div>
+			</section>
+			<!-- /header -->
+			<!-- start -->
+			<section class="start black">
+				<div class="container">
+					<hgroup class="with-icon">
+						<h1>Вы хотите начать свой бизнес в сети?</h1>
+						<h2 class="lead">Тогда добро пожаловать в нашу команду!</h2>
+					</hgroup>
+					<h3>Вместе мы можем</h3>
+					<div class="columns">
+						<div class="first double column">
+							<div class="content">
+								<ul class="checked">
+									<li>Заработать на досстойную жизнь и развитие</li>
+									<li>Легко закупать товары в сети по лучшим ценам</li>
+									<li>Выставлять на продажу в интернет любой товар</li>
+									<li>Создать полноценный интернет-магазин без специальных знаний</li>
+								</ul>
+							</div>
+						</div>
+						<div class="third double column">
+							<div class="content">
+								<ul class="checked">
+									<li>Начать торговать у себя на сайте, в блоге, в социальной сети</li>
+									<li>Продавать свои товары, и товары партнёров</li>
+									<li>Получать полезные навыки и успешный опыт</li>
+									<li>Участвовать в разработке и улучшении платформы</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="grey howto">
+				<div class="container">
+					<hgroup class="with-icon">
+						<h1>Как это использовать</h1>
+						<h2 class="lead">Вы сами определяете, как использовать Pokupo</h2>
+					</hgroup>
+					<h3>Вы можете стать</h3>
+					<div class="columns">
+						<div class="first double column">
+							<div class="content">
+								<ul class="checked">
+									<li>Активным покупателем и получать персональные цены, скидки, бонусы и подарки</li>
+									<li>Торговым агентом, выставляя товары других продавцов у себя на сайте, в блоге или социальной сети</li>
+									<li>Представителем Pokupo в своём городе или регионе, проводя ссеминары и обучающие курсы</li>
+								</ul>
+							</div>
+						</div>
+						<div class="third double column">
+							<div class="content">
+								<ul class="checked">
+									<li>Владельцем интернет-магазина, настраивая и внедряя его функционал на любой сайт</li>
+									<li>Торговым консультантом, активно помогая новым покупателям использовать платформу</li>
+									<li>Начинающим продавцом, размещая свои товары на единой торговой платформе Pokupo</li>
+									<li>Разработчиком платформы, обсуждая и реализуя новые модули и приложения</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- /start -->
+			<!-- start -->
+			<section class="orange patterned howitworks">
+				<div class="container">
+					<hgroup>
+						<h1>Как это работает</h1>
+						<h2 class="lead">Всё очень просто!</h2>
+					</hgroup>
+					<h3>Для начала успешной торговли вам нужно</h3>
+					<ol class="howitworks__steps">
+						<li class="hiw-step hiw-step__register"><a href="javascript:void(0);">Зарегистрироваться в&nbsp;системе</a>
+						</li>
+						<li class="hiw-step hiw-step__create"><span>Создать свой магазин и&nbsp;рубрикатор</span>
+						</li>
+						<li class="hiw-step hiw-step__add"><span>Загрузить свои товары или&nbsp;использовать товары партнёров</span>
+						</li>
+						<li class="hiw-step hiw-step__go"><span>Разместить коды виджетов на&nbsp;своём сайте или использовать магазины партнёров</span>
+						</li>
+						<li class="hiw-step hiw-step__finish"><span>Отслеживать заказы<br/>и&nbsp;работать с&nbsp;покупателями</span>
+						</li>
+					</ol>
+				</div>
+			</section>
+			<!-- /start -->
+			<!-- price -->
+			<section class="grey price">
+				<div class="container">
+					<hgroup class="with-icon">
+						<h1>Сколько это стоит</h1>
+					</hgroup>
+					<p>
+						Любой проект должен как минимум себя окупать.
+						<br/>Мы должго обсуждали вопрос денег и пришли к общему мнению, что
+					</p>
+					<p class="incut"><span>
+              Нельзя брать с человека деньги,<br/>
+              если он их ещё не зарабатывает</span>
+					</p>
+					<p class="incut--dark">А большинство коммерческих проектов предлагают свои продукты по принципу
+						<br/><em>"Плати нам за аренду/разработку, а твои проблемы нас не касаются".</em>
+					</p>
+					<p>
+						Это откровенно паразитная политика и деньги для них привыше всего.
+						<br/>Такое мировоззрение противоречит нашим принципам и самой идее проекта.
+					</p>
+					<a href="javascript:void(0);" style="padding: 20px">
+						<img src="images/pages/rates.png">
+					</a>
+					<p>Поэтому мы разработали несколько вариантов тарифов в зависимости от того,
+						<br/>на каком этапе находится ваше дело.</p>
+				</div>
+			</section>
+			<!-- /price -->
+			<!-- split -->
+			<section class="split">
+				<div class="orange"></div>
+				<div class="container">
+					<div class="columns">
+						<div class="first double column">
+							<div class="content split__mission">
+								<h2><i class="icon"></i>Наша миссия</h2>
+								<div class="quote">
+									<blockquote>
+										Построение созидающей информационно-технической среды для развития, творчества, заработка и личной реализации человека, с целью формирования качественно новых социальных отношений.
+									</blockquote>
+								</div>
+							</div>
+						</div>
+						<div class="third double column">
+							<div class="content split__goal">
+								<h2><i class="icon"></i>Наша цель</h2>
+								<div class="quote">
+									<blockquote>
+										Создать доступный, простой и мощный торговый инструмент для всех пользователей сети, он будет выступать в качестве интегратора хороших идей, активных людей и современных технологий, быть помощником и наставником для новичков и мощной профессиональной
+										платформой для специалистов.
+									</blockquote>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- /split -->
+			<!-- split -->
+			<section class="grey seo-instruction">
+				<div class="container">
+					<h1 class="with-icon">Как создать интернет-магазин?</h1>
+					<h2 class="subheader">самому и бесплатно</h2>
+					<p>Говорят, лучше всего поручить создание интернет-магазина крутым профессионалам из самых известных веб-студий, занимающихся разработкой сайтов разного уровня сложности. Да, так можно получить поистине выдающийся результат. Но стоить это будет столько,
+						что по взятым в банке кредитам придется очень долго расплачиваться, не получая при этом от своего роскошного виртуального торгового центра никакой прибыли. Поэтому нет ничего удивительного в том, что многие начинающие предприниматели задаются вопросом
+						о том, как создать интернет-магазин самому.</p>
+					<p>Наш сервис позволит любому заинтересованному пользователю, даже не имеющему никаких знаний и навыков, создать интернет-магазин своими руками — бесплатно и буквально за пару минут. Понадобятся, конечно, хотя бы начальные навыки работы в сети. А само
+						создание интернет-магазина при помощи нашего сервиса, да еще и своими руками, выполняется всего за три простых шага, справиться с которыми может даже старшеклассник, решивший заработать на карманные расходы.</p>
+					<div class="columns triple seo-content">
+						<div class="column">
+							<div class="content">
+								<div class="seo-icon devices seo__1"></div>
+							</div>
+						</div>
+						<div class="second double column">
+							<div class="content">
+								<h2 class="subheader">Создать сайт интернет-магазина самостоятельно:<br/>регистрация пользователя</h2>
+								<p>Для начала работы с сервисом нужно пройти простую процедуру регистрации. Сразу скажем, что регистрация и самостоятельное бесплатное создание интернет-магазина выполняются одновременно. То есть зарегистрировавшись в системе, вы сразу же получите
+									свой первый магазин с тем названием, которое вы напишете в самом первом текстовом поле. Одновременно оно будет и вашим именем пользователя, использующимся для входа, а потому к его выбору нужно отнестись серьезнее. И, желательно, творчески.</p>
+								<p>Процесс регистрации предельно прост и практически ничем не отличается от подобных действий на любом другом интернет-ресурсе. На главной странице жмите на большую красивую кнопку «Создать свой магазин» и заполните все поля, которые вам предлагают.
+									А потому особо заострять внимание на этом не будем — у вас непременно все получится.</p>
+							</div>
+						</div>
+					</div>
+					<div class="columns triple seo-content">
+						<div class="column">
+							<div class="content">
+								<div class="seo-icon settings seo__2"></div>
+							</div>
+						</div>
+						<div class="second double column">
+							<div class="content">
+								<h2 class="subheader">Самостоятельное создание интернет-магазина:<br/>настройки и использование</h2>
+								<p>После активации только что самостоятельно созданного сайта интернет-магазина потребуется войти в свой личный кабинет, выполнить нужные настройки и начать использовать собственный магазин во благо себе и своего бизнеса. Как раз об этом стоит поговорить
+									подробнее.</p>
+								<p>Сначала найдем в левой части страницы ссылку «Настройки магазина» и в появившейся таблице заполним все поля. Здесь можно изменить название магазина, создать его описание, отметить, какой тип товаров вы планируете продавать (свои или товары партнеров),
+									разрешить партнерам продавать свои товары, указать данные для связи, загрузить созданный заранее логотип, выполнить другие действия. Теперь, если есть желание или необходимость, можно самостоятельно создать еще один или несколько интернет-магазинов
+									— тоже своими руками, просто нажав соответствующую кнопку в личном кабинете продавца. Для каждого из них нужно будет выполнить настройку — так, как это описано выше.</p>
+							</div>
+						</div>
+					</div>
+					<div class="columns triple seo-content">
+						<div class="column">
+							<div class="content">
+								<div class="seo-icon goods seo__3"></div>
+							</div>
+						</div>
+						<div class="second double column">
+							<div class="content">
+								<h2 class="subheader">Создание интернет-магазина:<br/>наполнение товарами</h2>
+								<p>Теперь, выбрав нужный из только что созданных самостоятельно интернет-магазинов, нужно заполнить его товарами, нажав на одну из кнопок: «Добавить товар», «Добавить e-товар» или «Импорт товаров». Заполните все поля (название, артикул, описание,
+									вес, цена), загружайте фотографию с изображением товара, отметьте, сколько единиц есть в продаже и — ждите покупателей. Операцию повторите для каждой из новых товарных позиций. Если их много, проще импортировать файл с товарами в формате .csv
+									или .txt. После добавления товара не забудьте установить для него категорию, а также добавить товары в торговую платформу — общий каталог, доступный всем магазинам. Благодаря присутствию ваших товаров в торговой платформе вы сможете получить
+									дополнительные продажи. В разделах «Заказы» и «Отчеты» отображается вся служебная информация.</p>
+							</div>
+						</div>
+					</div>
+					<hr class="divider">
+					<p>После выполнения всех этих действий останется только включить созданный собственными руками,
+						<br/>да еще и бесплатно, интернет-магазин и начать бизнес.</p>
+					<p>Как видим, создать полнофункциональный сайт интернет-магазина самому и бесплатно —
+						<br/>вполне реально. Если, конечно, с толком воспользоваться возможностями платформы «Pokupo».</p>
+					<h3 class="seo-incut">Мы работаем для вас!</h3>
+				</div>
+			</section>
+			<!-- /split -->
+			<!-- vision -->
+			<section class="black vision">
+				<div class="container">
+					<hgroup>
+						<h1>Наше видение</h1>
+					</hgroup>
+					<div class="triple columns">
+						<div class="first column">
+							<div class="content"><i class="num">1</i>
+								<p>У нас принципиально нет клиентов-потребителей, мы предлагаем Вам права партнеров и коллег по развитию и улучшению системы, только вместе мы сможем создать удобный и надежный инструмент торговли и процветания для всех активных и талантливых людей.</p>
+							</div>
+						</div>
+						<div class="second column">
+							<div class="content"><i class="num">2</i>
+								<p>То, что мы делаем это не очередной стартап аля "давайте сделаем фейсбук и станем миллионерами... Pokupo - это проект небольшой профессиональной команды энтузиастов, который разрабатывается для всех пользователей сети в тесном сотрудничестве с
+									ними. Нам очень важно предоставить действительно полезный и доступный сервис, который будет помогать начинающим предпринимателям.</p>
+							</div>
+						</div>
+						<div class="third column">
+							<div class="content"><i class="num">3</i>
+								<p>У нас нет конкурентов, мы не гонимся за сверхприбылями, нам не нужно отрабатывать ожидания инвесторов, деньги для нас - это ресурс, который необходим для развития, но он стоит далеко не на первом месте в иерархии наших ценностей.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- /vision -->
+			<div class="footer-overlay"></div>
+		</div>
+		<!-- footer -->
+		<footer class="footer">
+			<div class="container">
+				<div class="columns">
+					<div class="first column">
+						<div class="content">
+							<ul>
+								<li><span class="contact"><i class="contact-icon copyright"></i>Pokupo.ru&nbsp;2014</span>
+								</li>
+								<li><a href="mailto:support@pokupo.ru" title="E-Mail" class="contact"><i class="contact-icon email"></i>support@pokupo.ru</a>
+								</li>
+								<li><a href="skype:pokupo.ru?chat" onclick="return skypeCheck()" title="Skype" class="contact"><i class="contact-icon skype"></i>pokupo.ru</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="fourth column">
+						<div class="content">
+							<ul class="social">
+								<li>
+									<a href="https://vk.com/pokupo" target="_blank" title="Вконтакте" class="social__icon vk"></a>
+								</li>
+								<li>
+									<a href="https://twitter.com/pokupo_ru" target="_blank" title="Твиттер" class="social__icon tw"></a>
+								</li>
+								<li>
+									<a href="http://pokupo.livejournal.com/" target="_blank" title="Живой журнал" class="social__icon lj"></a>
+								</li>
+								<li>
+									<a href="http://habrahabr.ru/company/pokupo/" target="_blank" title="Хабрахабр" class="social__icon hh"></a>
+								</li>
+								<li>
+									<a href="https://groups.google.com/d/forum/pokupo_ru" target="_blank" title="Гугл-плюс" class="social__icon gp"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="second column">
+						<div class="content">
+							<ul>
+								<li><a href="https://help.pokupo.ru/knowledgebase.php" title="База знаний">База знаний</a>
+								</li>
+								<li><a href="https://help.pokupo.ru/" title="Техническая поддержка">Техническая поддержка</a>
+								</li>
+								<li><a href="http://forum.pokupo.ru" title="Форум">Форум</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="third column">
+						<div class="content">
+							<ul>
+								<li><a href="javascript:void(0);" title="Пользовательское соглашение">Пользовательское соглашение</a>
+								</li>
+								<li><a href="javascript:void(0);" title="Правила конфиденциальности"> Правила конфиденциальности</a>
+								</li>
+								<li><a href="javascript:void(0);" title="Политика возврата платежей"> Политика возврата платежей</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- /footer -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+		<script src="http://vjs.zencdn.net/4.7/video.js"></script>
+		<script src="/scripts/libs/jquery.fancytree-all.js"></script>
+		<script src="/scripts/libs/fotorama.js"></script>
+		<script src="/scripts/libs/carousel.min.js"></script>
+		<script src="/scripts/libs/chosen.jquery.js"></script>
+		<script src="/scripts/libs/floatlabels.js"></script>
+		<script src="/scripts/libs/masked-input.js"></script>
+		<script src="/scripts/libs/placeholder.js"></script>
+		<script src="/scripts/libs/tooltip.js"></script>
+		<script src="/scripts/main.js"></script>
+	</body>
+</html>

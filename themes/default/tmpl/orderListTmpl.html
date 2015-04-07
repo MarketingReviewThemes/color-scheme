@@ -1,0 +1,356 @@
+
+<script id="orderListTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div class="profile">
+    <div class="container">
+      <div class="columns triple">
+        <div class="first double column">
+          <div class="content">
+            <h1 class="b-profile__header">История заказов</h1>
+          </div>
+        </div>
+        <div class="third column">
+          <div class="content">
+            <button type="button" data-bind="click: ClickRefresh" class="btn btn-lg btn-inline b-mail__addbtn b-mail__addbtn--top"><i class="icon icon-reload"></i>Обновить данные</button>
+          </div>
+        </div>
+      </div>
+      <table class="b-order-table">
+        <thead>
+          <tr>
+            <th class="b-order-table__name">Заказ</th>
+            <th>Магазин</th>
+            <th class="b-order-table__price">Стоимость</th>
+            <th>Статус</th>
+            <th>Оплата</th>
+            <th class="b-order-table__actions"></th>
+          </tr>
+        </thead>
+        <tbody><!-- ko foreach: list -->
+          <!-- ko template: { name: 'orderListItemTmpl' }-->
+          <!-- /ko--><!-- /ko -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="6">
+              <!-- ko template: { name: 'orderListPagenationTmpl' }-->
+              <!-- /ko-->
+            </td>
+          </tr>
+          <tr>
+            <td colspan="6">
+              <button type="button" style="margin: 40px 0 0" data-bind="click: ClickRefresh" class="btn btn-lg btn-inline"><i class="icon icon-reload"></i>Обновить данные</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</script>
+<script id="orderListItemTmpl" type="text/html">
+  <!-- version 1.0-->
+  <tr class="b-order-table__item">
+    <td class="b-order-table__name"><!-- ko if: viewShow --><a href="javascript:void(0);" data-bind="click: ClickShow">Заказ №
+        <!-- ko text: id -->
+        <!-- /ko --> от 
+        <!-- ko text: dateCreate -->
+        <!-- /ko --></a><!-- /ko --><!-- ko ifnot: viewShow -->Заказ №
+      <!-- ko text: id -->
+      <!-- /ko --> от 
+      <!-- ko text: dateCreate -->
+      <!-- /ko --><!-- /ko -->
+    </td>
+    <td data-bind="text: nameShop"></td>
+    <td class="b-order-table__price"><span class="b-price"><span data-bind="text: finalCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></td>
+    <td><!-- ko if: statusOrder == 'init' -->
+      <div class="b-status b-status--forming">Формируется</div><!-- /ko --><!-- ko if: statusOrder == 'new' -->
+      <div class="b-status b-status--new">Новый</div><!-- /ko --><!-- ko if: statusOrder == 'process' -->
+      <div class="b-status b-status--waiting">В просессе обработки</div><!-- /ko --><!-- ko if: statusOrder == 'cancel' -->
+      <div class="b-status b-status--cancelled">Отменён</div><!-- /ko --><!-- ko if: statusOrder == 'send' -->
+      <div class="b-status b-status--done">Отправлен</div><!-- /ko --><!-- ko if: statusOrder == 'delivered' -->
+      <div class="b-status b-status--done">Получен покупателем</div><!-- /ko -->
+    </td>
+    <td><!-- ko if: statusPay == 'wait_check' -->
+      <div class="b-status b-status--checking">На проверке</div><!-- /ko --><!-- ko if: statusPay == 'wait_pay' -->
+      <div class="b-status b-status--waiting">Ожидает оплаты</div><!-- /ko --><!-- ko if: statusPay == 'paid' -->
+      <div class="b-status b-status--done">Оплачен</div><!-- /ko --><!-- ko if: statusPay == 'cancel' -->
+      <div class="b-status b-status--cancelled">Отменён</div><!-- /ko --><!-- ko if: statusPay == 'back' -->
+      <div class="b-status b-status--return">Возвращён</div><!-- /ko -->
+    </td>
+    <td class="b-order-table__actions"><!-- ko if: viewEdit -->
+      <div rel="tooltip" title="Изменить" data-bind="click: ClickEdit" class="b-order-item__edit btn-circle btn-circle--edit"></div><!-- /ko --><!-- ko if: viewReturn -->
+      <div rel="tooltip" title="Скопировать в корзину" data-bind="click: ClickReturn" class="b-order-item__edit btn-circle btn-circle--cart"></div><!-- /ko --><!-- ko if: viewRepeat -->
+      <div rel="tooltip" title="Повторить" data-bind="click: ClickRepeat" class="b-order-item__edit btn-circle btn-circle--retry"></div><!-- /ko --><!-- ko if: viewCanсel -->
+      <div rel="tooltip" title="Отменить" data-bind="click: ClickCancel" class="b-order-item__edit btn-circle btn-circle--cancel"></div><!-- /ko --><!-- ko if: viewDelete -->
+      <div rel="tooltip" title="Удалить" data-bind="click: ClickDelete" class="b-order-item__drop btn-circle btn-circle--drop"></div><!-- /ko -->
+    </td>
+  </tr>
+</script>
+<script id="orderListPagenationTmpl" type="text/html">
+  <!-- version 1.0--><!-- ko if: paging().length > 1 -->
+  <div style="margin-top: 20px;" class="content">
+    <div class="input-holder pagination">
+      <div class="radio-circles">
+        <ul class="menu"><!-- ko foreach: paging  --><!-- ko if: current --><!-- ko if: title == '...' -->
+          <li class="menu__item"><span class="ellipsis">...</span></li><!-- /ko --><!-- ko ifnot: title == '...' -->
+          <li class="menu__item active"><a href="javascript:void(0);" data-bind="text: title, click: ClickLinkPage"></a></li><!-- /ko --><!-- /ko --><!-- ko ifnot: current --><!-- ko if: cssLink() == "first" -->
+          <li class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickLinkPage">&larr;</a></li><!-- /ko --><!-- ko if: cssLink() == "last" -->
+          <li class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickLinkPage">&rarr;</a></li><!-- /ko --><!-- ko if: cssLink() != "last" && cssLink() != "first" -->
+          <li class="menu__item"><a href="javascript:void(0);" data-bind="text: title, click: ClickLinkPage"></a></li><!-- /ko --><!-- /ko --><!-- /ko -->
+        </ul>
+      </div>
+    </div>
+  </div><!-- /ko -->
+</script>
+<script id="orderEmptyListTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="profile">
+    <div class="container">
+      <div class="columns triple">
+        <div class="first double column">
+          <div class="content">
+            <h1 class="b-profile__header">История заказов</h1>
+          </div>
+        </div>
+        <div class="third column">
+          <div class="content">
+            <button type="button" data-bind="click: ClickRefresh" class="btn btn-lg btn-inline b-mail__addbtn b-mail__addbtn--top"><i class="icon icon-reload"></i>Обновить данные</button>
+          </div>
+        </div>
+      </div>
+      <table class="b-order-table">
+        <thead>
+          <tr>
+            <th class="b-order-table__name">Заказ</th>
+            <th>Магазин</th>
+            <th class="b-order-table__price">Стоимость</th>
+            <th>Статус</th>
+            <th>Оплата</th>
+            <th class="b-order-table__actions"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td calspan="6">У вас нет ни одной покупки.</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="6">
+              <button type="button" style="margin: 40px 0 0;" data-bind="click: ClickRefresh" class="btn btn-lg btn-inline"><i class="icon icon-reload"></i>Обновить данные</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</script>
+<script id="orderDetailTmpl" type="text/html">
+  <!-- version 1.1 -->
+  <div class="profile">
+    <div class="container"><a href="javascript:void(0);" data-bind="click: Back" class="btn btn-sm btn-thin btn__stepback"><i class="icon icon-back"></i>назад к списку заказов</a>
+      <h2 class="b-profile__headline">Заказ №
+        <!-- ko text: id -->
+        <!-- /ko --> от
+        <!-- ko text: dateCreate -->
+        <!-- /ko -->
+      </h2>
+      <div class="b-order-info">
+        <div class="b-order-info__left"><span class="b-order-info__label">Продавец:</span><span data-bind="text: nameOwnShop" class="b-order-info__value"></span></div>
+        <div class="b-order-info__right"><span class="b-order-info__label">Статус:</span><!-- ko if: statusOrder() == 'init' -->
+          <div class="b-status b-status--forming">Формируется</div><!-- /ko --><!-- ko if: statusOrder() == 'new' -->
+          <div class="b-status b-status--new">Новый</div><!-- /ko --><!-- ko if: statusOrder() == 'process' -->
+          <div class="b-status b-status--waiting">В просессе обработки</div><!-- /ko --><!-- ko if: statusOrder() == 'cancel' -->
+          <div class="b-status b-status--cancelled">Отменён</div><!-- /ko --><!-- ko if: statusOrder() == 'send' -->
+          <div class="b-status b-status--done">Отправлен</div><!-- /ko --><!-- ko if: statusOrder() == 'delivered' -->
+          <div class="b-status b-status--done">Получен покупателем</div><!-- /ko --><!-- ko if: statusPay() == 'wait_check' -->
+          <div class="b-status b-status--checking">На проверке</div><!-- /ko --><!-- ko if: statusPay() == 'wait_pay' -->
+          <div class="b-status b-status--waiting">Ожидает оплаты</div><!-- /ko --><!-- ko if: statusPay() == 'paid' -->
+          <div class="b-status b-status--done">Оплачен</div><!-- /ko --><!-- ko if: statusPay() == 'cancel' -->
+          <div class="b-status b-status--cancelled">Отменён</div><!-- /ko --><!-- ko if: statusPay() == 'back' -->
+          <div class="b-status b-status--return">Возвращён</div><!-- /ko -->
+        </div>
+      </div>
+      <div class="b-fieldset">
+        <h2 class="b-profile__headline">Товары</h2>
+        <table class="b-order-table b-order-table--header b-cart-table">
+          <thead>
+            <tr>
+              <th class="b-order-table__thumb"></th>
+              <th>Наименование</th>
+              <th class="b-order-table__title">Цена</th>
+              <th class="b-order-table__title">Количество</th>
+              <th class="b-order-table__title">Сумма</th>
+            </tr>
+          </thead>
+          <tbody><!-- ko foreach: goods -->
+            <!-- ko template: { name: 'orderDetailGoodsTmpl' }-->
+            <!-- /ko --><!-- /ko -->
+          </tbody>
+        </table>
+        <ul class="b-tech standalone"><!-- ko if: discount > 0 -->
+          <li class="b-tech__item">
+            <div class="b-tech__char"><span>Скидка: <i data-bind="text: discount"></i></span></div>
+            <div class="b-tech__value"><span class="b-price"><span class="b-price__number">-
+                  <!-- ko text: discountSum -->
+                  <!-- /ko --></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></div>
+          </li><!-- /ko --><!-- ko if: realShipping -->
+          <li class="b-tech__item">
+            <div class="b-tech__char"><span>Доставка: <i data-bind="text: nameMethodShipping"></i></span></div>
+            <div class="b-tech__value"><span class="b-price"><span data-bind="text: costShipping" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></div>
+          </li><!-- /ko -->
+          <li class="b-tech__item">
+            <div class="b-tech__char"><span>Способ оплаты: <i data-bind="text: namePayment"></i></span></div>
+            <div class="b-tech__value"><span class="b-price"><span data-bind="text: costPayment" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></div>
+          </li>
+          <li class="b-tech__item">
+            <div class="b-tech__char"><span>Всего: </span></div>
+            <div class="b-tech__value"><span class="b-price b-order__amount"><span data-bind="text: itog" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></div>
+          </li>
+        </ul>
+      </div><!-- ko if: commentBuyer() || commentOperator() -->
+      <div class="b-fieldset">
+        <h2 class="b-profile__headline">Примечания к заказу</h2>
+        <div class="b-chat__item b-dialog incoming closed"><!-- ko if: commentBuyer() -->
+          <div class="b-dialog__body">
+            <div class="b-dialog__userpic">
+              <div class="b-profile-info__photo"><img src="" data-bind="attr: {src: avatar}"/></div>
+            </div>
+            <div class="b-dialog__text">
+              <p data-bind="text: commentBuyer()"></p>
+            </div>
+          </div><!-- /ko --><!-- ko if: commentOperator() -->
+          <div class="b-dialog__body">
+            <div class="b-dialog__userpic">
+              <div class="b-profile-info__photo"><img src=""/></div>
+            </div>
+            <div class="b-dialog__text">
+              <p data-bind="text: commentOperator()"></p>
+            </div>
+          </div><!-- /ko -->
+        </div>
+      </div><!-- /ko --><!-- ko if: realShipping -->
+      <!-- ko template: { name: 'orderDetailShippingTmpl' }-->
+      <!-- /ko --><!-- /ko -->
+      <!-- ko template: { name: 'orderDetailPaymentTmpl' }-->
+      <!-- /ko -->
+      <div class="b-order__actions"><!-- ko if: statusOrder() == "init" -->
+        <div data-bind="click: ClickCheck" class="btn btn-xs btn-solid">Подтвердить заказ</div>
+        <div rel="tooltip" title="Изменить" data-bind="click: ClickEdit" class="b-order-item__edit btn-circle btn-circle--edit"></div>
+        <div rel="tooltip" title="В корзину" data-bind="click: ClickReturn" class="b-order-item__edit btn-circle btn-circle--cart"></div>
+        <div rel="tooltip" title="Отменить" data-bind="click: ClickCancel" class="b-order-item__edit btn-circle btn-circle--cancel"></div>
+        <div rel="tooltip" title="Удалить" data-bind="click: ClickDelete" class="b-order-item__drop btn-circle btn-circle--drop"></div><!-- ko if: statusPay() == 'wait_pay' -->
+        <div style="padding: 9px 0 0 13px; top: -10px;" rel="tooltip" title="Обновить" data-bind="click: ClickRefresh" class="b-order-item__edit btn-circle"><i class="icon icon-reload"></i></div><!-- /ko --><!-- /ko --><!-- ko if: statusOrder() == "new" --><!-- ko ifnot: statusPay() == "paid" -->
+        <div style="display: inline;" data-bind="embedWidget :{ widget : 'ButtonPaymentWidget-1.1', params : { title: 'Оплатить заказ', orderId: id(),tmpl : {path: 'http://promodev.pokupo.ru/themes/default/tmpl/buttonPaymentTmpl.html'}}}"></div>
+        <div rel="tooltip" title="Отменить" data-bind="click: ClickCancel" class="b-order-item__edit btn-circle btn-circle--cancel"></div>
+        <div style="padding: 9px 0 0 13px; top: -10px;" rel="tooltip" title="Обновить" data-bind="click: ClickRefresh" class="b-order-item__edit btn-circle"><i class="icon icon-reload"></i></div><!-- /ko --><!-- /ko --><!-- ko if: statusOrder() == "cancel" -->
+        <div rel="tooltip" title="Повторить" data-bind="click: ClickRepeat" class="b-order-item__edit btn-circle btn-circle--retry"></div>
+        <div rel="tooltip" title="Удалить" data-bind="click: ClickDelete" class="b-order-item__drop btn-circle btn-circle--drop"></div><!-- ko if: statusPay() == 'wait_pay' -->
+        <div style="padding: 9px 0 0 13px; top: -10px;" rel="tooltip" title="Обновить" data-bind="click: ClickRefresh" class="b-order-item__edit btn-circle"><i class="icon icon-reload"></i></div><!-- /ko --><!-- /ko --><!-- ko if: statusOrder() == "delivered" || statusOrder() == "send" -->
+        <div rel="tooltip" title="Повторить" data-bind="click: ClickRepeat" class="b-order-item__edit btn-circle btn-circle--retry"></div><!-- ko if: statusPay() == 'wait_pay' -->
+        <div style="padding: 9px 0 0 13px; top: -10px;" rel="tooltip" title="Обновить" data-bind="click: ClickRefresh" class="b-order-item__edit btn-circle"><i class="icon icon-reload"></i></div><!-- /ko --><!-- /ko -->
+      </div>
+    </div>
+  </div>
+</script>
+<script id="orderDetailGoodsTmpl" type="text/html">
+  <!-- version 1.0-->
+  <tr class="b-order-table__item">
+    <td class="b-order-table__thumb"><img src="" data-bind="attr: {src: routeImage}"/></td>
+    <td class="b-order-table__title"><a href="javascript:void(0);" data-bind="text: fullName, click: ClickGoods"></a><!-- ko if: isEgoodsPaid() --><!-- ko foreach: EGoods -->
+      <div class="b-order-table__info">
+        <p class="b-order-table__label">Скачиваний <b>
+            <!-- ko text: countUpload -->
+            <!-- /ko --></b>из<b>
+            <!-- ko text: maxUpload -->
+            <!-- /ko --></b><!-- ko if: expiration -->, доступно до 
+          <!-- ko text: expiration -->
+          <!-- /ko --><!-- /ko -->
+        </p><a data-bind="attr: {href: uploadFile}" class="btn btn-sm"><i class="icon icon-download"></i>Загрузить</a><span>
+          <!-- ko text: sizeFile -->
+          <!-- /ko --></span>
+      </div><!-- /ko --><!-- /ko -->
+    </td>
+    <td class="b-order-table__title"><span class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></td>
+    <td data-bind="text: count" class="b-order-table__phone"></td>
+    <td class="b-order-table__title"><span class="b-price"><span data-bind="text: itogSellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></td>
+  </tr>
+</script>
+<script id="orderDetailShippingTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div class="b-fieldset">
+    <h2 class="b-profile__headline">Доставка
+      <table class="b-order-table b-order-table--header">
+        <thead>
+          <tr>
+            <th colspan="2">Компания</th>
+            <th>Адрес</th>
+            <th class="b-order-table__price">Получатель</th>
+            <th class="b-order-table__phone">Телефон</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="b-order-table__item">
+            <td class="b-order-table__logo"><img src="" data-bind="attr: {src: logoMethodShipping}"/></td>
+            <td class="b-order-table__title"><b data-bind="text: nameMethodShipping"></b></td>
+            <td>
+              <!-- ko text: shippingPostCode -->
+              <!-- /ko -->,
+              <!-- ko text: shippingCountry -->
+              <!-- /ko -->,
+              <!-- ko text: shippingRegion -->
+              <!-- /ko -->,<br/>
+              <!-- ko text: shippingCity -->
+              <!-- /ko -->,
+              <!-- ko text: shippingAddress -->
+              <!-- /ko -->
+            </td>
+            <td data-bind="text: shippingAddressee" class="b-order-table__price"></td>
+            <td data-bind="text: shippingContactPhone" class="b-order-table__phone"></td>
+          </tr>
+        </tbody>
+      </table>
+    </h2>
+  </div>
+</script>
+<script id="orderDetailPaymentTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div class="b-fieldset">
+    <h2 class="b-profile__headline">Оплата
+      <table class="b-order-table b-order-table--header">
+        <thead>
+          <tr>
+            <th class="b-order-table__logo"></th>
+            <th>Система</th>
+            <th>Обработка</th>
+            <th>Комиссия</th>
+            <th>Номер чека</th>
+            <th>Статус</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="b-order-table__item">
+            <td class="b-order-table__logo"><img src="" data-bind="attr: {src: logoPayment()}"/></td>
+            <td><b data-bind="text: namePayment"></b><br/>
+              <!-- ko text: descPayment -->
+              <!-- /ko -->
+            </td>
+            <td data-bind="text: timePayment"></td>
+            <td><span class="b-price"><span data-bind="text: costPayment" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></td>
+            <td>№
+              <!-- ko text: invoicePayment -->
+              <!-- /ko -->
+            </td>
+            <td><!-- ko if: statusPay() == 'wait_check' -->
+              <div class="b-status b-status--checking">На проверке</div><!-- /ko --><!-- ko if: statusPay() == 'wait_pay' -->
+              <div class="b-status b-status--waiting">Ожидает оплаты</div><!-- /ko --><!-- ko if: statusPay() == 'paid' -->
+              <div class="b-status b-status--done">Оплачен</div><!-- /ko --><!-- ko if: statusPay() == 'cancel' -->
+              <div class="b-status b-status--cancelled">Отменён</div><!-- /ko --><!-- ko if: statusPay() == 'back' -->
+              <div class="b-status b-status--return">Возвращён</div><!-- /ko -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </h2>
+  </div>
+</script>

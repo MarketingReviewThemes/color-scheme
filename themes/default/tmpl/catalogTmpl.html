@@ -1,0 +1,20 @@
+
+<script id="catalogTmpl" type="text/html">
+  <!-- version 1.0-->
+  <aside class="b-sidebar dropdown">
+    <div data-target="sidebar" class="b-sidebar__dropdown"><!-- ko foreach: tab -->
+      <h1 data-bind="text: title, css: tabClass, click: ClickTab" class="b-sidebar__title"></h1><!-- /ko --><!-- ko foreach: tab -->
+      <ul data-bind="css: listClass, visible: isActive" class="menu"><!-- ko foreach: children --><!-- ko ifnot: hasChildren -->
+        <li data-bind="css : liClass" class="menu__item">
+          <u><span data-bind="html: title, click: ClickItem"></span><sup data-bind="text: countGoods" class="num"></sup></u>
+        </li><!-- /ko --><!-- ko if: hasChildren -->
+        <li data-bind="css : liClass" class="menu__item with-submenu">
+          <u><span data-bind="html: titleWithCount"></span></u>
+          <ul class="submenu"><!-- ko foreach: children -->
+            <li class="submenu__item"><a href="javascript:void(0);" data-bind="click: ClickItem"><span data-bind="html: title"></span><sup data-bind="text: countGoods" class="num"></sup></a></li><!-- /ko -->
+          </ul>
+        </li><!-- /ko --><!-- /ko -->
+      </ul><!-- /ko -->
+    </div>
+  </aside>
+</script>

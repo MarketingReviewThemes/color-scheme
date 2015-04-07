@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+		<!-- iOS-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link sizes="192x192" href="touch-icon-192x192.png" rel="icon">
+		<link sizes="180x180" href="images/icons/apple-touch-icon-180x180.png" rel="apple-touch-icon">
+		<link sizes="152x152" href="images/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon">
+		<link sizes="144x144" href="images/icons/apple-touch-icon-144x144.png" rel="apple-touch-icon">
+		<link sizes="120x120" href="images/icons/apple-touch-icon-120x120.png" rel="apple-touch-icon">
+		<link sizes="114x114" href="images/icons/apple-touch-icon-114x114.png" rel="apple-touch-icon">
+		<link sizes="76x76" href="images/icons/apple-touch-icon-76x76.png" rel="apple-touch-icon">
+		<link sizes="72x72" href="images/icons/apple-touch-icon-72x72.png" rel="apple-touch-icon">
+		<link sizes="57x57" href="images/icons/apple-touch-icon-57x57.png" rel="apple-touch-icon">
+		<link href="images/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon">
+		<!-- Windows 8-->
+		<meta name="application-name" content="Личный кабинет: Заказы">
+		<meta name="msapplication-tooltip" content="Description for pokupo">
+		<meta name="msapplication-navbutton-color" content="#ffa800">
+		<meta name="msapplication-TileColor" content="#00883c">
+		<meta name="msapplication-TileImage" content="images/icons/win8-bg.png">
+		<meta name="msapplication-square70x70logo" content="images/icons/win8-logo-70x70.png">
+		<meta name="msapplication-square150x150logo" content="images/icons/win8-logo-150x150.png">
+		<meta name="msapplication-square310x310logo" content="images/icons/win8-logo-310x310.png">
+		<meta name="msapplication-wide310x150logo" content="images/icons/win8-logo-310x150.png">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="msapplication-window" content="width=1024;height=768">
+		<!-- Windows-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- Windows Phone-->
+		<!--[if IE]> 
+    <meta name="imagetoolbar" content="no"></script>
+    <meta name="msthemecompatible" content="no"></script>
+    <![endif]-->
+		<!-- Blackberry and etc-->
+		<meta name="cleartype" content="on">
+		<meta name="HandheldFriendly" content="True">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<!-- No parse telephone and address-->
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="address=no">
+		<!-- SEO-->
+		<title>Личный кабинет: Сообщения</title>
+		<meta name="description" content="Description for pokupo">
+		<meta name="keywords" content="pokupo, project">
+		<meta name="copyright" content="©tabrisov">
+		<meta name="reply-to" content="jiexa@tabrisov.ru">
+		<link href="../styles/main.css" rel="stylesheet">
+		<link href="images/icons/favicon.ico" rel="shortcut icon">
+		<!--[if lt IE 9]> 
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="scripts/libs/nwmatcher.js"></script>
+    <script src="scripts/libs/ie8canvas.js"></script>
+    <![endif]-->
+	</head>
+	<body>
+		<div class="main">
+			<!-- header -->
+			<section class="header">
+				<div class="container">
+					<a href="/index.html" title="Pokupo.ru" class="logo"></a>
+					<div class="menu-login">
+						<div class="not-logged-in hidden"><a id="js-login" href="javascript:void(0);" title="Войти" class="menu-login__login">Вход</a><a href="javascript:void(0);" title="Зарегистрироваться" class="menu-login__register">Регистрация</a>
+						</div>
+						<div class="logged-in"><a href="https://seller.pokupo.ru/login" class="btn btn-sm"><i class="icon icon-store--small"></i>Мой магазин</a>
+						</div>
+					</div><span id="toggleNav"><i class="icon icon-menu"></i>Меню</span>
+					<ul class="menu b-navigation">
+						<li class="menu__item with-submenu"><a href="frontpage.html" target=""><span>Платформа</span></a>
+							<ul class="submenu">
+								<li class="submenu__item"><a href="about.html" target=""><span>О проекте</span></a>
+								</li>
+								<li class="submenu__item"><a href="http://shop.pokupo.ru/" target="_blank"><span>Торговый портал</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu__item"><a href="rates.html" target=""><span>Тарифы</span></a>
+						</li>
+						<li class="menu__item with-submenu"><a href="#" target=""><span>Компания</span></a>
+							<ul class="submenu">
+								<li class="submenu__item"><a href="events.html" target=""><span>События</span></a>
+								</li>
+								<li class="submenu__item"><a href="aboutus.html" target=""><span>О нас</span></a>
+								</li>
+								<li class="submenu__item"><a href="community.html" target=""><span>Сообщество</span></a>
+								</li>
+								<li class="submenu__item"><a href="http://pokupo.livejournal.com/" target="_blank"><span>Блог</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu__item"><a href="partners.html" target=""><span>Партнёры</span></a>
+						</li>
+						<li class="menu__item with-submenu"><a href="javascript:void(0);" target=""><span>Помощь</span></a>
+							<ul class="submenu">
+								<li class="submenu__item"><a href="faq.html" target=""><span>Вопросы и ответы</span></a>
+								</li>
+								<li class="submenu__item"><a href="https://help.pokupo.ru" target="_blank"><span>Техническая поддержка</span></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<div class="submenu-bg"></div>
+				</div>
+			</section>
+			<!-- /header -->
+			<!-- subheader -->
+			<section class="subheader">
+				<div class="container">
+					<a href="../index.html" title="Pokupo.ru" class="logo">
+						<!-- span.logo__title название магазина-->
+						<img src="../images/logo/example__white.png" alt="" title="">
+					</a>
+					<div class="menu-login">
+						<div class="not-logged-in hidden"><a id="js-login" href="javascript:void(0);" title="Войти" class="menu-login__login">Вход</a><a href="javascript:void(0);" title="Зарегистрироваться" class="menu-login__register">Регистрация</a>
+						</div>
+						<div class="logged-in">
+							<div class="circles-menu">
+								<div class="circles-menu__item dropdown"><a href="javascript:void(0);" data-target="profile" class="with-icon icon__profile with-userpic dropdown__trigger"><sup class="circles-menu__num">4</sup></a>
+									<div data-target="profile" class="b-profile-menu dropdown__content hidden">
+										<p class="b-profile-menu__name">Сибилев
+											<br/>Игорь</p>
+										<ul class="menu">
+											<li class="menu__item"><a href="profile.html">Профиль</a>
+											</li>
+											<li class="menu__item"><a href="profile-favorite.html">Избранное</a>
+											</li>
+											<li class="menu__item"><a href="profile-orders.html">Заказы</a>
+											</li>
+											<li class="menu__item"><a href="profile-mail.html">Сообщения<sup class="menu__item__num">4</sup></a>
+											</li>
+											<li class="menu__item"><a id="js-logout" href="javascript:void(0);" class="b-profile-menu__logout">Выйти</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="circles-menu__item dropdown"><a href="javascript:void(0);" data-target="cart" class="with-icon icon__cart dropdown__trigger"><sup class="circles-menu__num">19</sup></a>
+									<div data-target="cart" class="b-cart-menu dropdown__content hidden">
+										<p>Корзина</p>
+										<div class="b-cart-menu__body"><i class="b-cart-menu__patch"></i>
+											<ol class="b-cart-menu__goods">
+												<li class="b-cart-menu__goods-item b-order-item">
+													<div class="b-order-item__name"><span>Converse White</span>
+													</div>
+													<div class="b-order-item__qty"><span class="b-increment-group"><span class="b-increment-group__darr"></span><span class="b-increment-group__qty">5</span><span class="b-increment-group__uarr"></span></span>
+													</div>
+													<div class="b-order-item__cost b-price"><span class="b-price__number">9000</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span>
+													</div>
+													<div class="b-order-item__drop btn-circle btn-circle--drop"></div>
+												</li>
+												<li class="b-cart-menu__goods-item b-order-item">
+													<div class="b-order-item__name"><span>Converse Red</span>
+													</div>
+													<div class="b-order-item__qty"><span class="b-increment-group"><span class="b-increment-group__darr"></span><span class="b-increment-group__qty">2</span><span class="b-increment-group__uarr"></span></span>
+													</div>
+													<div class="b-order-item__cost b-price"><span class="b-price__number">4900</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span>
+													</div>
+													<div class="b-order-item__drop btn-circle btn-circle--drop"></div>
+												</li>
+												<li class="b-cart-menu__goods-item b-order-item">
+													<div class="b-order-item__name"><span>Штукатурка гипсовая для&nbsp;наружных работ</span>
+													</div>
+													<div class="b-order-item__qty"><span class="b-increment-group"><span class="b-increment-group__darr"></span><span class="b-increment-group__qty">12</span><span class="b-increment-group__uarr"></span></span>
+													</div>
+													<div class="b-order-item__cost b-price"><span class="b-price__number">35<i class="b-price__separator"></i>880</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span>
+													</div>
+													<div class="b-order-item__drop btn-circle btn-circle--drop"></div>
+												</li>
+											</ol><a href="javascript:void(0);" class="btn btn-md b-cart-menu__order-button">Оформить</a><a href="javascript:void(0);" class="b-cart-menu__cart-button">В корзину</a>
+											<p class="b-cart-menu__results">Итог:<span class="b-cart-menu__amount b-price"><span class="b-price__number">49<i class="b-price__separator"></i>780</span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<ul class="menu b-user-navigation">
+						<li class="menu__item"><a href="javascript:void(0);"><span>Главная</span></a>
+						</li>
+						<li class="menu__item"><a href="javascript:void(0);"><span>Как купить</span></a>
+						</li>
+						<li class="menu__item"><a href="javascript:void(0);"><span>Доставка</span></a>
+						</li>
+						<li class="menu__item"><a href="javascript:void(0);"><span>Гарантии</span></a>
+						</li>
+						<li class="menu__item"><a href="javascript:void(0);"><span>Отзывы</span></a>
+						</li>
+						<li class="menu__item"><a href="javascript:void(0);"><span>О нас</span></a>
+						</li>
+						<li class="menu__item"><a href="javascript:void(0);"><span>Контакты</span></a>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!-- /subheader -->
+			<!-- profile-nav -->
+			<section class="profile-nav grey">
+				<div class="container">
+					<ul class="menu b-profile-nav">
+						<li class="menu__item"><a href="profile.html" class="icon__profile"><span>Профиль</span></a>
+						</li>
+						<li class="menu__item"><a href="profile-favorites.html" class="icon__favorites"><span>Избранное</span></a>
+						</li>
+						<li class="menu__item"><a href="profile-cart.html" class="icon__cart"><span>Корзина</span></a>
+						</li>
+						<li class="menu__item"><a href="profile-orders.html" class="icon__order"><span>Заказы</span></a>
+						</li>
+						<li class="menu__item active"><a href="profile-mail.html" class="icon__mail"><span>Сообщения</span><sup class="menu__item__num">25</sup></a>
+						</li>
+					</ul><a href="javascript:void(0);" class="btn btn-sm"><i class="icon icon-store--small"></i>Стать продавцом							</a>
+				</div>
+			</section>
+			<!-- /profile-nav -->
+			<!-- content -->
+			<section class="profile profile-mail">
+				<div class="container">
+					<div class="columns triple">
+						<div class="first double column">
+							<div class="content">
+								<h1 class="b-profile__header with-num">Сообщения<sup class="menu__item__num">25</sup></h1>
+								<div class="b-mail__selectall">
+									<input id="select_all" type="checkbox" name="select_all">
+									<label for="select_all">Выбрать все</label>
+								</div>
+							</div>
+						</div>
+						<div class="third column">
+							<div class="content profile-mail__actions">
+								<button type="button" data-target="modal-message" class="btn btn-lg btn-inline b-mail__addbtn b-mail__addbtn--top open-modal"><i class="icon icon-addmail"></i>Новое сообщение</button>
+							</div>
+						</div>
+					</div>
+					<div class="b-mail">
+						<div class="b-mail__item b-dialog unread">
+							<div class="b-dialog__checkbox">
+								<input id="i-01" type="checkbox" name="i-01">
+								<label for="i-01">&nbsp;</label>
+							</div>
+							<div class="b-dialog__drop"><span rel="tooltip" title="Удалить" data-target="modal-confirm" class="open-modal btn-circle btn-circle--trash"></span>
+							</div>
+							<div class="b-dialog__body">
+								<div class="b-dialog__userpic">
+									<a href="profile-chat.html" class="b-profile-info__photo"></a>
+								</div>
+								<div class="b-dialog__author">Команда Pokupo<span class="b-dialog__date">сегодня в 21:32</span>
+								</div>
+								<div class="b-dialog__title"><a href="profile-chat.html">Плановые технические работы</a><span class="b-dialog__title-num">(4)</span>
+								</div>
+								<div class="b-dialog__preview">
+									<p>
+										Уважаемые пользователи Pokupo!
+										<br/>Завтра, 28.08.2014, с 04:00 до 11:00 по московскому времени серверы портала будут остановлены для проведения плановых технических работ.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="b-mail__item b-dialog unread">
+							<div class="b-dialog__checkbox">
+								<input id="i-02" type="checkbox" name="i-02">
+								<label for="i-02">&nbsp;</label>
+							</div>
+							<div class="b-dialog__drop"><span rel="tooltip" title="Удалить" data-target="modal-confirm" class="open-modal btn-circle btn-circle--trash"></span>
+							</div>
+							<div class="b-dialog__body">
+								<div class="b-dialog__userpic">
+									<a href="profile-chat.html" class="b-profile-info__photo">
+										<img src="http://api.randomuser.me/portraits/med/men/11.jpg">
+									</a>
+								</div>
+								<div class="b-dialog__author">Команда Pokupo<span class="b-dialog__date">18 июня 2014 г.</span>
+								</div>
+								<div class="b-dialog__title"><a href="profile-chat.html">Политика России и Китая</a><span class="b-dialog__title-num">(4)</span>
+								</div>
+								<div class="b-dialog__preview">
+									<p>Если смотреть «с высоты птичьего полёта», политика России (как и политика большинства стран мира) определяется её местоположением. У России есть два «естественных» союзника — Евросоюз с одной стороны и Китай с другой. Такая ситуация сложилась
+										не вчера и не позавчера: двуглавый орёл является гербом России со времён Ивана III.</p>
+								</div>
+							</div>
+						</div>
+						<div class="b-mail__item b-dialog">
+							<div class="b-dialog__checkbox">
+								<input id="i-03" type="checkbox" name="i-03">
+								<label for="i-03">&nbsp;</label>
+							</div>
+							<div class="b-dialog__drop"><span rel="tooltip" title="Удалить" data-target="modal-confirm" class="open-modal btn-circle btn-circle--trash"></span>
+							</div>
+							<div class="b-dialog__body">
+								<div class="b-dialog__userpic">
+									<a href="profile-chat.html" class="b-profile-info__photo">
+										<img src="http://api.randomuser.me/portraits/med/men/7.jpg">
+									</a>
+								</div>
+								<div class="b-dialog__author">Игорь Сибилев<span class="b-dialog__date">18 июня 2014 г.</span>
+								</div>
+								<div class="b-dialog__title"><a href="profile-chat.html">Плановые технические работы</a><span class="b-dialog__title-num">(4)</span>
+								</div>
+								<div class="b-dialog__preview">
+									<p>
+										Уважаемые пользователи Pokupo!
+										<br/>Завтра, 28.08.2014, с 04:00 до 11:00 по московскому времени серверы портала будут остановлены для проведения плановых технических работ.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="b-mail__item b-dialog">
+							<div class="b-dialog__checkbox">
+								<input id="i-04" type="checkbox" name="i-04">
+								<label for="i-04">&nbsp;</label>
+							</div>
+							<div class="b-dialog__drop"><span rel="tooltip" title="Удалить" data-target="modal-confirm" class="open-modal btn-circle btn-circle--trash"></span>
+							</div>
+							<div class="b-dialog__body">
+								<div class="b-dialog__userpic">
+									<a href="profile-chat.html" class="b-profile-info__photo">
+										<img src="http://api.randomuser.me/portraits/med/men/46.jpg">
+									</a>
+								</div>
+								<div class="b-dialog__author">Константин Константинопольский <span class="b-dialog__date">18 июня 2014 г.</span>
+								</div>
+								<div class="b-dialog__title"><a href="profile-chat.html">Плановые технические работы</a><span class="b-dialog__title-num">(4)</span>
+								</div>
+								<div class="b-dialog__preview">
+									<p>
+										Уважаемые пользователи Pokupo!
+										<br/>Завтра, 28.08.2014, с 04:00 до 11:00 по московскому времени серверы портала будут остановлены для проведения плановых технических работ.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="b-order-list__actions">
+							<div class="check_button"><span class="pseudo-link">Отметить как прочитанное</span>
+							</div>
+							<div class="drop_button"><span class="pseudo-link">Удалить выбранные сообщения</span>
+							</div>
+						</div>
+					</div>
+					<div class="columns triple">
+						<div class="first double column">
+							<div class="content">
+								<div class="input-holder pagination">
+									<div class="radio-circles">
+										<ul class="menu">
+											<li class="menu__item active"><a href="javascript:void(0);">1</a>
+											</li>
+											<li class="menu__item"><a href="javascript:void(0);">2</a>
+											</li>
+											<li class="menu__item"><a href="javascript:void(0);">3</a>
+											</li>
+											<li class="menu__item"><a href="javascript:void(0);">4</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="third column">
+							<div class="content profile-mail__actions">
+								<button type="button" data-target="modal-message" class="btn btn-lg btn-inline b-mail__addbtn open-modal"><i class="icon icon-addmail"></i>Новое сообщение</button>
+							</div>
+						</div>
+					</div>
+					<h2 class="b-profile__headline">Всплывающие окна</h2>
+					<div data-target="modal-success" class="btn btn-sm open-modal">Успех</div>
+					<div data-target="modal-error" class="btn btn-red btn-sm open-modal">Ошибка</div>
+					<div id="modal-confirm" class="modal fade">
+						<div class="modal-dialog b-modal-info">
+							<div class="modal-content">
+								<div class="modal-header"><span class="close-modal btn-circle btn-circle--drop btn-circle--orange"></span>
+								</div>
+								<div class="modal-body">
+									<h3 class="b-modal-info__icon icon-warning">Вы действительно хотите удалить это сообщение?</h3>
+									<div class="b-modal-info__actions">
+										<button type="button" class="btn btn-lg btn-grey close-modal">Нет</button>
+										<button type="button" class="btn btn-lg">Да</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="modal-success" class="modal fade">
+						<div class="modal-dialog b-modal-info">
+							<div class="modal-content">
+								<div class="modal-header"><span class="close-modal btn-circle btn-circle--drop btn-circle--orange"></span>
+								</div>
+								<div class="modal-body">
+									<h3 class="b-modal-info__icon icon-success">Сообщение об успешном действии</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="modal-error" class="modal fade">
+						<div class="modal-dialog b-modal-info">
+							<div class="modal-content">
+								<div class="modal-header"><span class="close-modal btn-circle btn-circle--drop btn-circle--orange"></span>
+								</div>
+								<div class="modal-body">
+									<h3 class="b-modal-info__icon icon-error">Сообщение об ошибке</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="modal-message" class="modal fade">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header"><span class="close-modal btn-circle btn-circle--drop btn-circle--orange"></span>
+									<h2 class="b-profile__headline">Новое сообщение</h2>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="input-holder">
+											<input type="text" placeholder="Адресат" name="msg_to" value="jiexa@tabrisov.ru" class="block-input">
+										</div>
+										<div class="input-holder">
+											<input type="text" placeholder="Тема беседы" name="msg_topic" value="" class="block-input">
+										</div>
+										<div style="padding:0" class="input-holder">
+											<textarea name="msg_text" rows="5"></textarea>
+										</div>
+										<div class="input-holder">
+											<input id="carboncopy" type="checkbox" name="carboncopy" checked="checked">
+											<label for="carboncopy">Выслать копию на e-mail</label>
+										</div>
+										<button type="button" class="btn btn-lg btn-grey btn-inline close-modal">Отмена</button>
+										<button type="reset" class="btn btn-lg">Отправить</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- /content -->
+			<div class="footer-overlay"></div>
+		</div>
+		<!-- footer -->
+		<footer class="footer">
+			<div class="container">
+				<div class="columns">
+					<div class="first column">
+						<div class="content">
+							<ul>
+								<li><span class="contact"><i class="contact-icon copyright"></i>Pokupo.ru&nbsp;2014</span>
+								</li>
+								<li><a href="mailto:support@pokupo.ru" title="E-Mail" class="contact"><i class="contact-icon email"></i>support@pokupo.ru</a>
+								</li>
+								<li><a href="skype:pokupo.ru?chat" onclick="return skypeCheck()" title="Skype" class="contact"><i class="contact-icon skype"></i>pokupo.ru</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="fourth column">
+						<div class="content">
+							<ul class="social">
+								<li>
+									<a href="https://vk.com/pokupo" target="_blank" title="Вконтакте" class="social__icon vk"></a>
+								</li>
+								<li>
+									<a href="https://twitter.com/pokupo_ru" target="_blank" title="Твиттер" class="social__icon tw"></a>
+								</li>
+								<li>
+									<a href="http://pokupo.livejournal.com/" target="_blank" title="Живой журнал" class="social__icon lj"></a>
+								</li>
+								<li>
+									<a href="http://habrahabr.ru/company/pokupo/" target="_blank" title="Хабрахабр" class="social__icon hh"></a>
+								</li>
+								<li>
+									<a href="https://groups.google.com/d/forum/pokupo_ru" target="_blank" title="Гугл-плюс" class="social__icon gp"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="second column">
+						<div class="content">
+							<ul>
+								<li><a href="https://help.pokupo.ru/knowledgebase.php" title="База знаний">База знаний</a>
+								</li>
+								<li><a href="https://help.pokupo.ru/" title="Техническая поддержка">Техническая поддержка</a>
+								</li>
+								<li><a href="http://forum.pokupo.ru" title="Форум">Форум</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="third column">
+						<div class="content">
+							<ul>
+								<li><a href="javascript:void(0);" title="Пользовательское соглашение">Пользовательское соглашение</a>
+								</li>
+								<li><a href="javascript:void(0);" title="Правила конфиденциальности"> Правила конфиденциальности</a>
+								</li>
+								<li><a href="javascript:void(0);" title="Политика возврата платежей"> Политика возврата платежей</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- /footer -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+		<script src="http://vjs.zencdn.net/4.7/video.js"></script>
+		<script src="/scripts/libs/jquery.fancytree-all.js"></script>
+		<script src="/scripts/libs/fotorama.js"></script>
+		<script src="/scripts/libs/carousel.min.js"></script>
+		<script src="/scripts/libs/chosen.jquery.js"></script>
+		<script src="/scripts/libs/floatlabels.js"></script>
+		<script src="/scripts/libs/masked-input.js"></script>
+		<script src="/scripts/libs/placeholder.js"></script>
+		<script src="/scripts/libs/tooltip.js"></script>
+		<script src="/scripts/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+
+<script id="emptyFavoritesTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="profile">
+    <div class="container">
+      <h1 class="b-profile__header">Избранные товары</h1>
+      <div>
+        <p>В избранном нет ни одного товара.</p>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="favoritesTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="profile">
+    <div class="container">
+      <h1 class="b-profile__header">Избранные товары</h1><!-- ko foreach: content --><!-- ko if: showSellerInfo -->
+      <div data-bind="embedWidget :{ widget : 'InfoSellerWidget-1.0', params : {data : sellerInfo, tmpl : {path: 'http://promodev.pokupo.ru/themes/default/tmpl/infoSellerTmpl.html', id : 'infoSellerTmpl'}}}" class="b-profile-info b-profile-info--fullwidth"></div><!-- /ko -->
+      <ol class="b-order-list">
+        <li class="b-order-item b-thead">
+          <div class="b-order-item__checkbox">
+            <input id="js-select-all" type="checkbox" data-bind="attr: {id: cssSelectAll}"/>
+            <label for="js-select-all" data-bind="click: ClickSelectAll"></label>
+          </div>
+          <div class="b-order-item__img"></div>
+          <div class="b-order-item__name">Наименование</div>
+          <div class="b-order-item__price">Цена</div>
+        </li><!-- ko foreach: goods -->
+        <li class="b-order-item">
+          <div class="b-order-item__checkbox">
+            <input type="checkbox" data-bind="attr: {id: cssCheckboxGoods}"/>
+            <label for="" data-bind="click: ClickOrder"></label>
+          </div>
+          <div class="b-order-item__img"><img src="javascript:void(0);" data-bind="attr: {src: routeImages, title: fullName }"/></div>
+          <div class="b-order-item__name"><a href="javascript:void(0);" data-bind="click: ClickGoods"><span data-bind="text: fullName"></span></a></div>
+          <div class="b-order-item__price"><span class="b-price"><span data-bind="text: sellEndCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></div>
+          <div class="b-order-item__delay">
+            <div class="drop_button b-order-item__drop"><span data-bind="click: ClickRemove" class="pseudo-link">Удалить</span></div>
+          </div>
+          <div class="b-order-item__action"><!-- ko if: showAddToCart -->
+            <button type="button" data-bind="click: AddToCart" class="btn btn-sm"><i class="icon icon-cart--small"></i>В корзину</button><!-- /ko --><!-- ko if: showBuy -->
+            <button type="button" data-bind="click: Buy" class="btn btn-sm">Купить сразу</button><!-- /ko -->
+          </div>
+        </li><!-- /ko -->
+      </ol>
+      <div class="b-order-list__actions"><!-- ko if: DisabledButton -->
+        <div class="drop_button"><span data-bind="click: ClickButchRemove" class="pseudo-link">Удалить из избранного</span></div><!-- /ko --><!-- ko ifnot: DisabledButton -->
+        <div class="drop_button"><span class="pseudo-link">Удалить из избранного</span></div><!-- /ko -->
+        <div class="empty_button"><span data-bind="click: ClickClearFavorites" class="pseudo-link">Очистить избранное от товаров</span></div>
+      </div><!-- /ko -->
+    </div>
+  </div>
+</script>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+		<!-- iOS-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link sizes="192x192" href="touch-icon-192x192.png" rel="icon">
+		<link sizes="180x180" href="images/icons/apple-touch-icon-180x180.png" rel="apple-touch-icon">
+		<link sizes="152x152" href="images/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon">
+		<link sizes="144x144" href="images/icons/apple-touch-icon-144x144.png" rel="apple-touch-icon">
+		<link sizes="120x120" href="images/icons/apple-touch-icon-120x120.png" rel="apple-touch-icon">
+		<link sizes="114x114" href="images/icons/apple-touch-icon-114x114.png" rel="apple-touch-icon">
+		<link sizes="76x76" href="images/icons/apple-touch-icon-76x76.png" rel="apple-touch-icon">
+		<link sizes="72x72" href="images/icons/apple-touch-icon-72x72.png" rel="apple-touch-icon">
+		<link sizes="57x57" href="images/icons/apple-touch-icon-57x57.png" rel="apple-touch-icon">
+		<link href="images/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon">
+		<!-- Windows 8-->
+		<meta name="application-name" content="О нас">
+		<meta name="msapplication-tooltip" content="Description for pokupo">
+		<meta name="msapplication-navbutton-color" content="#ffa800">
+		<meta name="msapplication-TileColor" content="#00883c">
+		<meta name="msapplication-TileImage" content="images/icons/win8-bg.png">
+		<meta name="msapplication-square70x70logo" content="images/icons/win8-logo-70x70.png">
+		<meta name="msapplication-square150x150logo" content="images/icons/win8-logo-150x150.png">
+		<meta name="msapplication-square310x310logo" content="images/icons/win8-logo-310x310.png">
+		<meta name="msapplication-wide310x150logo" content="images/icons/win8-logo-310x150.png">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="msapplication-window" content="width=1024;height=768">
+		<!-- Windows-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- Windows Phone-->
+		<!--[if IE]> 
+    <meta name="imagetoolbar" content="no"></script>
+    <meta name="msthemecompatible" content="no"></script>
+    <![endif]-->
+		<!-- Blackberry and etc-->
+		<meta name="cleartype" content="on">
+		<meta name="HandheldFriendly" content="True">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<!-- No parse telephone and address-->
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="address=no">
+		<!-- SEO-->
+		<title>Все кнопки</title>
+		<meta name="description" content="Description for pokupo">
+		<meta name="keywords" content="pokupo, project">
+		<meta name="copyright" content="©tabrisov">
+		<meta name="reply-to" content="jiexa@tabrisov.ru">
+		<link href="../styles/main.css" rel="stylesheet">
+		<link href="images/icons/favicon.ico" rel="shortcut icon">
+		<!--[if lt IE 9]> 
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="scripts/libs/nwmatcher.js"></script>
+    <script src="scripts/libs/ie8canvas.js"></script>
+    <![endif]-->
+	</head>
+	<body>
+		<div class="main">
+			<section class="header">
+				<div class="container">
+					<a href="/index.html" title="Pokupo.ru" class="logo"></a>
+					<div class="menu-login">
+						<div class="not-logged-in hidden"><a id="js-login" href="javascript:void(0);" title="Войти" class="menu-login__login">Вход</a><a href="javascript:void(0);" title="Зарегистрироваться" class="menu-login__register">Регистрация</a>
+						</div>
+						<div class="logged-in"><a href="https://seller.pokupo.ru/login" class="btn btn-sm"><i class="icon icon-store--small"></i>Мой магазин</a>
+						</div>
+					</div><span id="toggleNav"><i class="icon icon-menu"></i>Меню</span>
+					<ul class="menu">
+					</ul>
+					<div class="submenu-bg"></div>
+				</div>
+			</section>
+			<section class="aux">
+				<div class="container">
+					<div class="document">
+						<h1 style="margin-bottom: 20px">Кнопки</h1>
+						<div style="margin-bottom: 40px">
+							<p class="lead">У нас уже набралось столько разных кнопок, что я начал путаться в собственных стилях.</p>
+							<p>Поэтому я буду собирать здесь все кнопки из макетов, чтобы было легче поддерживать систему.</p>
+						</div>
+						<h2 style="margin-bottom: 20px">1. Большие кнопки</h2>
+						<h3>.btn-lg и <span style="color:#ccc">&amp;</span>.btn-grey</h3>
+						<table style="margin-bottom: 100px; text-align: left">
+							<tr>
+								<td>
+									<div class="btn btn-lg">Большая кнопка</div>
+								</td>
+								<td style="padding-left: 40px">
+									<div class="btn btn-grey btn-lg">Большая серая кнопка</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<h3><span style="color:#ccc">&amp;</span>.btn-inline</h3>
+									<div class="btn btn-grey btn-lg btn-inline">Отменить</div>
+									<div class="btn btn-lg btn-inline">Сохранить</div>
+									<br>
+									<div class="btn btn-grey btn-lg btn-inline">Назад</div>
+									<div class="btn btn-lg btn-inline">Продолжить</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<h3><span style="color:#ccc">&amp;</span>.btn-red</h3>
+									<div class="btn btn-red btn-lg">Регистрация</div>
+								</td>
+							</tr>
+						</table>
+						<h2 style="margin-bottom: 20px">2. Обычные кнопки</h2>
+						<h3>.btn</h3>
+						<table style="margin-bottom: 100px; text-align: left">
+							<tr>
+								<td>
+									<div class="btn">Купить сразу</div>
+								</td>
+								<td style="padding-left: 40px">
+									<div class="btn btn-grey">Обычная серая кнопка</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<h3><span style="color:#ccc">&amp;</span>.btn-icon</h3>
+									<div class="btn btn-icon"><i class="fa fa-refresh"></i>В корзину</div>
+									<br>
+									<div class="btn btn-icon"><i class="fa fa-lg fa-refresh"></i>Обновить данные</div>
+								</td>
+							</tr>
+						</table>
+						<h2 style="margin-bottom: 20px">3. Средние кнопки</h2>
+						<h3>.btn-md</h3>
+						<table style="margin-bottom: 100px; text-align: left">
+							<tr>
+								<td>
+									<div class="btn btn-md">Оформить</div>
+									<br>
+								</td>
+								<td style="padding-left: 40px"></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<h3><span style="color:#ccc">&amp;</span>.btn-icon</h3>
+									<div class="btn btn-md btn-icon">В корзину</div>
+								</td>
+							</tr>
+						</table>
+						<h2 style="margin-bottom: 20px">4. Маленькие кнопки</h2>
+						<h3>.btn-sm</h3>
+						<table style="margin-bottom: 100px; text-align: left">
+							<tr>
+								<td>
+									<div class="btn btn-sm">Оформить</div>
+									<br>
+								</td>
+								<td style="padding-left: 40px"></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<h3><span style="color:#ccc">&amp;</span>.btn-icon</h3>
+									<div class="btn btn-sm btn-icon">Стать продавцом</div>
+								</td>
+							</tr>
+						</table>
+						<h2 style="margin-bottom: 20px">5. Очень маленькие кнопки</h2>
+						<h3>.btn-xs</h3>
+						<table style="margin-bottom: 100px; text-align: left">
+							<tr>
+								<td>
+									<div class="btn btn-xs">Загрузить аватар</div>
+									<br>
+									<div class="btn btn-xs">Добавить новый адрес</div>
+								</td>
+								<td style="padding-left: 40px"></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<h3><span style="color:#ccc">&amp;</span>.btn-inline</h3>
+									<div class="btn btn-xs btn-inline">Задать вопрос</div>
+								</td>
+							</tr>
+						</table>
+						<h2 style="margin-bottom: 20px">6. Малюсенькие кнопочки</h2>
+						<h3>.btn-xxs</h3>
+						<table style="margin-bottom: 100px; text-align: left">
+							<tr>
+								<td>
+									<div class="btn btn-xxs">Написать</div>
+								</td>
+								<td style="padding-left: 40px"></td>
+							</tr>
+						</table>
+						<h2 style="margin-bottom: 20px">7. Тонкие кнопки</h2>
+						<h3>.btn-thin</h3>
+						<table style="margin-bottom: 100px; text-align: left">
+							<tr>
+								<td>
+									<div class="btn btn-thin">Ещё новости</div>
+								</td>
+								<td style="padding-left: 40px"></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<h3><span style="color:#ccc">&amp;</span>.btn-sm</h3>
+									<div class="btn btn-thin btn-sm">Смотреть все</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<h3><span style="color:#ccc">&amp;.btn-sm</span>.btn-icon</h3>
+									<div class="btn btn-thin btn-sm btn-icon">Назад к списку</div>
+								</td>
+							</tr>
+						</table>
+						<h2 style="margin-bottom: 20px">8. Гигантские кнопки</h2>
+						<h3>.btn-xl</h3>
+						<table style="margin-bottom: 100px; text-align: left">
+							<tr>
+								<td>
+									<div class="btn btn-huge">Создать магазин бесплатно</div>
+								</td>
+								<td style="padding-left: 40px"></td>
+							</tr>
+						</table>
+						<h2 style="margin-bottom: 20px">9. Блочные кнопки</h2>
+						<h3>.btn-block</h3>
+						<div class="btn btn-block">Начать расширенный поиск</div>
+					</div>
+				</div>
+			</section>
+			<div class="footer-overlay"></div>
+		</div>
+		<footer class="footer">
+			<div class="container">
+				<div class="columns">
+					<div class="first column">
+						<div class="content">
+							<ul>
+								<li><span class="contact"><i class="contact-icon copyright"></i>Pokupo.ru&nbsp;2014</span>
+								</li>
+								<li><a href="mailto:support@pokupo.ru" title="E-Mail" class="contact"><i class="contact-icon email"></i>support@pokupo.ru</a>
+								</li>
+								<li><a href="skype:pokupo.ru?chat" onclick="return skypeCheck()" title="Skype" class="contact"><i class="contact-icon skype"></i>pokupo.ru</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="fourth column">
+						<div class="content">
+							<ul class="social">
+								<li>
+									<a href="https://vk.com/pokupo" target="_blank" title="Вконтакте" class="social__icon vk"></a>
+								</li>
+								<li>
+									<a href="https://twitter.com/pokupo_ru" target="_blank" title="Твиттер" class="social__icon tw"></a>
+								</li>
+								<li>
+									<a href="http://pokupo.livejournal.com/" target="_blank" title="Живой журнал" class="social__icon lj"></a>
+								</li>
+								<li>
+									<a href="http://habrahabr.ru/company/pokupo/" target="_blank" title="Хабрахабр" class="social__icon hh"></a>
+								</li>
+								<li>
+									<a href="https://groups.google.com/d/forum/pokupo_ru" target="_blank" title="Гугл-плюс" class="social__icon gp"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="second column">
+						<div class="content">
+							<ul>
+								<li><a href="https://help.pokupo.ru/knowledgebase.php" title="База знаний">База знаний</a>
+								</li>
+								<li><a href="https://help.pokupo.ru/" title="Техническая поддержка">Техническая поддержка</a>
+								</li>
+								<li><a href="http://forum.pokupo.ru" title="Форум">Форум</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="third column">
+						<div class="content">
+							<ul>
+								<li><a href="javascript:void(0);" title="Пользовательское соглашение">Пользовательское соглашение</a>
+								</li>
+								<li><a href="javascript:void(0);" title="Правила конфиденциальности"> Правила конфиденциальности</a>
+								</li>
+								<li><a href="javascript:void(0);" title="Политика возврата платежей"> Политика возврата платежей</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+		<script src="http://vjs.zencdn.net/4.7/video.js"></script>
+		<script src="/scripts/libs/jquery.fancytree-all.js"></script>
+		<script src="/scripts/libs/fotorama.js"></script>
+		<script src="/scripts/libs/carousel.min.js"></script>
+		<script src="/scripts/libs/chosen.jquery.js"></script>
+		<script src="/scripts/libs/floatlabels.js"></script>
+		<script src="/scripts/libs/masked-input.js"></script>
+		<script src="/scripts/libs/placeholder.js"></script>
+		<script src="/scripts/libs/tooltip.js"></script>
+	</body>
+</html>

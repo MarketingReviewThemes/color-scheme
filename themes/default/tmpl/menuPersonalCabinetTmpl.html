@@ -1,0 +1,24 @@
+
+<script id="menuPersonalCabinetTmpl" type="text/html">
+  <!-- version 1.1 -->
+  <div>
+    <div class="profile-nav grey">
+      <div class="container"><a href="https://seller.pokupo.ru/seller" class="btn btn-sm"><i class="icon icon-store--small"></i>Стать продавцом</a>
+        <ul class="menu b-profile-nav">
+          <li data-bind="attr: {class: 'menu__item ' + activeProfile()}"><a href="javascript:void(0);" data-bind="click: ClickProfile" class="icon__profile"><span>Профиль</span></a></li>
+          <li data-bind="attr: {class: 'menu__item ' + activeFavorites()}" class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickFavorites" class="icon__favorites"><span>Избранное</span></a></li>
+          <li data-bind="attr: {class: 'menu__item ' + activeCart()}" class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickCart" class="icon__cart"><span>Корзина</span></a></li>
+          <li data-bind="attr: {class: 'menu__item ' + activePurchases()}" class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickPurchases" class="icon__order"><span>Заказы</span></a></li>
+          <li data-bind="attr: {class: 'menu__item ' + activeMessages()}" class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickMessages" class="icon__mail"><span>Сообщения<!-- ko if: countNewMessage() > 0 --><sup data-bind="text: countNewMessage" class="menu__item__num"></sup><!-- /ko --></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container"><!-- ko if: subMenu().length > 0 -->
+      <dl class="tabs tabs--withline"><!-- ko foreach: subMenu --><!-- ko if: isActive -->
+        <dt class="tab__trigger selected"><span data-bind="css: activeSubMenu, click: ClickSubMenu, text: title"></span></dt>
+        <dd class="tab__content selected"></dd><!-- /ko --><!-- ko ifnot: isActive -->
+        <dt class="tab__trigger"><span data-bind="css: activeSubMenu, click: ClickSubMenu, text: title"></span></dt><!-- /ko --><!-- /ko -->
+      </dl><!-- /ko -->
+    </div>
+  </div>
+</script>

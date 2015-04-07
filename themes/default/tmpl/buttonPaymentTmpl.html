@@ -1,0 +1,101 @@
+
+<script id="buttonPaymentImpl" type="text/html">
+  <!-- version 1.0-->
+  <div data-bind="click: ClickPay" class="btn btn-xs btn-solid">
+    <!-- ko text: title-->
+    <!-- /ko-->
+  </div>
+</script>
+<script id="paymentPageTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div>
+    <h1 class="b-catalog-item__title">Оплата заказа</h1>
+    <div class="b-invoice">
+      <div class="b-invoice__before"></div>
+      <div class="content">
+        <div class="b-invoice__block">
+          <h2 class="b-invoice__title">Данные счёта</h2>
+          <ul class="b-tech"><!-- ko foreach: outData -->
+            <li class="b-tech__item">
+              <div class="b-tech__char"><span data-bind="text: label"></span></div>
+              <div data-bind="text: value" class="b-tech__value"></div>
+            </li><!-- /ko -->
+          </ul>
+        </div>
+        <div class="b-invoice__block">
+          <h2 class="b-invoice__title">Инструкция</h2>
+          <p data-bind="html: instruction, attr: {id: cssInstruction }"></p>
+          <p></p>
+          <div class="print-button"><span data-bind="click: ClickPrintInstruction" class="pseudo-link">Распечатать инструкцию</span></div>
+          <p></p>
+        </div><!-- ko if: isInData() -->
+        <div class="b-invoice__block">
+          <from data-bind="attr: {id: cssInDataForm}" method="POST" target="upload_target" enctype="multipart/form-data">
+            <h2 class="b-invoice__title">Укажите данные</h2><!-- ko foreach: inData --><!-- ko if: typeField() == "hidden" -->
+            <!-- ko template: { name: 'paymentTextFieldTmpl' } -->
+            <!-- /ko --><!-- /ko --><!-- ko ifnot: typeField() == "hidden" -->
+            <div class="input-holder"><!-- ko if: help() -->
+              <div rel="tooltip" data-bind="attr: {title: help()}" class="tooltip__trigger">?</div><!-- /ko --><!-- ko if: typeField() == "select" -->
+              <!-- ko template: { name: 'paymentSelectFieldTmpl' } -->
+              <!-- /ko --><!-- /ko --><!-- ko if: typeField() == "text" || typeField() == "password" -->
+              <!-- ko template: { name: 'paymentTextFieldTmpl' } -->
+              <!-- /ko --><!-- /ko --><!-- ko if: typeField() == "textarea" -->
+              <!-- ko template: { name: 'paymentTextareaFieldTmpl' } -->
+              <!-- /ko --><!-- /ko --><!-- ko if: typeField() == "checkbox" -->
+              <!-- ko template: { name: 'paymentCheckboxFieldTmpl' } -->
+              <!-- /ko --><!-- /ko --><!-- ko if: typeField() == "radio" -->
+              <!-- ko template: { name: 'paymentRadioFieldTmpl' } -->
+              <!-- /ko --><!-- /ko --><!-- ko if: error() -->
+              <div class="error__message">
+                <p data-bind="text: error"></p>
+              </div><!-- /ko -->
+            </div><!-- /ko --><!-- /ko -->
+          </from>
+        </div><!-- /ko --><!-- ko if: urlInvoice() -->
+        <div class="b-invoice__block">
+          <h2 class="b-invoice__title">Квитанция для оплаты</h2>
+          <div><img src="" data-bind="attr: {id: cssInvoice, src: urlInvoice}"/></div>
+          <div class="print-button"><span data-bind="click: ClickPrintInvoice" class="pseudo-link">Распечатать квитанцию</span></div>
+        </div><!-- /ko -->
+      </div>
+    </div><!-- ko if: !isPayForm() && isInData() -->
+    <div class="b-wizard__actions"><a data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a><a data-bind="click: ClickSubmit" class="b-wizard__action btn-next-step">Обновить</a></div><!-- /ko --><!-- ko if: !isPayForm() && !isInData() -->
+    <div class="b-wizard__actions"><a data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a><a data-bind="click: ClickRefresh" class="b-wizard__action btn-next-step">Обновить</a></div><!-- /ko --><!-- ko if: isPayForm() -->
+    <div class="b-wizard__actions">
+      <div><!-- ko with: payForm -->
+        <form action="" method="" data-bind="attr: {method: method, action: action, target: target, id: cssPayForm}"><!-- ko foreach: field -->
+          <input type="hidden" name="" value="" data-bind="attr: {name: name}, value: value"/><!-- /ko -->
+        </form><!-- /ko -->
+      </div><a data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a><a data-bind="click: ClickPay" class="b-wizard__action btn-next-step">Оплатить</a>
+    </div><!-- /ko -->
+  </div>
+</script>
+<script id="paymentSelectFieldTmpl" type="text/html">
+  <!-- version 1.0-->
+  <select name="" data-bind="attr: { name: name(), placeholder: label()}"><!-- ko foreach: listSelect() --><!-- ko if: value == $parent.value() -->
+    <option value="" data-bind="value: value, text: label" selected="selected"></option><!-- /ko --><!-- ko ifnot: value == $parent.value() -->
+    <option value="" data-bind="value: value, text: label"></option><!-- /ko --><!-- /ko -->
+  </select>
+</script>
+<script id="paymentTextFieldTmpl" type="text/html">
+  <!-- version 1.0-->
+  <input type="text" value="" data-bind="value: value, attr: {type: typeField(), name: name(), id: cssField(), placeholder: label()}" class="block-input"/>
+</script>
+<script id="paymentTextareaFieldTmpl" type="text/html">
+  <!-- version 1.0-->
+  <textarea name="" data-bind="attr: {name: name()}, text: value, placeholder: label()" class="block-input"></textarea>
+</script>
+<script id="paymentCheckboxFieldTmpl" type="text/html">
+  <!-- version 1.0--><!-- ko if: listSelect().length > 0 --><!-- ko foreach: listSelect --><!-- ko if: value == $parent.value() -->
+  <input type="checkbox" checked="checked" name="" value="" data-bind="value: value, attr: { name: $parent.name()}" class="checkbox"/><!-- /ko --><!-- ko ifnot: value == $parent.value() -->
+  <input type="checkbox" name="" value="" data-bind="value: value, attr: { name: $parent.name()}" class="checkbox"/><!-- /ko -->
+  <label for="" data-bind="text: $parent.label(), attr: { 'for': $parent.name()}" class="block-label b-small-text"></label><!-- /ko --><!-- /ko --><!-- ko if: listSelect().length == 0 -->
+  <input type="checkbox" name="" value="" data-bind="value: value(), attr: { name: name()}" class="checkbox"/>
+  <label for="" data-bind="text: label(), attr: {'for': name()}" class="block-label b-small-text"></label><!-- /ko -->
+</script>
+<script id="paymentRadioFieldTmpl" type="text/html">
+  <!-- version 1.0--><!-- ko foreach: listSelect --><!-- ko if: value == $parent.value() -->
+  <input type="radio" checked="checked" name="" value="" data-bind="value: value, attr: { name: $parent.name()}" class="inline"/><!-- /ko --><!-- ko ifnot: value == $parent.value() -->
+  <input type="radio" name="" value="" data-bind="value: value, attr: { name: $parent.name()}" class="inline"/><!-- /ko -->
+  <label for="" data-bind="text: $parent.label(), attr: { 'for': $parent.name()}"></label><!-- /ko -->
+</script>

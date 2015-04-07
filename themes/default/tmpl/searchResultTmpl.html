@@ -1,0 +1,252 @@
+
+<script id="searchResultTileTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="nosidebar">
+    <div class="b-catalog">
+      <h1 id="js-nosidebar" class="b-catalog__title"><!-- ko if: countGoods == 1 -->Найден 
+        <!-- ko text: countGoods -->
+        <!-- /ko--> товар<!-- /ko --><!-- ko if: countGoods > 1 && countGoods < 5 -->Найдено 
+        <!-- ko text: countGoods -->
+        <!-- /ko--> товара<!-- /ko --><!-- ko if: countGoods > 4 -->Найдено 
+        <!-- text: countGoods -->
+        <!-- /ko--> товаров<!-- /ko -->
+      </h1>
+      <!-- ko template: { name: 'searchResultFiletrTmpl', data: filters } -->
+      <!-- /ko -->
+      <div class="b-catalog__items cards"><!-- ko foreach: content --><!-- ko foreach: str -->
+        <div class="b-catalog__item">
+          <div class="b-item with_popover">
+            <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
+            <div class="responsive-holder">
+              <div class="b-item__description">
+                <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>
+                <div class="b-item__info">
+                  <p data-bind="html: description"></p>
+                </div>
+              </div>
+              <div class="b-item__price"><!-- ko if: discount() > 0 -->
+                <div class="b-price b-item__price--old"><span data-bind="text: sellGoods" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div>
+                <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko --><!-- ko if: discount() == 0 -->
+                <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
+              </div>
+            </div>
+            <div class="b-item__order-button">
+              <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В корзину</button>
+            </div>
+            <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
+            <div class="b-item__popover">
+              <div class="b-item--dublicate">
+                <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
+                <div class="responsive-holder">
+                  <div class="b-item__description">
+                    <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>
+                    <div class="b-item__info">
+                      <p data-bind="html: description"></p>
+                    </div>
+                  </div>
+                  <div class="b-item__price"><!-- ko if: discount() > 0 -->
+                    <div class="b-price b-item__price--old"><span data-bind="text: sellGoods" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div>
+                    <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko --><!-- ko if: discount() == 0 -->
+                    <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
+                  </div>
+                </div>
+                <div class="b-item__order-button">
+                  <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В корзину</button>
+                </div>
+              </div>
+              <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
+            </div>
+          </div>
+        </div><!-- /ko --><!-- /ko -->
+      </div><!-- ko if: paging().length > 1 -->
+      <!-- ko template: {name: "searchResultPaginatetionTmpl" } -->
+      <!-- /ko --><!-- /ko -->
+    </div>
+  </div>
+</script>
+<script id="searchResultTableTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="nosidebar">
+    <div class="b-catalog">
+      <h1 id="js-nosidebar" class="b-catalog__title">Найдено
+        <!-- ko text: countGoods -->
+        <!-- /ko -->товаров
+      </h1>
+      <!-- ko template: { name: 'searchResultFiletrTmpl', data: filters } -->
+      <!-- /ko -->
+      <div class="b-catalog__items magazine"><!-- ko foreach: content -->
+        <div class="b-catalog__item">
+          <div class="b-item with_popover">
+            <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
+            <div class="responsive-holder">
+              <div class="b-item__description">
+                <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>
+                <div class="b-item__info">
+                  <p data-bind="html: description"></p>
+                </div>
+              </div>
+              <div class="b-item__price"><!-- ko if: discount() > 0 -->
+                <div class="b-price b-item__price--old"><span data-bind="text: sellGoods" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div>
+                <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko --><!-- ko if: discount() == 0 -->
+                <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
+              </div>
+            </div>
+            <div class="b-item__order-button">
+              <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В корзину</button>
+            </div>
+            <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
+            <div class="b-item__popover">
+              <div class="b-item--dublicate">
+                <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
+                <div class="responsive-holder">
+                  <div class="b-item__description">
+                    <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>
+                    <div class="b-item__info">
+                      <p data-bind="html: description"></p>
+                    </div>
+                  </div>
+                  <div class="b-item__price"><!-- ko if: discount() > 0 -->
+                    <div class="b-price b-item__price--old"><span data-bind="text: sellGoods" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div>
+                    <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko --><!-- ko if: discount() == 0 -->
+                    <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
+                  </div>
+                </div>
+                <div class="b-item__order-button">
+                  <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В корзину</button>
+                </div>
+              </div>
+              <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
+            </div>
+          </div>
+        </div><!-- /ko -->
+      </div><!-- ko if: paging().length > 1 -->
+      <!-- ko template: {name: "searchResultPaginatetionTmpl"} -->
+      <!-- /ko --><!-- /ko -->
+    </div>
+  </div>
+</script>
+<script id="searchResultListTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="nosidebar">
+    <div class="b-catalog">
+      <h1 id="js-nosidebar" class="b-catalog__title">Найдено
+        <!-- ko text: countGoods -->
+        <!-- /ko -->товаров
+      </h1>
+      <!-- ko template: { name: 'searchResultFiletrTmpl', data: filters } -->
+      <!-- /ko -->
+      <div class="b-catalog__items titles"><!-- ko foreach: content -->
+        <div class="b-catalog__item">
+          <div class="b-item with_popover">
+            <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
+            <div class="responsive-holder">
+              <div class="b-item__description">
+                <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>
+                <div class="b-item__info">
+                  <p data-bind="html: description"></p>
+                </div>
+              </div>
+              <div class="b-item__price"><!-- ko if: discount() > 0 -->
+                <div class="b-price b-item__price--old"><span data-bind="text: sellGoods" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div>
+                <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko --><!-- ko if: discount() == 0 -->
+                <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
+              </div>
+            </div>
+            <div class="b-item__order-button">
+              <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В корзину</button>
+            </div>
+            <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
+            <div class="b-item__popover">
+              <div class="b-item--dublicate">
+                <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
+                <div class="responsive-holder">
+                  <div class="b-item__description">
+                    <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>
+                    <div class="b-item__info">
+                      <p data-bind="html: description"></p>
+                    </div>
+                  </div>
+                  <div class="b-item__price"><!-- ko if: discount() > 0 -->
+                    <div class="b-price b-item__price--old"><span data-bind="text: sellGoods" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div>
+                    <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko --><!-- ko if: discount() == 0 -->
+                    <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
+                  </div>
+                </div>
+                <div class="b-item__order-button">
+                  <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В корзину</button>
+                </div>
+              </div>
+              <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
+            </div>
+          </div>
+        </div><!-- /ko -->
+      </div><!-- ko if: paging().length > 1 -->
+      <!-- ko template: {name: "searchResultPaginatetionTmpl"} -->
+      <!-- /ko --><!-- /ko -->
+    </div>
+  </div>
+</script>
+<script id="searchResultErrorTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div class="nosidebar">
+    <div class="b-catalog">
+      <h1 id="js-nosidebar" class="b-catalog__title">По вашему запросу товаров не найдено</h1>
+      <!--  ko template: { name: 'searchResultFiletrTmpl', data: filters }-->
+      <!-- /ko-->
+    </div>
+    <div class="b-catalog__items titles">
+      <p>Попробуйте изменить параметры поиска и попробуйте еще раз.</p>
+    </div>
+  </div>
+</script>
+<script id="searchResultFiletrTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div class="b-catalog__controls">
+    <aside class="b-catalog__quick-filter">
+      <input type="search" name="quick-filter" placeholder="Быстрый поиск..." data-bind="value: filterName" class="b-catalog__quick-filter__input no-label"/><i data-bind="click: ClickFilterNameGoods" class="b-catalog__quick-filter__icon"></i>
+    </aside>
+    <div class="b-catalog__controls-item">Сортировать
+      <div class="inline-sorter dropdown selector"><span id="content_sort" data-target="sort" class="selector__current dropdown__trigger content_filter_sort_dropdown__trigger"><!-- ko foreach: sort.list --><!-- ko if: isActive -->
+          <!-- ko text: title -->
+          <!-- /ko --><!-- /ko --><!-- /ko --></span>
+        <div data-target="sort" class="dropdown__content selector__options hidden content_filter_sort_dropdown__content">
+          <ul data-bind="foreach: sort.list"><!-- ko if: isActive -->
+            <li class="menu__item active"><a href="javascript:void(0);" data-bind="click: ClickSort, text: title">по названию</a></li><!-- /ko --><!-- ko ifnot: isActive -->
+            <li class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickSort, text: title">по названию</a></li><!-- /ko -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="b-catalog__controls-item">Вид:
+      <div class="radio-circles catalog-layout">
+        <ul class="menu"><!-- ko if: typeView == 'tile' -->
+          <li class="menu__item active"><a href="javascript:void(0);" data-value="cards" data-bind="click: selectTypeView.ClickTile"><i class="icon icon__cards"></i></a></li>
+          <li class="menu__item"><a href="javascript:void(0);" data-value="magazine" data-bind="click: selectTypeView.ClickTable"><i class="icon icon__magazine"></i></a></li>
+          <li class="menu__item"><a href="javascript:void(0);" data-value="titles" data-bind="click: selectTypeView.ClickList"><i class="icon icon__titles"></i></a></li><!-- /ko --><!-- ko if: typeView == 'table' -->
+          <li class="menu__item"><a href="javascript:void(0);" data-value="cards" data-bind="click: selectTypeView.ClickTile"><i class="icon icon__cards"></i></a></li>
+          <li class="menu__item active"><a href="javascript:void(0);" data-value="magazine" data-bind="click: selectTypeView.ClickTable"><i class="icon icon__magazine"></i></a></li>
+          <li class="menu__item"><a href="javascript:void(0);" data-value="titles" data-bind="click: selectTypeView.ClickList"><i class="icon icon__titles"></i></a></li><!-- /ko --><!-- ko if: typeView == 'list' -->
+          <li class="menu__item"><a href="javascript:void(0);" data-value="cards" data-bind="click: selectTypeView.ClickTile"><i class="icon icon__cards"></i></a></li>
+          <li class="menu__item"><a href="javascript:void(0);" data-value="magazine" data-bind="click: selectTypeView.ClickTable"><i class="icon icon__magazine"></i></a></li>
+          <li class="menu__item active"><a href="javascript:void(0);" data-value="titles" data-bind="click: selectTypeView.ClickList"><i class="icon icon__titles"></i></a></li><!-- /ko -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="searchResultPaginatetionTmpl" type="text/html">
+  <!-- version 1.0-->
+  <div class="content">
+    <div class="input-holder pagination">
+      <div class="radio-circles">
+        <ul class="menu"><!-- ko foreach: paging --><!-- ko if: current --><!-- ko if: title == '...' -->
+          <li class="menu__item"><span class="ellipsis">...</span></li><!-- /ko --><!-- ko ifnot: title == '...' -->
+          <li class="menu__item active"><a href="javascript:void(0);" data-bind="text: title, click: ClickLinkPage"></a></li><!-- /ko --><!-- /ko --><!-- ko ifnot: current --><!-- ko if: cssLink() == "first" -->
+          <li class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickLinkPage">&larr;</a></li><!-- /ko --><!-- ko if: cssLink() == "last" -->
+          <li class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickLinkPage">&rarr;</a></li><!-- /ko --><!-- ko if: cssLink() != "last" && cssLink() != "first" -->
+          <li class="menu__item"><a href="javascript:void(0);" data-bind="text: title, click: ClickLinkPage"></a></li><!-- /ko --><!-- /ko --><!-- /ko -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</script>

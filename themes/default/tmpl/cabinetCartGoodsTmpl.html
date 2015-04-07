@@ -1,0 +1,87 @@
+
+<script id="emptyCabinetCartGoodsTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="profile">
+    <div class="container">
+      <h1 class="b-profile__header">Корзина</h1>
+      <div>
+        <p>В корзине нет ни одного товара.</p>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="cabinetCartGoodsTmpl" type="text/html">
+  <!-- version 1.0 -->
+  <div class="profile">
+    <div class="container">
+      <h1 class="b-profile__header">Корзина</h1><!-- ko foreach: sellerBlock -->
+      <div data-bind="embedWidget :{ widget : 'InfoSellerWidget-1.0', params : {data : sellerInfo, tmpl : {path: 'http://promodev.pokupo.ru/themes/default/tmpl/infoSellerTmpl.html', id : 'infoSellerTmpl'}}}" class="b-profile-info b-profile-info--fullwidth"></div>
+      <ol class="b-order-list">
+        <li class="b-order-item b-thead">
+          <div class="b-order-item__checkbox">
+            <input id="js-select-all" type="checkbox" data-bind="attr: {id: cssSelectAll}"/>
+            <label for="js-select-all" data-bind="click: ClickSelectAll"></label>
+          </div>
+          <div class="b-order-item__img"></div>
+          <div class="b-order-item__name">Наименование</div>
+          <div class="b-order-item__price">Цена</div>
+          <div class="b-order-item__qty">Количество</div>
+          <div class="b-order-item__cost">Стоимость</div>
+        </li><!-- ko foreach: goods -->
+        <!-- ko template: { name: 'cabinetCartGoodsGoodsBlockTmpl' } -->
+        <!-- /ko --><!-- /ko -->
+      </ol>
+      <div class="b-order-list__actions bordered"><!-- ko ifnot: isDisabledButton -->
+        <div class="like_button"><span data-bind="click: ClickButchFavorites" class="pseudo-link">Отложить выбранные товары</span></div>
+        <div class="drop_button"><span data-bind="click: ClickButchRemove" class="pseudo-link">Удалить выбранные товары</span></div><!-- /ko --><!-- ko if: isDisabledButton -->
+        <div class="like_button"><span class="pseudo-link">Отложить выбранные товары</span></div>
+        <div class="drop_button"><span class="pseudo-link">Удалить выбранные товары</span></div><!-- /ko -->
+        <div class="empty_button"><span data-bind="click: ClickClearCurt" class="pseudo-link">Очистить корзину</span></div>
+      </div>
+      <div class="b-order-list__results"><!-- ko if: tatalDiscount() > 0 -->
+        <p class="b-order-list__amount">Общая скидка:<span class="b-price"><b class="b-order-item__discount">-
+              <!-- ko text: tatalDiscount -->
+              <!-- /ko --></b></span></p><!-- /ko -->
+        <p class="b-order-list__tobepaid">К оплате:<span class="b-price"><span class="b-price__number">
+              <!-- ko text: tatalForPayment -->
+              <!-- /ko --></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></p>
+      </div>
+      <div class="b-order-list__buttons"><a href="javascript:void(0);" data-bind="click: ClickProceed" class="btn btn-grey btn-lg btn-inline">Продолжить покупки</a><a href="javascript:void(0);" data-bind="click: ClickIssueOrder" class="btn btn-lg">Оформить заказ</a></div>
+      <div id="dialog-form-batch" style="display: none;" title="Добавить комментарий к избранному товару.">
+        <textarea name="comment" rows="10" cols="50" data-bind="value : comment"></textarea>
+      </div><!-- /ko -->
+    </div>
+  </div>
+</script>
+<script id="cabinetCartGoodsGoodsBlockTmpl" type="text/html">
+  <!-- version 1.0-->
+  <li class="b-order-item">
+    <div class="b-order-item__checkbox">
+      <input type="checkbox" data-bind="attr: {id: cssCheckboxGoods}"/>
+      <label for="" data-bind="click: ClickOrder"></label>
+    </div>
+    <div class="b-order-item__img"><img src="#" data-bind="attr: {src: routeImages, title: fullName }"/></div>
+    <div class="b-order-item__name"><a href="#" data-bind="click: ClickGoods"><span data-bind="text: fullName"></span></a></div>
+    <div class="b-order-item__price"><!-- ko if: discount() != 0 -->
+      <div class="b-price b-item__price--old"><span data-bind="text: sellEndCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div>
+      <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko --><!-- ko if: discount() == 0 -->
+      <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
+    </div>
+    <div class="b-order-item__qty">
+      <div class="limits-wrapper">
+        <p class="b-catalog-item__limits">На складе: <span data-bind="text: countReserv" class="value"></span></p>
+        <div class="b-increment-input"><span data-bind="click: ClickMinus" class="b-increment-input__darr"></span><span class="b-increment-input__input-wrapper">
+            <input type="text" data-name="qty" value="5" maxlength="3" autocomplete="off" data-min="1" data-max="5" data-bind="value: ordered" class="inline-input b-increment-input__input"/></span><span data-bind="click: ClickPlus" class="b-increment-input__uarr"></span></div>
+      </div>
+    </div>
+    <div class="b-order-item__cost"><!-- ko if: discount() != 0 --><span class="b-order-item__discount">-
+        <!-- ko text: discount() -->
+        <!-- /ko --></span><!-- /ko --><span class="b-price"><span data-bind="text: endSum" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span>
+    </div>
+    <div class="b-order-item__delay"><!-- ko if: IsFavorite -->
+      <div class="like_button active"><span data-bind="click: ClickFavorites" class="pseudo-link">Избранный товар</span></div><!-- /ko --><!-- ko ifnot: IsFavorite -->
+      <div class="like_button"><span data-bind="click: AddFavorites" class="pseudo-link">В избранное</span></div><!-- /ko -->
+    </div>
+    <div data-bind="click: ClickRemove" class="b-order-item__drop btn-circle btn-circle--drop"></div>
+  </li>
+</script>
