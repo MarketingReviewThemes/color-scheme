@@ -358,11 +358,11 @@
             </div><!-- /ko -->
           </div>
           <div class="input-holder">
-            <input id="newpassword" value="" placeholder="Повтор нового пароля" type="password" data-bind="value: newPassword, attr : {id: cssNewPassword}" class="block-input"/><!-- ko if: errorConfirmPassword -->
-            <div class="error__message">
-              <p data-bind="text: errorConfirmPassword"></p>
-            </div><!-- /ko -->
-          </div>
+			<input id="newpassword" value="" placeholder="Повтор нового пароля" class="block-input" type="password" data-bind="value: confirmPassword, attr : {id: cssConfirmPassword}">
+			<!-- ko if: errorConfirmPassword-->
+			<div class="form_error" data-bind="text: errorConfirmPassword"></div>
+			<!-- /ko -->
+	      </div>
           <button type="submit" data-bind="click: Submit" class="btn btn-lg">Сохранить</button>
         </form>
       </div>
