@@ -28,14 +28,14 @@
             </div><!-- /ko -->
           </div>
           <div class="input-holder">
-            <div rel="tooltip" title="Для уведомлений о заказах" class="tooltip__trigger">?</div>
+            <div rel="tooltip" title="Ваш почтовый ящик для связи с покупателями и получения уведомлений о заказах" class="tooltip__trigger">?</div>
             <input type="email" name="email" value="" placeholder="Ваш e-mail" data-bind="value: email" class="block-input"/><!-- ko if: errorEmail -->
             <div class="error__message">
               <p data-bind="html: errorEmail"></p>
             </div><!-- /ko -->
           </div>
           <div class="input-holder">
-            <div rel="tooltip" title="Для связи с курьером" class="tooltip__trigger">?</div>
+            <div rel="tooltip" title="Номер мобильного телефон для SMS уведомлений, в сети не публикуется">?</div>
             <input type="tel" name="phone" value="" placeholder="Номер телефона" data-bind="value: phone, attr: {id : cssPhone}" class="block-input"/><!-- ko if: errorPhone -->
             <div class="error__message">
               <p data-bind="html: errorPhone"></p>
@@ -78,7 +78,7 @@
         <div class="b-wizard__step-content"><!-- ko if: errorConfirmLater -->
           <p data-bind="text: errorConfirmLater" class="error_form"></p><!-- /ko --><!-- ko ifnot: mailConfirmLater -->
           <div class="input-holder">
-            <div rel="tooltip" title="Код, высланный на почтовый адрес или телефон" class="tooltip__trigger">?</div>
+            <div rel="tooltip" title="Код, высланный на почтовый адрес" class="tooltip__trigger">?</div>
             <input type="text" name="code" value="" placeholder="Ваш e-mail код" data-bind="value: mailToken" class="block-input"/>
             <input id="skip-email" name="skip-email" type="checkbox" checked="" data-bind="checked: mailConfirmLater" class="checkbox"/>
             <label for="skip-email" class="block-label b-small-text">Подтвердить почтовый ящик позднее</label><!-- ko if: mailIsConfirm -->

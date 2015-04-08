@@ -24,14 +24,14 @@
           <h2 class="b-wizard__step-title">Данные аккаунта</h2>
           <p>Укажите свой уникальный псевдоним, почту и телефон</p>
           <div class="input-holder">
-            <div rel="tooltip" title="Введите ваше имя на сайте." class="tooltip__trigger">?</div>
+            <div rel="tooltip" title="Введите ваш псевдоним на сайте." class="tooltip__trigger">?</div>
             <input type="text" name="nickname" value="" placeholder="Псевдоним" data-bind="value: username" class="block-input"/><!-- ko if: errorUsername -->
             <div class="error__message">
               <p data-bind="text: errorUsername"></p>
             </div><!-- /ko -->
           </div>
           <div class="input-holder">
-            <div rel="tooltip" title="На этот адрес будут приходить уведомления о статусе вашего заказа." class="tooltip__trigger">?</div>
+            <div rel="tooltip" title="На этот почтовый ящик будут приходить уведомления о статусе вашего заказа." class="tooltip__trigger">?</div>
             <input type="email" name="email" value="" placeholder="Ваш e-mail" data-bind="value: email" class="block-input"/><!-- ko if: errorEmail -->
             <div class="error__message error__message--big">
               <p data-bind="html: errorEmail"></p>
@@ -45,7 +45,7 @@
             </div><!-- /ko -->
           </div>
           <div class="input-holder">
-            <div rel="tooltip" title="Ваш пароль должен содержать минимум одну цифру, заглавную букву, спецсимвол, иероглиф, коловрат, число зверя и кровь девственницы." class="tooltip__trigger">?</div>
+            <div rel="tooltip" title="Укажите ваш пароль (от 6 до 16 символов)" class="tooltip__trigger">?</div>
             <input type="password" name="password" value="" placeholder="Пароль" data-bind="value: firstPassword, attr : {id: cssFirstPassword}" class="block-input"/><!-- ko if: errorFirstPassword -->
             <div class="error__message">
               <p data-bind="text: errorFirstPassword"></p>
@@ -103,7 +103,7 @@
 		  <!-- /ko -->
 		  <!-- ko ifnot: mailConfirmLater -->
 			  <div class="input-holder">
-				<div rel="tooltip" title="Код, высланный на почтовый адрес или телефон" class="tooltip__trigger">?</div>
+				<div rel="tooltip" title="Код, высланный на почтовый адрес" class="tooltip__trigger">?</div>
 				<input type="text" name="code" value="" placeholder="Ваш e-mail код" data-bind="value: mailToken" class="block-input"/>
 				<!-- ko if: mailIsConfirm -->
 					<div class="b-status b-status--done">E-mail подтверждён</div>
