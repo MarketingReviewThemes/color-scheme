@@ -1,0 +1,294 @@
+<script type="text/html" id="standalonePaymentButtonImpl">
+    <!-- version 1.0 -->
+    <button class="goButton pay" data-bind="click: ClickPay">
+        <span></span>
+        <!-- ko text: title --><!-- /ko -->
+    </button>
+</script>
+
+<script type="text/html" id="standalonePaymentListTmpl">
+    <!-- version 1.0 -->
+
+    <div class="pkp-wrapper">
+        <div id="pkp-container">
+            <h3 class="pkp-title pkp-title_big">Оплата заказа</h3>
+            <!-- ko if: isGoodsId -->
+            <span class="pkp-span">Сумма счета</span>
+            <strong class="pkp-strong"><!-- ko text: amount --><!-- /ko --> руб</strong>
+            <!-- /ko -->
+            <span class="pkp-span">Основание платежа</span>
+            <strong class="pkp-strong">Оплата «<!-- ko text: title --><!-- /ko -->»</strong>
+
+            <form class="pkp-form j-pkp-payment" action="#">
+                <!-- ko if: show.errorBase -->
+                <p>
+                    <span class="pkp-error-msg" style="display: inline; position: relative" data-bind="text: error.base"></span>
+                </p>
+                <!-- /ko -->
+                <!-- ko if: show.showCount -->
+                    <label class="pkp-form__label">
+                        <span class="pkp-span pkp-span_required">Количество товара</span>
+                        <!-- ko if: show.errorCount -->
+                        <span class="pkp-error-msg" style="display: inline" data-bind="text: error.count"></span>
+                        <!-- /ko -->
+                        <input class="pkp-input j-pkp-req-input" type="text" data-bind="value: count">
+                    </label>
+                <!-- /ko -->
+                <!-- ko if: show.showAmount -->
+                    <label class="pkp-form__label">
+                        <span class="pkp-span pkp-span_required">Сумма оплаты</span>
+                        <!-- ko if: show.errorAmount -->
+                        <span class="pkp-error-msg" style="display: inline" data-bind="text: error.amount"></span>
+                        <!-- /ko -->
+                        <input class="pkp-input j-pkp-req-input" type="text" data-bind="value: amount">
+                    </label>
+                <!-- /ko -->
+                <label class="pkp-form__label">
+                    <span class="pkp-span pkp-span_required">Ваш e-mail</span>
+                    <!-- ko if: show.errorEmail -->
+                    <span class="pkp-error-msg" style="display: inline" data-bind="text: error.email"></span>
+                    <!-- /ko -->
+                    <input class="pkp-input j-pkp-req-input" type="text" data-bind="value: mailUser">
+                </label>
+
+                <!-- ko if: payments().length > 0 -->
+                    <h3 class="pkp-title">Выберете удобный способ оплаты</h3>
+
+                    <div class="pkp-payment-method pkp-clearfix" >
+                        <!-- ko foreach: payments -->
+                            <!--  ko template: { name: 'standalonePaymentMethodTmpl' } --><!-- /ko -->
+                        <!-- /ko -->
+                    </div>
+                <!-- /ko -->
+            </form>
+            <div class="pkp-footer">
+                <span class="pkp-span">Работает на основе торговой платформой <a href="#">Pokupo.ru</a></span>
+            </div>
+
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="standalonePaymentMethodTmpl">
+    <div class="pkp-payment-method__item">
+        <div class="pkp-tooltip-payment-method">
+            <div class="pkp-tooltip">
+                <span class="pkp-tooltip__trigger">?</span>
+
+                <div class="pkp-tooltip__content pkp-tooltip__content_left">
+                    <h6 class="pkp-tooltip__title" data-bind="text: namePayment"></h6>
+                    <span data-bind="html: instrPayment"></span>
+                    <p data-bind="html: descPayment"></p>
+                </div>
+            </div>
+        </div>
+        <div class="pkp-payment-method__content">
+            <div class="pkp-payment-method__image">
+                <img src="" alt="" data-bind="attr: {src: logoPayment}">
+            </div>
+            <div class="pkp-payment-method__info">
+                <span class="pkp-span">Скорость: <strong><!-- ko text: timePayment --><!-- /ko --></strong></span>
+                <span class="pkp-span">Комиссия: <strong><!-- ko text: costPayment --><!-- /ko --> руб.</strong></span>
+            </div>
+            <button class="pkp-payment-method__pay j-pkp-pay" data-bind="click: Click.SelectPayment">Оплатить <!-- ko text: itog --><!-- /ko --> Р</button>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="standalonePaymentPageTmpl">
+    <!-- version 1.0 -->
+    <div class="pkp-wrapper">
+        <div id="pkp-container">
+            <div class="pkp-clearfix">
+                <!-- ko if: showPaymentInfo -->
+                    <div class="pkp-payment-method__item pkp-payment-method__item_small">
+                        <div class="pkp-tooltip-payment-method">
+                            <div class="pkp-tooltip">
+                                <span class="pkp-tooltip__trigger">?</span>
+                                <div class="pkp-tooltip__content">
+                                    <h6 class="pkp-tooltip__title" data-bind="text: paymentInfo.namePayment"></h6>
+                                    <span data-bind="html: paymentInfo.instrPayment"></span>
+                                    <p data-bind="html: paymentInfo.descPayment"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pkp-payment-method__content">
+                            <div class="pkp-payment-method__image">
+                                <img src="" alt="" data-bind="attr: {src: paymentInfo.logoPayment}">
+                            </div>
+                            <div class="pkp-payment-method__info">
+                                <span class="pkp-span">Скорость: <strong><!-- ko text: paymentInfo.timePayment --><!-- /ko --></strong></span>
+                                <span class="pkp-span">Комиссия: <strong><!-- ko text: paymentInfo.costPayment --><!-- /ko --> руб.</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                <!-- /ko -->
+                <div class="pkp-payment-order">
+                    <h3 class="pkp-title pkp-title_big">Оплата заказа</h3>
+                    <!-- ko foreach: outData -->
+                        <span class="pkp-span" data-bind="text: label"></span>
+                        <strong class="pkp-strong" data-bind="text: value"></strong>
+                    <!-- /ko -->
+                </div>
+            </div>
+            <div class="pkp-rollup">
+                <a href="#" class="j-pkp-rollup__trigger pkp-rollup__trigger">Инструкция для плательщика</a>
+                <a class="pkp-print" href="" data-bind="click: ClickPrintInstruction">Распечать</a>
+                <div class="j-pkp-rollup__content pkp-resize-block-wrapper j-scroll">
+                    <div class="pkp-resize-block">
+                        <h3 class="pkp-title pkp-title_big">Инструкция для плательщиков</h3>
+                        <div class="pkp-contributors-intruct" data-bind="html: instruction, attr: {id: cssInstruction }">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ko if: isInData() -->
+                <form class="pkp-receipt-form" data-bind="attr: {id: cssInDataForm}" method="POST" target="upload_target" enctype="multipart/form-data">
+                    <!-- ko foreach: inData -->
+
+                        <!-- ko if: typeField() == "hidden" -->
+                            <!--  ko template: { name: 'standalonePaymentTextFieldTmpl' } --><!-- /ko -->
+                        <!-- /ko -->
+
+                        <!-- ko ifnot: typeField() == "hidden" -->
+                            <div class="pkp-receipt-form__grid_50">
+                                <div class="pkp-receipt-form__wrap pkp-clearfix">
+                                    <span class="pkp-span pkp-span_required pkp-span_receipt" data-bind="text: label()"></span>
+                                    <!-- ko if: help() -->
+                                        <div class="pkp-tooltip-receipt">
+                                            <div class="pkp-tooltip">
+                                                <span class="pkp-tooltip__trigger">?</span>
+                                                <div class="pkp-tooltip__content pkp-tooltip__content_left" data-bind="html: help()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <!-- /ko -->
+                                </div>
+                                <!-- ko if: typeField() == "select" -->
+                                    <!--  ko template: { name: 'standalonePaymentSelectFieldTmpl' } --><!-- /ko -->
+                                <!-- /ko -->
+                                <!-- ko if: typeField() == "text" || typeField() == "password" -->
+                                    <!--  ko template: { name: 'standalonePaymentTextFieldTmpl' } --><!-- /ko -->
+                                <!-- /ko -->
+                                <!-- ko if: typeField() == "textarea" -->
+                                    <!--  ko template: { name: 'standalonePaymentTextareaFieldTmpl' } --><!-- /ko -->
+                                <!-- /ko -->
+                                <!-- ko if: typeField() == "checkbox" -->
+                                    <!--  ko template: { name: 'standalonePaymentCheckboxFieldTmpl' } --><!-- /ko -->
+                                <!-- /ko -->
+                                <!-- ko if: typeField() == "radio" -->
+                                    <!--  ko template: { name: 'standalonePaymentRadioFieldTmpl' } --><!-- /ko -->
+                                <!-- /ko -->
+                            </div>
+                        <!-- /ko -->
+                    <!-- /ko -->
+                </form>
+            <!-- /ko -->
+
+            <!-- ko if: urlInvoice() -->
+                <div class="b-invoice__block">
+                    <h2 class="b-invoice__title">Квитанция для оплаты</h2>
+                    <div>
+                        <img src="" data-bind="attr: {id: cssInvoice, src: urlInvoice}">
+                    </div>
+                    <div class="print-button">
+                        <span class="pseudo-link" data-bind="click: ClickPrintInvoice">Распечатать квитанцию</span>
+                    </div>
+                </div>
+            <!-- /ko -->
+
+            <!-- ko if: !isPayForm() && isInData() -->
+                <div class="pkp-btns-holder">
+                    <a class="pkp-btn pkp-btn_back" data-bind="click: Back">Назад</a>
+                    <button class="pkp-btn pkp-btn_get-receipt" data-bind="click: ClickSubmit">Обновить</button>
+                </div>
+            <!-- /ko -->
+
+            <!-- ko if: !isPayForm() && !isInData() -->
+                <div class="pkp-btns-holder">
+                    <a class="pkp-btn pkp-btn_back" data-bind="click: Back">Назад</a>
+                    <button class="pkp-btn pkp-btn_get-receipt" data-bind="click: ClickRefresh">Обновить</button>
+                </div>
+            <!-- /ko -->
+
+            <!-- ko if: isPayForm() -->
+                <div class="pkp-btns-holder">
+                    <div>
+                        <!-- ko with: payForm -->
+                        <form action="" method="" data-bind="attr: {method: method, action: action, target: target, id: cssPayForm}">
+                            <!-- ko foreach: field -->
+                            <input type="hidden" name=""  data-bind="value: value, attr: {name: name}"/>
+                            <!-- /ko -->
+                        </form>
+                        <!-- /ko -->
+                    </div>
+                    <a class="pkp-btn pkp-btn_back" data-bind="click: Back">Назад</a>
+                    <button class="pkp-btn pkp-btn_get-receipt" data-bind="click: ClickPay">Оплатить</button>
+                </div>
+            <!-- /ko -->
+
+            <div class="pkp-footer">
+                <span class="pkp-span">Работает на основе торговой платформой <a href="http://pokupo.ru">Pokupo.ru</a></span>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="standalonePaymentSelectFieldTmpl">
+    <select name="" data-bind="attr: { name: name(), placeholder: label()}">
+        <!-- ko foreach: listSelect() -->
+        <!-- ko if: value() == $parent.value() -->
+        <option value="" data-bind="value: value, text: label" selected="selected"></option>
+        <!-- /ko -->
+        <!-- ko ifnot: value() == $parent.value() -->
+        <option value="" data-bind="value: value(), text: label"></option>
+        <!-- /ko -->
+        <!-- /ko -->
+    </select>
+</script>
+
+<script type="text/html" id="standalonePaymentTextFieldTmpl">
+    <input class="pkp-input pkp-receipt-form__input" type="text" value="" data-bind="value: value(), attr: {type: typeField(), name: name(), id: cssField(), placeholder: label()}"/>
+</script>
+
+<script type="text/html" id="standalonePaymentTextareaFieldTmpl">
+    <textarea  name="" data-bind="attr: {name: name()}, text: value(), placeholder: label()"></textarea>
+</script>
+
+<script type="text/html" id="standalonePaymentCheckboxFieldTmpl">
+    <!-- ko if: listSelect().length > 0 -->
+        <!-- ko foreach: listSelect -->
+            <label class="pkp-label-checkbox">
+                <!-- ko if: value == $parent.value() -->
+                    <input class='pkp-input-checkbox' type="checkbox" checked="checked" name="" value="" data-bind="value: value(), attr: { name: $parent.name()}"/>
+                <!-- /ko -->
+                <!-- ko ifnot: value == $parent.value() -->
+                    <input class='pkp-input-checkbox' type="checkbox" name="" value="" data-bind="value: value(), attr: { name: $parent.name()}"/>
+                <!-- /ko -->
+                <span class='block-label b-small-text' for="" data-bind="text: $parent.label(), attr: { 'for': $parent.name()}"></span>
+            </label>
+        <!-- /ko -->
+    <!-- /ko -->
+
+    <!-- ko if: listSelect().length == 0 -->
+    <label class="pkp-label-checkbox">
+        <input class="pkp-input-checkbox" type="checkbox" name="" value="" data-bind="value: value(), attr: { name: name()}"/>
+        <span class='block-label b-small-text' for="" data-bind="text: label(), attr: { 'for': name()}"></span>
+    </label>
+    <!-- /ko -->
+</script>
+
+<script type="text/html" id="standalonePaymentRadioFieldTmpl">
+    <!-- ko foreach: listSelect -->
+    <label class="pkp-label-radio">
+        <!-- ko if: value == $parent.value() -->
+            <input class="pkp-input-radio" type="radio" checked="checked" name="" value="" data-bind="value: value, attr: { name: $parent.name()}"/>
+        <!-- /ko -->
+        <!-- ko ifnot: value == $parent.value() -->
+            <input class="pkp-input-radio" type="radio" name="" value="" data-bind="value: value, attr: { name: $parent.name()}"/>
+        <!-- /ko -->
+        <span class="pkp-span-radio" for="" data-bind="text: $parent.label(), attr: { 'for': $parent.name()}"></span>
+    </label>
+    <!-- /ko -->
+</script>

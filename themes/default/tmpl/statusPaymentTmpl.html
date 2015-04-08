@@ -1,0 +1,68 @@
+<script type="text/html" id="statusPaymentPageTmpl">
+    <!-- version 1.0 -->
+    <div class="pkp-container">
+        <h3 class="pkp-title pkp-title_big">
+            Оплата счёта № <!-- ko text: orderId --><!-- /ko -->
+            <a class="pkp-print" href="" data-bind="click: ClickPrintOrder">Распечать</a>
+        </h3>
+
+        <div class="pkp-payment-info pkp-clearfix">
+            <table class="pkp-payment-info__table" data-bind="foreach: outData">
+                    <tr>
+                        <td>
+                            <!-- ko text: label --><!-- /ko -->
+                            <div class="pkp-tooltip pkp-tooltip_inline">
+                                <span class="pkp-tooltip__trigger">?</span>
+                                <div class="pkp-tooltip__content pkp-tooltip__content_left" data-bind="html: help"></div>
+                            </div>
+                        </td>
+                        <td><!-- ko text: value--><!-- /ko--></td>
+                    </tr>
+            </table>
+            <div class="pkp-payment-info__img">
+                <!-- ko if: isCancel() -->
+                    <img src="images/payf.png" alt=""/>
+                <!-- /ko -->
+                <!-- ko if: isPaid() -->
+                    <img src="images/pays.png" alt=""/>
+                <!-- /ko -->
+                <!-- ko if: isWait() -->
+                    <img src="images/in-treatment.jpg" alt=""/>
+                <!-- /ko -->
+                <!-- ko if: isBack() -->
+                    <img src="images/return.jpg" alt=""/>
+                <!-- /ko -->
+            </div>
+        </div>
+        <div class="pkp-rollup">
+            <a href="#" class="j-pkp-rollup__trigger pkp-rollup__trigger pkp-rollup__trigger_closed">Инструкция для
+                плательщика</a>
+
+            <div class="j-pkp-rollup__content pkp-rollup__content_hidden pkp-resize-block-wrapper j-scroll">
+                <div class="pkp-resize-block">
+                    <h3 class="pkp-title pkp-title_big">Инструкция для плательщиков</h3>
+
+                    <div class="pkp-contributors-intruct" data-bind="html: instruction"></div>
+                </div>
+            </div>
+        </div>
+        <!-- ko if: isPaid() -->
+        <div class="pkp-shopping-list">
+            <h3 class="pkp-title">Цифровой товар</h3>
+
+            <div class="pkp-shopping-list__item" data-bind="foreach: egoods">
+                <strong class="pkp-shopping-list__title">«Руководство для молодой мамы. Том 1»</strong>
+                <span class="pkp-shopping-list__info"><!-- ko text: count_upload --><!-- /ko --> из <!-- ko text: max_upload --><!-- /ko -->,  доступно до <!-- ko text: expiration --><!-- /ko --></span>
+
+                <div class="pkp-upload">
+                    <a href="#" class="pkp-btn pkp-btn_upload" data-bind="attr: {href: upload_file}">Загрузить</a>
+                    <span class="pkp-upload__info"><!-- ko text: size_file --><!-- /ko --></span>
+                </div>
+            </div>
+        </div>
+        <!-- /ko -->
+        <div class="pkp-footer">
+            <span class="pkp-span">Работает на основе торговой платформой <a href="#">Pokupo.ru</a></span>
+        </div>
+    </div>
+</script>
