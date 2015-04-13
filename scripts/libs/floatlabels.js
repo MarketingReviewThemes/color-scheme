@@ -4,7 +4,7 @@
 			defaults = {
 				slideInput                      : true,
 				labelStartTop                   : '0',
-				labelEndTop                     : '-20px',
+				labelEndTop                     : '33px',
 				paddingOffset                   : '0',
 				transitionDuration              : 0.1,
 				transitionEasing                : 'ease-in-out',
@@ -72,7 +72,7 @@
 
 				this.$label.css({
 					'position'                      : 'absolute',
-					'top'                           : settings.labelStartTop,
+					'bottom'                           : settings.labelStartTop,
 					'left'                          : '20px',
 					'display'                       : 'none',
 					'-moz-opacity'                  : '0',
