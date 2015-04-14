@@ -110,8 +110,9 @@ article.page-content .b-review__answer:before {
 }
 
 .b-tech__char {
-	float: left;
-	width: 60%;
+	display: table-cell;
+	float: none;
+	width: 100%;
 }
 
 .b-tech__char span {
@@ -130,7 +131,7 @@ article.page-content .b-review__answer:before {
 	color: #666;
 	margin: 0 0 0 60%;
 	padding: 0 8px;
-	display: block;
+	display: table-cell;
 }
 
 .b-recommended {
@@ -213,6 +214,7 @@ article.page-content .b-review__answer:before {
 	cursor: default;
 	font-size: 13px;
 	line-height: 18px;
+	padding-right: 5px;
 }
 
 .b-order-table tbody tr td:first-child {
@@ -331,6 +333,8 @@ article.page-content .b-review__answer:before {
 .b-wizard__holder .b-tech__item,
 section.profile .b-tech__item {
 	margin-bottom: 27px;
+	display: table;
+	width: 100%;
 }
 
 .b-wizard__holder .b-tech__char,
@@ -564,14 +568,22 @@ section.advanced-search label.separator {
 	display: none;
 }
 
-.radio-circles .menu__item .icon {
+.radio-circles .menu__item-arrow a {
+	line-height: 32px;
+}
+
+.radio-circles .menu__item-arrow a:hover {
+	line-height: 30px;
+}
+
+.radio-circles .menu__item-arrow a .icon {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	margin: -8px 0 0 -8px;
 }
 
-.radio-circles .menu__item .icon__currency--rub {
+.radio-circles .menu__item-arrow a .icon__currency--rub {
 	margin: -7px 0 0 -5px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -296px -187px;
@@ -579,7 +591,7 @@ section.advanced-search label.separator {
 	height: 13px;
 }
 
-.radio-circles .menu__item .icon__currency--dol {
+.radio-circles .menu__item-arrow a .icon__currency--dol {
 	margin: -8px 0 0 -5px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -264px -212px;
@@ -587,7 +599,7 @@ section.advanced-search label.separator {
 	height: 17px;
 }
 
-.radio-circles .menu__item .icon__currency--eur {
+.radio-circles .menu__item-arrow a .icon__currency--eur {
 	margin: -7px 0 0 -7px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -337px -187px;
@@ -595,7 +607,7 @@ section.advanced-search label.separator {
 	height: 13px;
 }
 
-.radio-circles .menu__item .icon__currency--lcn {
+.radio-circles .menu__item-arrow a .icon__currency--lcn {
 	margin: -7px 0 0 -7px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -316px -187px;
@@ -603,7 +615,7 @@ section.advanced-search label.separator {
 	height: 13px;
 }
 
-.radio-circles .menu__item .icon__currency--btc {
+.radio-circles .menu__item-arrow a .icon__currency--btc {
 	margin: -9px 0 0 -6px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -264px -187px;
@@ -611,28 +623,28 @@ section.advanced-search label.separator {
 	height: 17px;
 }
 
-.radio-circles .menu__item .icon__cards {
+.radio-circles .menu__item-arrow a .icon__cards {
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -172px -254px;
 	width: 16px;
 	height: 16px;
 }
 
-.radio-circles .menu__item .icon__magazine {
+.radio-circles .menu__item-arrow a .icon__magazine {
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -244px -254px;
 	width: 16px;
 	height: 16px;
 }
 
-.radio-circles .menu__item .icon__titles {
+.radio-circles .menu__item-arrow a .icon__titles {
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -220px -254px;
 	width: 16px;
 	height: 16px;
 }
 
-.radio-circles .menu__item .icon__profile {
+.radio-circles .menu__item-arrow a .icon__profile {
 	margin: -10px 0 0 -8px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -210px -222px;
@@ -640,7 +652,7 @@ section.advanced-search label.separator {
 	height: 20px;
 }
 
-.radio-circles .menu__item .icon__cart {
+.radio-circles .menu__item-arrow a .icon__cart {
 	margin: -10px 0 0 -12px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -264px 0px;
@@ -648,7 +660,7 @@ section.advanced-search label.separator {
 	height: 20px;
 }
 
-.radio-circles .menu__item .icon__mail {
+.radio-circles .menu__item-arrow a .icon__mail {
 	margin: -7px 0 0 -11px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -296px -96px;
@@ -1073,6 +1085,7 @@ section.profile-nav {
 .profile .input-holder {
 	margin: 0 0 20px;
 	max-width: 100%;
+	text-align: left;
 }
 
 .profile .input-holder input {

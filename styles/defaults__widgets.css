@@ -499,7 +499,7 @@ span.fancytree-node.fancytree-error span.fancytree-title {
 
 .b-catalog__controls--pushedright {
 	float: right;
-	margin-top: -50px;
+	margin-top: -30px;
 }
 
 .b-catalog__controls--pushedright .btn-aux {
@@ -742,6 +742,7 @@ span.fancytree-node.fancytree-error span.fancytree-title {
 	left: 660px;
 	display: table;
 	min-height: 120px;
+	height: 120px;
 }
 
 .b-catalog__items.titles .b-item__price > .b-price {
@@ -1106,7 +1107,6 @@ section.advanced-search + .catalog-banner {
 	position: relative;
 	top: -34px;
 	margin: 0 190px -30px 0;
-	white-space: nowrap;
 }
 
 .b-thermometer p {
@@ -1424,6 +1424,7 @@ section.profile .b-order-list__tobepaid .b-order-item__discount {
 .b-order-item__name span {
 	line-height: 20px;
 	color: #177a93;
+	font-weight: normal;
 }
 
 .b-order-item__price {

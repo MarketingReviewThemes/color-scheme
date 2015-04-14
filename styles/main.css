@@ -459,7 +459,7 @@ body.modal-open {
 
 h1 {
 	font-weight: 300;
-	font-size: 20px;
+	font-size: 45px;
 	-webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -1201,6 +1201,7 @@ ul.with-bullets li {
 	margin: 0 auto 20px;
 	padding: 0 0 20px;
 	max-width: 450px;
+	text-align: center;
 }
 
 .input-holder input[type="checkbox"] + label,
@@ -2602,21 +2603,24 @@ section.subheader {
 }
 
 section.subheader .logo {
-	display: inline-block;
-	height: 100px;
-	line-height: 100px;
-	margin-left: 30px;
-	float: left;
-	text-decoration: none;
+	padding-top: 25px;
+	line-height: 24px;
+ 	margin-left: 30px;
+	max-width: 700px;
+	text-align: left;
+ 	float: left;
+ 	text-decoration: none;
 }
 
 section.subheader .logo .logo__title {
-	line-height: 100px;
-	vertical-align: middle;
-	font-size: 24px;
-	color: #fff;
-	text-transform: uppercase;
-	white-space: nowrap;
+	line-height: 24px;
+ 	vertical-align: middle;
+ 	font-size: 24px;
+ 	color: #fff;
+ 	text-transform: uppercase;
+	float: left;
+	width: 635px;
+	padding-top: 14px;
 }
 
 section.subheader .logo .logo__title br {
@@ -2631,6 +2635,7 @@ section.subheader .logo img {
 	margin-right: 10px;
 	height: 65px;
 	width: auto;
+	float: left;
 }
 
 section.subheader .circles-menu {
@@ -2661,6 +2666,7 @@ section.subheader .menu-login .not-logged-in a.menu-login__login:hover {
 
 section.subheader.subheader--min {
 	background: #fff;
+	z-index: 10;
 }
 
 section.subheader.subheader--min .logo__title {
@@ -7492,8 +7498,9 @@ article.page-content .b-review__answer:before {
 }
 
 .b-tech__char {
-	float: left;
-	width: 60%;
+	display: table-cell;
+	float: none;
+	width: 100%;
 }
 
 .b-tech__char span {
@@ -7512,7 +7519,7 @@ article.page-content .b-review__answer:before {
 	color: #666;
 	margin: 0 0 0 60%;
 	padding: 0 8px;
-	display: block;
+	display: table-cell;
 }
 
 .b-recommended {
@@ -7595,6 +7602,7 @@ article.page-content .b-review__answer:before {
 	cursor: default;
 	font-size: 13px;
 	line-height: 18px;
+	padding-right: 5px;
 }
 
 .b-order-table tbody tr td:first-child {
@@ -7713,6 +7721,8 @@ article.page-content .b-review__answer:before {
 .b-wizard__holder .b-tech__item,
 section.profile .b-tech__item {
 	margin-bottom: 27px;
+	display: table;
+	width: 100%;
 }
 
 .b-wizard__holder .b-tech__char,
@@ -7946,14 +7956,22 @@ section.advanced-search label.separator {
 	display: none;
 }
 
-.radio-circles .menu__item .icon {
+.radio-circles .menu__item-arrow a {
+	line-height: 32px;
+}
+
+.radio-circles .menu__item-arrow a:hover {
+	line-height: 30px;
+}
+
+.radio-circles .menu__item-arrow a .icon {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	margin: -8px 0 0 -8px;
 }
 
-.radio-circles .menu__item .icon__currency--rub {
+.radio-circles .menu__item-arrow a .icon__currency--rub {
 	margin: -7px 0 0 -5px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -296px -187px;
@@ -7961,7 +7979,7 @@ section.advanced-search label.separator {
 	height: 13px;
 }
 
-.radio-circles .menu__item .icon__currency--dol {
+.radio-circles .menu__item-arrow a .icon__currency--dol {
 	margin: -8px 0 0 -5px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -264px -212px;
@@ -7969,7 +7987,7 @@ section.advanced-search label.separator {
 	height: 17px;
 }
 
-.radio-circles .menu__item .icon__currency--eur {
+.radio-circles .menu__item-arrow a .icon__currency--eur {
 	margin: -7px 0 0 -7px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -337px -187px;
@@ -7977,7 +7995,7 @@ section.advanced-search label.separator {
 	height: 13px;
 }
 
-.radio-circles .menu__item .icon__currency--lcn {
+.radio-circles .menu__item-arrow a .icon__currency--lcn {
 	margin: -7px 0 0 -7px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -316px -187px;
@@ -7985,7 +8003,7 @@ section.advanced-search label.separator {
 	height: 13px;
 }
 
-.radio-circles .menu__item .icon__currency--btc {
+.radio-circles .menu__item-arrow a .icon__currency--btc {
 	margin: -9px 0 0 -6px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -264px -187px;
@@ -7993,28 +8011,28 @@ section.advanced-search label.separator {
 	height: 17px;
 }
 
-.radio-circles .menu__item .icon__cards {
+.radio-circles .menu__item-arrow a .icon__cards {
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -172px -254px;
 	width: 16px;
 	height: 16px;
 }
 
-.radio-circles .menu__item .icon__magazine {
+.radio-circles .menu__item-arrow a .icon__magazine {
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -244px -254px;
 	width: 16px;
 	height: 16px;
 }
 
-.radio-circles .menu__item .icon__titles {
+.radio-circles .menu__item-arrow a .icon__titles {
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -220px -254px;
 	width: 16px;
 	height: 16px;
 }
 
-.radio-circles .menu__item .icon__profile {
+.radio-circles .menu__item-arrow a .icon__profile {
 	margin: -10px 0 0 -8px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -210px -222px;
@@ -8022,7 +8040,7 @@ section.advanced-search label.separator {
 	height: 20px;
 }
 
-.radio-circles .menu__item .icon__cart {
+.radio-circles .menu__item-arrow a .icon__cart {
 	margin: -10px 0 0 -12px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -264px 0px;
@@ -8030,7 +8048,7 @@ section.advanced-search label.separator {
 	height: 20px;
 }
 
-.radio-circles .menu__item .icon__mail {
+.radio-circles .menu__item-arrow a .icon__mail {
 	margin: -7px 0 0 -11px;
 	background-image: url("../themes/default/images/sprite.png");
 	background-position: -296px -96px;
@@ -9397,7 +9415,7 @@ span.fancytree-node.fancytree-error span.fancytree-title {
 
 .b-catalog__controls--pushedright {
 	float: right;
-	margin-top: -50px;
+	margin-top: -30px;
 }
 
 .b-catalog__controls--pushedright .btn-aux {
@@ -9640,6 +9658,7 @@ span.fancytree-node.fancytree-error span.fancytree-title {
 	left: 660px;
 	display: table;
 	min-height: 120px;
+	height: 120px;
 }
 
 .b-catalog__items.titles .b-item__price > .b-price {
@@ -10004,7 +10023,6 @@ section.advanced-search + .catalog-banner {
 	position: relative;
 	top: -34px;
 	margin: 0 190px -30px 0;
-	white-space: nowrap;
 }
 
 .b-thermometer p {
@@ -10322,6 +10340,7 @@ section.profile .b-order-list__tobepaid .b-order-item__discount {
 .b-order-item__name span {
 	line-height: 20px;
 	color: #177a93;
+	font-weight: normal;
 }
 
 .b-order-item__price {

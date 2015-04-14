@@ -461,7 +461,7 @@ body.modal-open {
 
 h1 {
 	font-weight: 300;
-	font-size: 20px;
+	font-size: 45px;
 	-webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -576,7 +576,6 @@ hgroup+h3 {
 	position: relative;
 	top: -34px;
 	margin: 0 190px -30px 0;
-	white-space: nowrap;
 }
 
 .b-thermometer p {
@@ -1203,6 +1202,7 @@ ul.with-bullets li {
 	margin: 0 auto 20px;
 	padding: 0 0 20px;
 	max-width: 450px;
+	text-align: center;
 }
 
 .input-holder input[type="checkbox"] + label,
@@ -2613,21 +2613,24 @@ section.subheader {
 }
 
 section.subheader .logo {
-	display: inline-block;
-	height: 100px;
-	line-height: 100px;
-	margin-left: 30px;
-	float: left;
-	text-decoration: none;
-}
+	padding-top: 25px;
+	line-height: 24px;
+ 	margin-left: 30px;
+	max-width: 700px;
+	text-align: left;
+ 	float: left;
+ 	text-decoration: none;
+ }
 
 section.subheader .logo .logo__title {
-	line-height: 100px;
+	line-height: 24px;
 	vertical-align: middle;
 	font-size: 24px;
 	color: #fff;
 	text-transform: uppercase;
-	white-space: nowrap;
+	float: left;
+	width: 635px;
+	padding-top: 14px;
 }
 
 section.subheader .logo .logo__title br {
@@ -2635,13 +2638,13 @@ section.subheader .logo .logo__title br {
 }
 
 section.subheader .logo img {
-	display: inline-block;
 	line-height: 100px;
 	vertical-align: middle;
 	margin-top: -10px;
 	margin-right: 10px;
 	height: 65px;
 	width: auto;
+	float: left;
 }
 
 section.subheader .circles-menu {
@@ -2672,6 +2675,7 @@ section.subheader .menu-login .not-logged-in a.menu-login__login:hover {
 
 section.subheader.subheader--min {
 	background: #fff;
+	z-index: 10;
 }
 
 section.subheader.subheader--min .logo__title {

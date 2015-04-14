@@ -98,6 +98,7 @@ section.profile .b-order-list__tobepaid .b-order-item__discount {
 .b-order-item__name span {
   line-height: 20px;
   color: #177a93;
+  font-weight: normal;
 }
 .b-order-item__price {
   min-width: 80px;

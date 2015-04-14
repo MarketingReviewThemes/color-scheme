@@ -23,7 +23,7 @@
 }
 .b-catalog__controls--pushedright {
   float: right;
-  margin-top: -50px;
+  margin-top: -30px;
 }
 .b-catalog__controls--pushedright .btn-aux {
   padding-left: 40px;
@@ -223,6 +223,7 @@
   left: 660px;
   display: table;
   min-height: 120px;
+  height: 120px;
 }
 .b-catalog__items.titles .b-item__price > .b-price {
   display: table-cell;
