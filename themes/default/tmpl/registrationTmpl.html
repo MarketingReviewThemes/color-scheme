@@ -26,54 +26,60 @@
           <div class="input-holder">
             <div rel="tooltip" title="Введите ваш псевдоним на сайте." class="tooltip__trigger">?</div>
             <div class="error-msg-wrapper">
-              <input type="text" name="nickname" value="" placeholder="Псевдоним" data-bind="value: username" class="block-input"/><!-- ko if: errorUsername -->
+              <!-- ko if: errorUsername -->
               <div class="error__message">
                 <p data-bind="text: errorUsername"></p>
               </div><!-- /ko -->
+              <input type="text" name="nickname" value="" placeholder="Псевдоним" data-bind="value: username" class="block-input"/>
             </div>
           </div>
           <div class="input-holder">
             <div rel="tooltip" title="На этот почтовый ящик будут приходить уведомления о статусе вашего заказа." class="tooltip__trigger">?</div>
             <div class="error-msg-wrapper">
-              <input type="email" name="email" value="" placeholder="Ваш e-mail" data-bind="value: email" class="block-input"/><!-- ko if: errorEmail -->
+              <!-- ko if: errorEmail -->
               <div class="error__message error__message--big">
                 <p data-bind="html: errorEmail"></p>
               </div><!-- /ko -->
+              <input type="email" name="email" value="" placeholder="Ваш e-mail" data-bind="value: email" class="block-input"/>
             </div>
           </div>
           <div class="input-holder">
             <div rel="tooltip" title="Укажите номер вашего телефона." class="tooltip__trigger">?</div>
             <div class="error-msg-wrapper">
-              <input type="tel" name="phone" value="" placeholder="Номер телефона" data-bind="value: phone, attr: {id : cssPhone}" class="block-input"/><!-- ko if: errorPhone -->
+              <!-- ko if: errorPhone -->
               <div class="error__message">
                 <p data-bind="html: errorPhone"></p>
               </div><!-- /ko -->
+              <input type="tel" name="phone" value="" placeholder="Номер телефона" data-bind="value: phone, attr: {id : cssPhone}" class="block-input"/>
             </div>
           </div>
           <div class="input-holder">
             <div rel="tooltip" title="Укажите ваш пароль (от 6 до 16 символов)" class="tooltip__trigger">?</div>
             <div class="error-msg-wrapper">
-              <input type="password" name="password" value="" placeholder="Пароль" data-bind="value: firstPassword, attr : {id: cssFirstPassword}" class="block-input"/><!-- ko if: errorFirstPassword -->
+              <!-- ko if: errorFirstPassword -->
               <div class="error__message">
                 <p data-bind="text: errorFirstPassword"></p>
               </div><!-- /ko -->
+              <input type="password" name="password" value="" placeholder="Пароль" data-bind="value: firstPassword, attr : {id: cssFirstPassword}" class="block-input"/>
             </div>
           </div>
           <div class="input-holder">
             <div class="error-msg-wrapper">
-              <input type="password" name="password-double" value="" placeholder="Повторить пароль" data-bind="value: secondPassword, attr : {id: cssSecondPassword}" class="block-input"/><!-- ko if: errorSecondPassword -->
+              <!-- ko if: errorSecondPassword -->
               <div class="error__message">
                 <p data-bind="text: errorSecondPassword"></p>
               </div><!-- /ko -->
+              <input type="password" name="password-double" value="" placeholder="Повторить пароль" data-bind="value: secondPassword, attr : {id: cssSecondPassword}" class="block-input"/>
             </div>
           </div>
           <div style="padding-top: 13px;" class="input-holder">
             <div class="error-msg-wrapper">
-              <input id="iagree" name="iagree" type="checkbox" data-bind="checked: isChecked" class="checkbox"/>
-              <label for="iagree" class="block-label b-small-text">Я принимаю условия <a href="/rules" target="_blank" data-bind="attr:{href: agreement}">пользовательского соглашения</a>,<br/><a href="/police" target="_blank" data-bind="attr:{href: police}">правил конфиденциальности</a> и <a href="/refund" target="_blank" data-bind="attr:{href: refund}">политики возврата платежей</a></label><!-- ko if: errorIsChecked -->
+              <!-- ko if: errorIsChecked -->
               <div class="error__message error__message--big">
                 <p data-bind="text: errorIsChecked"></p>
               </div><!-- /ko -->
+              <input id="iagree" name="iagree" type="checkbox" data-bind="checked: isChecked" class="checkbox"/>
+              <label for="iagree" class="block-label b-small-text" style="clear: both">Я принимаю условия <a href="/rules" target="_blank" data-bind="attr:{href: agreement}">пользовательского соглашения</a>,<br/><a href="/police" target="_blank" data-bind="attr:{href: police}">правил конфиденциальности</a> и <a href="/refund" target="_blank" data-bind="attr:{href: refund}">политики возврата платежей</a></label>
             </div>
           </div>
         </div>
@@ -108,23 +114,23 @@
           <p>Укажите код, высланный на почтовый адрес или телефон</p>
 		  <!-- ko if: errorConfirmLater -->
             <div class="input-holder">
-			  <div class="error__message">
-				<p data-bind="text: errorConfirmLater"></p>
-			  </div>
+      			  <div class="error__message" style="margin-top: 0">
+      				  <p data-bind="text: errorConfirmLater"></p>
+      			  </div>
             </div>
 		  <!-- /ko -->
 		  <!-- ko ifnot: mailConfirmLater -->
 			  <div class="input-holder">
 				<div rel="tooltip" title="Код, высланный на почтовый адрес" class="tooltip__trigger">?</div>
         <div class="error-msg-wrapper">
+          <!-- ko if: errorEmailConfirm -->
+            <div class="error__message">
+              <p data-bind="text: errorEmailConfirm"></p>
+            </div>
+          <!-- /ko -->
   				<input type="text" name="code" value="" placeholder="Ваш e-mail код" data-bind="value: mailToken" class="block-input"/>
   				<!-- ko if: mailIsConfirm -->
   					<div class="b-status b-status--done">E-mail подтверждён</div>
-  				<!-- /ko -->
-  				<!-- ko if: errorEmailConfirm -->
-  					<div class="error__message">
-  					  <p data-bind="text: errorEmailConfirm"></p>
-  					</div>
   				<!-- /ko -->
         </div>
 			  </div>
@@ -139,15 +145,15 @@
                     <div class="input-holder">
                         <div rel="tooltip" title="Код, высланный в SMS" class="tooltip__trigger">?</div>
                         <div class="error-msg-wrapper">
-                          <input type="text" name="code" value="" placeholder="Ваш SMS код" data-bind="value: phoneToken"
-                                 class="block-input"/>
-                          <!-- ko if: phoneIsConfirm -->
-                              <div class="b-status b-status--done">Телефон подтверждён</div>
-                          <!-- /ko -->
                           <!-- ko if: errorPhoneConfirm -->
                               <div class="error__message">
                                   <p data-bind="text: errorPhoneConfirm"></p>
                               </div>
+                          <!-- /ko -->
+                          <input type="text" name="code" value="" placeholder="Ваш SMS код" data-bind="value: phoneToken"
+                                 class="block-input"/>
+                          <!-- ko if: phoneIsConfirm -->
+                              <div class="b-status b-status--done">Телефон подтверждён</div>
                           <!-- /ko -->
                         </div>
                     </div>
@@ -192,35 +198,39 @@
           <div class="input-holder">
             <div rel="tooltip" title="Введите ваше имя на сайте." class="tooltip__trigger">?</div>
             <div class="error-msg-wrapper">
-              <input type="text" name="sname" value="" placeholder="Фамилия" data-bind="value: lastName" class="block-input"/><!-- ko if: errorLastName -->
+              <!-- ko if: errorLastName -->
               <div class="error__message">
                 <p data-bind="text: errorLastName"></p>
               </div><!-- /ko -->
+              <input type="text" name="sname" value="" placeholder="Фамилия" data-bind="value: lastName" class="block-input"/>
             </div>
           </div>
           <div class="input-holder">
             <div class="error-msg-wrapper">
-              <input type="text" name="fname" value="" placeholder="Имя" data-bind="value: firstName" class="block-input"/><!-- ko if: errorFirstName -->
+              <!-- ko if: errorFirstName -->
               <div class="error__message">
                 <p data-bind="text: errorFirstName"></p>
               </div><!-- /ko -->
+              <input type="text" name="fname" value="" placeholder="Имя" data-bind="value: firstName" class="block-input"/>
             </div>
           </div>
           <div class="input-holder">
             <div class="error-msg-wrapper">
-              <input type="text" name="mname" value="" placeholder="Отчество" data-bind="value: middleName" class="block-input"/><!-- ko if: errorMiddleName -->
+              <!-- ko if: errorMiddleName -->
               <div class="error__message">
                 <p data-bind="text: errorMiddleName"></p>
               </div><!-- /ko -->
+              <input type="text" name="mname" value="" placeholder="Отчество" data-bind="value: middleName" class="block-input"/>
             </div>
           </div>
           <div class="input-holder">
             <div class="error-msg-wrapper">
-              <input id="birthDay" type="text" name="birthDay" value="" placeholder="Дата рождения" data-bind="value: birthDay, attr: {id: cssBirthDay}" class="block-input"/>
-              <input id="bdate" name="bdate" type="hidden" data-bind="value: birthDayHiddenField"/><!-- ko if: errorBirthDay -->
+              <!-- ko if: errorBirthDay -->
               <div class="error__message">
                 <p data-bind="text: errorBirthDay"></p>
               </div><!-- /ko -->
+              <input id="birthDay" type="text" name="birthDay" value="" placeholder="Дата рождения" data-bind="value: birthDay, attr: {id: cssBirthDay}" class="block-input"/>
+              <input id="bdate" name="bdate" type="hidden" data-bind="value: birthDayHiddenField"/>
             </div>
           </div>
           <div id="fullname__gender" class="input-holder">
@@ -282,34 +292,37 @@
           <div class="input-holder">
             <div rel="tooltip" title="Введите ваш регион." class="tooltip__trigger">?</div>
             <div class="error-msg-wrapper">
-              <input type="text" name="family" value="" placeholder="Регион" data-bind="value: customRegion, attr: {id: cssRegionList}, enable: idCountry" class="block-input"/><!-- ko if: errorRegion -->
+              <!-- ko if: errorRegion -->
               <div class="error__message">
                 <p data-bind="text: errorRegion"></p>
               </div><!-- /ko -->
+              <input type="text" name="family" value="" placeholder="Регион" data-bind="value: customRegion, attr: {id: cssRegionList}, enable: idCountry" class="block-input"/>
             </div>
           </div>
           <div class="input-holder">
             <div class="error-msg-wrapper">
-              <input type="text" name="name" value="" placeholder="Город" data-bind="value: customCity, attr: {id: cssCityList}, enable: customRegion" class="block-input"/><!-- ko if: errorCity -->
               <div class="error__message">
                 <p data-bind="text: errorCity"></p>
               </div><!-- /ko -->
+              <input type="text" name="name" value="" placeholder="Город" data-bind="value: customCity, attr: {id: cssCityList}, enable: customRegion" class="block-input"/><!-- ko if: errorCity -->
             </div>
           </div>
           <div class="input-holder">
             <div class="error-msg-wrapper">
-              <input type="text" name="patronymic" value="" placeholder="Улица, дом, квартира" data-bind="value: customAddress, attr: {id: cssAddress}, enable: customCity" class="block-input"/><!-- ko if: errorAddress -->
+              <!-- ko if: errorAddress -->
               <div class="error__message">
                 <p data-bind="text: errorAddress"></p>
               </div><!-- /ko -->
+              <input type="text" name="patronymic" value="" placeholder="Улица, дом, квартира" data-bind="value: customAddress, attr: {id: cssAddress}, enable: customCity" class="block-input"/>
             </div>
           </div>
           <div class="input-holder">
             <div class="error-msg-wrapper">
-              <input type="text" name="date" value="" placeholder="Почтовый индекс" data-bind="value: postIndex, attr: {id: cssPostIndex}" class="block-input"/><!-- ko if: errorPostIndex -->
+              <!-- ko if: errorPostIndex -->
               <div class="error__message">
                 <p data-bind="text: errorPostIndex"></p>
               </div><!-- /ko -->
+              <input type="text" name="date" value="" placeholder="Почтовый индекс" data-bind="value: postIndex, attr: {id: cssPostIndex}" class="block-input"/>
             </div>
           </div>
           <div style="padding-top: 13px;" class="input-holder">

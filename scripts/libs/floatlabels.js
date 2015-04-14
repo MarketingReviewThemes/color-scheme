@@ -4,7 +4,7 @@
 			defaults = {
 				slideInput                      : true,
 				labelStartTop                   : '0',
-				labelEndTop                     : '33px',
+				labelEndTop                     : '72px',
 				paddingOffset                   : '0',
 				transitionDuration              : 0.1,
 				transitionEasing                : 'ease-in-out',
