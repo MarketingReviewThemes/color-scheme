@@ -2629,8 +2629,9 @@ section.subheader .logo .logo__title {
  	color: #fff;
  	text-transform: uppercase;
 	float: left;
-	width: 635px;
+	width: 550px;
 	padding-top: 14px;
+	white-space: normal;
 }
 
 section.subheader .logo .logo__title br {
