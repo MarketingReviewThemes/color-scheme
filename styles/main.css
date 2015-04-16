@@ -580,6 +580,7 @@ hgroup+h3 {
 .b-thermometer p {
 	margin-bottom: 15px;
 	margin-left: 3px;
+	white-space: normal;
 }
 
 .b-thermometer a {
@@ -2598,6 +2599,7 @@ section.header {
 	line-height: 30px;
 	height: 30px;
 	vertical-align: top;
+	font-weight: normal;
 }
 
 #search_block {
@@ -2619,6 +2621,7 @@ section.subheader .logo {
 	max-width: 700px;
 	text-align: left;
  	float: left;
+ 	height: auto;
  	text-decoration: none;
 }
 
@@ -10039,6 +10042,7 @@ section.advanced-search + .catalog-banner {
 .b-thermometer p {
 	margin-bottom: 15px;
 	margin-left: 3px;
+	white-space: normal;
 }
 
 .b-thermometer a {
@@ -10182,6 +10186,10 @@ section.advanced-search + .catalog-banner {
 	left: -45px;
 }
 
+.b-cart-menu p{
+	font-weight: normal;
+}
+
 .b-cart-menu__patch {
 	position: absolute;
 	display: block;
@@ -10212,6 +10220,7 @@ section.advanced-search + .catalog-banner {
 	margin-bottom: 0;
 	font-size: 16px;
 	color: #000;
+	font-weight: 500;
 }
 
 .b-cart-menu__amount {

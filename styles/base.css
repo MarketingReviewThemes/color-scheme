@@ -581,6 +581,7 @@ hgroup+h3 {
 .b-thermometer p {
 	margin-bottom: 15px;
 	margin-left: 3px;
+	white-space: normal;
 }
 
 .b-thermometer a {
