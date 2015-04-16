@@ -146,7 +146,7 @@
 
 				window.setTimeout(function() {
 					self.$label.css({
-						'top'                           : self.settings.labelEndTop,
+						'bottom'                           : self.settings.labelEndTop,
 						'-moz-opacity'                  : '1',
 						'-khtml-opacity'                : '1',
 						'-webkit-opacity'               : '1',
@@ -165,7 +165,7 @@
 				var self = this;
 
 				self.$label.css({
-					'top'                           : self.settings.labelStartTop,
+					'bottom'                           : self.settings.labelStartTop,
 					'-moz-opacity'                  : '0',
 					'-khtml-opacity'                : '0',
 					'-webkit-opacity'               : '0',
