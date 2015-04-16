@@ -3,8 +3,8 @@
 		
 			defaults = {
 				slideInput                      : true,
-				labelStartTop                   : '0',
-				labelEndTop                     : '72px',
+				labelStartTop                   : '72px',
+				labelEndTop                     : '0',
 				paddingOffset                   : '0',
 				transitionDuration              : 0.1,
 				transitionEasing                : 'ease-in-out',
@@ -80,6 +80,7 @@
 					'-webkit-opacity'               : '0',
 					'opacity'                       : '0',
 					'font-size'                     : '12px',
+					'line-height'                   : '16px',
 					'font-weight'                   : 'normal',
 					'color'                         : 'rgba(0,0,0,0.2)'
 				});
@@ -146,7 +147,7 @@
 
 				window.setTimeout(function() {
 					self.$label.css({
-						'bottom'                           : self.settings.labelEndTop,
+						'top'                           : self.settings.labelEndTop,
 						'-moz-opacity'                  : '1',
 						'-khtml-opacity'                : '1',
 						'-webkit-opacity'               : '1',
@@ -165,7 +166,7 @@
 				var self = this;
 
 				self.$label.css({
-					'bottom'                           : self.settings.labelStartTop,
+					'top'                           : self.settings.labelStartTop,
 					'-moz-opacity'                  : '0',
 					'-khtml-opacity'                : '0',
 					'-webkit-opacity'               : '0',
