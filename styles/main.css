@@ -7970,11 +7970,11 @@ section.advanced-search label.separator {
 	display: none;
 }
 
-.radio-circles .menu__item-arrow {
+.radio-circles .menu__item-arrow a {
 	line-height: 32px;
 }
 
-.radio-circles .menu__item-arrow:hover {
+.radio-circles .menu__item-arrow a:hover {
 	line-height: 30px;
 }
 

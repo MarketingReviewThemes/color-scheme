@@ -94,8 +94,8 @@
         <ul class="menu"><!-- ko foreach: paging  --><!-- ko if: current --><!-- ko if: title == '...' -->
           <li class="menu__item"><span class="ellipsis">...</span></li><!-- /ko --><!-- ko ifnot: title == '...' -->
           <li class="menu__item active"><a href="javascript:void(0);" data-bind="text: title, click: ClickLinkPage"></a></li><!-- /ko --><!-- /ko --><!-- ko ifnot: current --><!-- ko if: cssLink() == "first" -->
-          <li class="menu__item-arrow"><a href="javascript:void(0);" data-bind="click: ClickLinkPage">&larr;</a></li><!-- /ko --><!-- ko if: cssLink() == "last" -->
-          <li class="menu__item-arrow"><a href="javascript:void(0);" data-bind="click: ClickLinkPage">&rarr;</a></li><!-- /ko --><!-- ko if: cssLink() != "last" && cssLink() != "first" -->
+          <li class="menu__item menu__item-arrow"><a href="javascript:void(0);" data-bind="click: ClickLinkPage">&larr;</a></li><!-- /ko --><!-- ko if: cssLink() == "last" -->
+          <li class="menu__item menu__item-arrow"><a href="javascript:void(0);" data-bind="click: ClickLinkPage">&rarr;</a></li><!-- /ko --><!-- ko if: cssLink() != "last" && cssLink() != "first" -->
           <li class="menu__item"><a href="javascript:void(0);" data-bind="text: title, click: ClickLinkPage"></a></li><!-- /ko --><!-- /ko --><!-- /ko -->
         </ul>
       </div>
