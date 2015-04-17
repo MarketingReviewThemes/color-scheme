@@ -2613,6 +2613,10 @@ section.subheader {
 	position: relative;
 	z-index: 2;
 }
+.subheader__cell {
+	display: table-cell;
+	vertical-align: middle;
+}
 
 section.subheader .logo {
 	padding-top: 25px;
@@ -2633,7 +2637,7 @@ section.subheader .logo .logo__title {
  	text-transform: uppercase;
 	float: left;
 	width: 550px;
-	padding-top: 14px;
+	padding-top: 0;
 	white-space: normal;
 }
 
@@ -2645,7 +2649,7 @@ section.subheader .logo img {
 	display: inline-block;
 	line-height: 100px;
 	vertical-align: middle;
-	margin-top: -10px;
+	margin-top: 0;
 	margin-right: 10px;
 	height: 65px;
 	width: auto;
