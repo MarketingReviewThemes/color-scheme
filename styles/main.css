@@ -1369,7 +1369,8 @@ textarea--small {
 
 .error__message {
 	float: right;
-	position: static;
+	position: relative;
+	z-index: 2;
 	white-space: normal;
 	height: auto;
 	margin-top: -20px;
