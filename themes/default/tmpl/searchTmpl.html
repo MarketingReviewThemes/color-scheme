@@ -8,6 +8,7 @@
           <div class="b-search-holder">
             <input type="search" placeholder="Поиск по каталогу..." data-bind="value: text" class="b-search__input"/>
           </div>
+		  <!-- ko if: showCatalog -->
           <div class="b-location dropdown selector"><a href="javascript:void(0);" data-target="location" class="b-location__current dropdown__trigger selector__current search_dropdown__trigger"><!-- ko if: selectedCatigory -->
               <!-- ko text: selectedCatigory -->
               <!-- /ko --><!-- /ko --><!-- ko ifnot: selectedCatigory -->Все категории<!-- /ko --></a>
@@ -20,6 +21,7 @@
               </div>
             </div>
           </div>
+		  <!-- /ko -->
           <button type="submit" data-bind="click: ClickSearchForm" class="b-search__button">Найти</button>
         </form>
       </div>

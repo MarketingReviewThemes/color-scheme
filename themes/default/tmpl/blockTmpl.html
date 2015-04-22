@@ -29,9 +29,11 @@
                 <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
               </div>
             </div>
+			<!-- ko if: $parent.showCart -->
             <div class="b-item__order-button">
               <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В&nbsp;корзину</button>
             </div>
+			<!-- /ko -->
             <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
           </div>
         </div>
@@ -64,9 +66,11 @@
               </div>
             </div>
           </div>
+		  <!-- ko if: $parent.showCart -->
           <div class="b-item__order-button">
             <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В&nbsp;корзину</button>
           </div>
+		  <!-- /ko -->
           <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
           <div class="b-item__popover">
             <div class="b-item--dublicate">
@@ -85,9 +89,11 @@
                   <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
                 </div>
               </div>
+			  <!-- ko if: $parent.showCart -->
               <div class="b-item__order-button">
                 <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В&nbsp;корзину</button>
               </div>
+			  <!-- /ko -->
               <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
             </div>
           </div>

@@ -7,10 +7,12 @@
         <div data-target="profile" class="b-profile-menu dropdown__content hidden user_information_dropdown__content">
           <p data-bind="text: login" class="b-profile-menu__name"></p>
           <ul class="menu">
+			<!-- ko if: showProfile -->
             <li class="menu__item"><a href="/shop#/profile/">Профиль</a></li>
             <li class="menu__item"><a href="/shop#/purchases/block=list">Заказы</a></li>
             <li class="menu__item"><a href="/shop#/messages/">Сообщения<!-- ko if: countNewMessage() > 0 --><sup data-bind="text: countNewMessage" class="menu__item__num"></sup><!-- /ko --></a></li>
-            <li class="menu__item"><a id="js-logout" href="javascript:void(0);" data-bind="click: ClickLogout" class="b-profile-menu__logout">Выйти</a></li>
+            <!-- /ko -->
+			<li class="menu__item"><a id="js-logout" href="javascript:void(0);" data-bind="click: ClickLogout" class="b-profile-menu__logout">Выйти</a></li>
           </ul>
         </div>
       </div>

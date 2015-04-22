@@ -9,6 +9,7 @@
           <div class="columns triple">
             <div class="first column">
               <div class="content">
+				<!-- ko if: showCatalog -->
                 <div class="b-location dropdown"><a id="advansed_search_form__category_dropdown__trigger" href="javascript:void(0);" data-target="location" class="b-location__current dropdown__trigger"><span id="js-multilocation" class="fancytree-checkbox part"></span>Все категории</a>
                   <div id="advansed_search_form__category_dropdown__content" data-target="location" class="dropdown__content hidden">
                     <div class="b-location__catalog">
@@ -35,6 +36,7 @@
                     </div>
                   </div>
                 </div>
+				<!-- /ko -->
                 <div class="input-holder">
                   <select id="typeSeller" name="typeSeller" data-bind="css: cssTypeSeller, value: typeSeller" class="form_select"><!-- ko foreach: typesSellers -->
                     <option data-bind="text: title, value: key"></option><!-- /ko -->
