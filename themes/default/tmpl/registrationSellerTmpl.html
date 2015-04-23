@@ -22,31 +22,43 @@
         <p>Укажите название магазина, почту и телефон</p>
         <div class="b-wizard__step-content">
           <div class="input-holder">
-            <input type="text" name="nickname" value="" placeholder="Название магазина" data-bind="value: nameSeller" class="block-input"/><!-- ko if: errorNameSeller -->
-            <div class="error__message">
-              <p data-bind="text: errorNameSeller"></p>
-            </div><!-- /ko -->
+            <div class="error-msg-wrapper">
+              <!-- ko if: errorNameSeller -->
+              <div class="error__message">
+                <p data-bind="text: errorNameSeller"></p>
+              </div><!-- /ko -->
+              <input type="text" name="nickname" value="" placeholder="Название магазина" data-bind="value: nameSeller" class="block-input"/>
+            </div>
           </div>
           <div class="input-holder">
             <div rel="tooltip" title="Ваш почтовый ящик для связи с покупателями и получения уведомлений о заказах" class="tooltip__trigger">?</div>
-            <input type="email" name="email" value="" placeholder="Ваш e-mail" data-bind="value: email" class="block-input"/><!-- ko if: errorEmail -->
-            <div class="error__message">
-              <p data-bind="html: errorEmail"></p>
-            </div><!-- /ko -->
+            <div class="error-msg-wrapper">
+              <!-- ko if: errorEmail -->
+              <div class="error__message">
+                <p data-bind="html: errorEmail"></p>
+              </div><!-- /ko -->
+              <input type="email" name="email" value="" placeholder="Ваш e-mail" data-bind="value: email" class="block-input"/>
+            </div>
           </div>
           <div class="input-holder">
             <div rel="tooltip" title="Номер мобильного телефон для SMS уведомлений, в сети не публикуется" class="tooltip__trigger">?</div>
-            <input type="tel" name="phone" value="" placeholder="Номер телефона" data-bind="value: phone, attr: {id : cssPhone}" class="block-input"/><!-- ko if: errorPhone -->
-            <div class="error__message">
-              <p data-bind="html: errorPhone"></p>
-            </div><!-- /ko -->
+            <div class="error-msg-wrapper">
+              <!-- ko if: errorPhone -->
+              <div class="error__message">
+                <p data-bind="html: errorPhone"></p>
+              </div><!-- /ko -->
+              <input type="tel" name="phone" value="" placeholder="Номер телефона" data-bind="value: phone, attr: {id : cssPhone}" class="block-input"/>
+            </div>
           </div>
           <div style="padding-top: 13px;" class="input-holder">
-            <input id="iagree" name="iagree" type="checkbox" data-bind="checked: isChecked" class="checkbox"/>
-            <label for="iagree" class="block-label b-small-text">Я принимаю условия <a href="javascript:void(0);" target="_blank" data-bind="attr:{href: agreement}">пользовательского соглашения</a>, <br/><a href="javascript:void(0);" target="_blank" data-bind="attr:{href: police}">правил конфиденциальности</a> и <a href="javascript:void(0);" target="_blank" data-bind="attr:{href: refund}">политики возврата платежей</a></label><!-- ko if: errorIsChecked -->
-            <div class="error__message">
-              <p data-bind="text: errorIsChecked"></p>
-            </div><!-- /ko -->
+            <div class="error-msg-wrapper">
+              <!-- ko if: errorIsChecked -->
+              <div class="error__message">
+                <p data-bind="text: errorIsChecked"></p>
+              </div><!-- /ko -->
+              <input id="iagree" name="iagree" type="checkbox" data-bind="checked: isChecked" class="checkbox"/>
+              <label for="iagree" class="block-label b-small-text">Я принимаю условия <a href="javascript:void(0);" target="_blank" data-bind="attr:{href: agreement}">пользовательского соглашения</a>, <br/><a href="javascript:void(0);" target="_blank" data-bind="attr:{href: police}">правил конфиденциальности</a> и <a href="javascript:void(0);" target="_blank" data-bind="attr:{href: refund}">политики возврата платежей</a></label>
+            </div>
           </div>
         </div>
       </div>
@@ -134,16 +146,20 @@
             </div><!-- /ko -->
           </div><!-- ko ifnot: confirmLater -->
           <div class="input-holder">
-            <input type="text" name="family" value="" placeholder="Адрес сайта (если есть)" data-bind="value: site" class="block-input"/><!-- ko if: errorSite -->
-            <div class="error__message">
-              <p data-bind="text: errorSite"></p>
-            </div><!-- /ko -->
+            <div class="error-msg-wrapper">
+              <div class="error__message">
+                <p data-bind="text: errorSite"></p>
+              </div><!-- /ko -->
+              <input type="text" name="family" value="" placeholder="Адрес сайта (если есть)" data-bind="value: site" class="block-input"/><!-- ko if: errorSite -->
+            </div>
           </div>
           <div class="input-holder">
-            <input type="text" name="code" value="" placeholder="Код приглашения" data-bind="value: invite" class="block-input"/><!-- ko if: errorTypeSeller -->
-            <div class="error__message">
-              <p data-bind="text: errorInvite"></p>
-            </div><!-- /ko -->
+            <div class="error-msg-wrapper">
+              <div class="error__message">
+                <p data-bind="text: errorInvite"></p>
+              </div><!-- /ko -->
+              <input type="text" name="code" value="" placeholder="Код приглашения" data-bind="value: invite" class="block-input"/><!-- ko if: errorTypeSeller -->
+            </div>
           </div><!-- /ko -->
           <div style="padding-top: 13px;" class="input-holder">
             <input id="skip_personal" name="skip_personal" type="checkbox" data-bind="checked: confirmLater" class="checkbox"/>
