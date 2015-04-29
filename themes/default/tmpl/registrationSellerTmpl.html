@@ -57,7 +57,7 @@
                 <p data-bind="text: errorIsChecked"></p>
               </div><!-- /ko -->
               <input id="iagree" name="iagree" type="checkbox" data-bind="checked: isChecked" class="checkbox"/>
-              <label for="iagree" class="block-label b-small-text">Я принимаю условия <a href="javascript:void(0);" target="_blank" data-bind="attr:{href: agreement}">пользовательского соглашения</a>, <br/><a href="javascript:void(0);" target="_blank" data-bind="attr:{href: police}">правил конфиденциальности</a> и <a href="javascript:void(0);" target="_blank" data-bind="attr:{href: refund}">политики возврата платежей</a></label>
+              <label for="iagree" class="block-label b-small-text" style="clear: both">Я принимаю условия <a href="javascript:void(0);" target="_blank" data-bind="attr:{href: agreement}">пользовательского соглашения</a>, <br/><a href="javascript:void(0);" target="_blank" data-bind="attr:{href: police}">правил конфиденциальности</a> и <a href="javascript:void(0);" target="_blank" data-bind="attr:{href: refund}">политики возврата платежей</a></label>
             </div>
           </div>
         </div>
@@ -90,24 +90,28 @@
         <div class="b-wizard__step-content"><!-- ko if: errorConfirmLater -->
           <p data-bind="text: errorConfirmLater" class="error_form"></p><!-- /ko --><!-- ko ifnot: mailConfirmLater -->
           <div class="input-holder">
-            <div rel="tooltip" title="Код, высланный на почтовый адрес" class="tooltip__trigger">?</div>
-            <input type="text" name="code" value="" placeholder="Ваш e-mail код" data-bind="value: mailToken" class="block-input"/>
-            <input id="skip-email" name="skip-email" type="checkbox" checked="" data-bind="checked: mailConfirmLater" class="checkbox"/>
-            <label for="skip-email" class="block-label b-small-text">Подтвердить почтовый ящик позднее</label><!-- ko if: mailIsConfirm -->
-            <div class="b-status b-status--done">E-mail подтверждён</div><!-- /ko --><!-- ko if: errorEmailConfirm -->
-            <div class="error__message">
-              <p data-bind="text: errorEmailConfirm"></p>
-            </div><!-- /ko -->
+            <div style="top:3px" rel="tooltip" title="Код, высланный на почтовый адрес" class="tooltip__trigger">?</div>
+            <div class="error-msg-wrapper">
+              <div class="error__message">
+                <p data-bind="text: errorEmailConfirm"></p>
+              </div><!-- /ko -->
+              <input type="text" name="code" value="" placeholder="Ваш e-mail код" data-bind="value: mailToken" class="block-input"/>
+              <input id="skip-email" name="skip-email" type="checkbox" checked="" data-bind="checked: mailConfirmLater" class="checkbox"/>
+              <label for="skip-email" class="block-label b-small-text">Подтвердить почтовый ящик позднее</label><!-- ko if: mailIsConfirm -->
+              <div class="b-status b-status--done">E-mail подтверждён</div><!-- /ko --><!-- ko if: errorEmailConfirm -->
+            </div>
           </div><!-- /ko --><!-- ko ifnot: isEmptyPhone --><!-- ko ifnot: phoneConfirmLater -->
           <div class="input-holder">
-            <div rel="tooltip" title="Код, высланный в SMS" class="tooltip__trigger">?</div>
-            <input type="text" name="code" value="" placeholder="Ваш SMS код" data-bind="value: phoneToken" class="block-input"/>
-            <input id="skip-phone" name="skip-email" type="checkbox" checked="" data-bind="checked: phoneConfirmLater" class="checkbox"/>
-            <label for="skip-phone" class="block-label b-small-text">Подтвердить телефон позднее</label><!-- ko if: phoneIsConfirm -->
-            <div class="b-status b-status--done">Телефон подтверждён</div><!-- /ko --><!-- ko if: errorPhoneConfirm -->
-            <div class="error__message">
-              <p data-bind="text: errorPhoneConfirm"></p>
-            </div><!-- /ko -->
+            <div style="top:3px" rel="tooltip" title="Код, высланный в SMS" class="tooltip__trigger">?</div>
+            <div class="error-msg-wrapper">
+              <div class="error__message">
+                <p data-bind="text: errorPhoneConfirm"></p>
+              </div><!-- /ko -->
+              <input type="text" name="code" value="" placeholder="Ваш SMS код" data-bind="value: phoneToken" class="block-input"/>
+              <input id="skip-phone" name="skip-email" type="checkbox" checked="" data-bind="checked: phoneConfirmLater" class="checkbox"/>
+              <label for="skip-phone" class="block-label b-small-text">Подтвердить телефон позднее</label><!-- ko if: phoneIsConfirm -->
+              <div class="b-status b-status--done">Телефон подтверждён</div><!-- /ko --><!-- ko if: errorPhoneConfirm -->
+            </div>
           </div><!-- /ko --><!-- /ko -->
         </div>
       </div>
@@ -137,13 +141,15 @@
         <h2 class="b-wizard__step-title">Завершение регистрации</h2>
         <div class="b-wizard__step-content">
           <div id="clienttype" class="input-holder">
-            <input id="clienttype-private" type="radio" name="clienttype" value="person" data-bind="checked: typeSeller" class="inline"/>
-            <label for="clienttype-private">Частное лицо</label>
-            <input id="clienttype-corporate" type="radio" name="clienttype" value="company" data-bind="checked: typeSeller" class="inline"/>
-            <label for="clienttype-corporate">Компания</label><!-- ko if: errorTypeSeller -->
-            <div class="error__message">
-              <p data-bind="text: errorTypeSeller"></p>
+            <div class="error__message" style="float: none">
+              <p style="max-width: 100%" data-bind="text: errorTypeSeller"></p>
             </div><!-- /ko -->
+            <div>
+              <input id="clienttype-private" type="radio" name="clienttype" value="person" data-bind="checked: typeSeller" class="inline"/>
+              <label for="clienttype-private">Частное лицо</label>
+              <input id="clienttype-corporate" type="radio" name="clienttype" value="company" data-bind="checked: typeSeller" class="inline"/>
+              <label for="clienttype-corporate">Компания</label><!-- ko if: errorTypeSeller -->
+            </div>
           </div><!-- ko ifnot: confirmLater -->
           <div class="input-holder">
             <div class="error-msg-wrapper">
