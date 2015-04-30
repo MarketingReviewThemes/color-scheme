@@ -3,20 +3,15 @@
   <!-- version 1.1 -->
   <div>
     <div class="profile-nav grey">
-	  <div class="container">
-		  <!-- ko if not: showRegSeller -->
-			<a href="https://seller.pokupo.ru/seller" class="btn btn-sm"><i class="icon icon-store--small"></i>Стать продавцом</a>
-		  <!-- /ko -->
-		  <!-- ko if: showRegSeller -->
-			<a href="#" class="btn btn-sm" data-bind="click: ClickRegistrationSeller()"><i class="icon icon-store--small"></i>Стать продавцом</a>
-		  <!--/ko -->
+      <div class="container">
+          <a href="https://seller.pokupo.ru/seller" class="btn btn-sm">
+              <i class="icon icon-store--small"></i>Стать продавцом
+          </a>
         <ul class="menu b-profile-nav">
           <li data-bind="attr: {class: 'menu__item ' + activeProfile()}"><a href="javascript:void(0);" data-bind="click: ClickProfile" class="icon__profile"><span>Профиль</span></a></li>
           <li data-bind="attr: {class: 'menu__item ' + activeFavorites()}" class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickFavorites" class="icon__favorites"><span>Избранное</span></a></li>
-          <!-- ko if: showCart -->
-		  <li data-bind="attr: {class: 'menu__item ' + activeCart()}" class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickCart" class="icon__cart"><span>Корзина</span></a></li>
-          <!-- /ko -->
-		  <li data-bind="attr: {class: 'menu__item ' + activePurchases()}" class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickPurchases" class="icon__order"><span>Заказы</span></a></li>
+          <li data-bind="attr: {class: 'menu__item ' + activeCart()}" class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickCart" class="icon__cart"><span>Корзина</span></a></li>
+          <li data-bind="attr: {class: 'menu__item ' + activePurchases()}" class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickPurchases" class="icon__order"><span>Заказы</span></a></li>
           <li data-bind="attr: {class: 'menu__item ' + activeMessages()}" class="menu__item"><a href="javascript:void(0);" data-bind="click: ClickMessages" class="icon__mail"><span>Сообщения<!-- ko if: countNewMessage() > 0 --><sup data-bind="text: countNewMessage" class="menu__item__num"></sup><!-- /ko --></span></a></li>
         </ul>
       </div>

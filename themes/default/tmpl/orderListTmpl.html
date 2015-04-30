@@ -331,9 +331,9 @@
         <tbody>
           <tr class="b-order-table__item">
             <td class="b-order-table__logo"><img src="" data-bind="attr: {src: logoPayment()}"/></td>
-            <td><b data-bind="text: namePayment"></b><br/>
-              <!-- ko text: descPayment -->
-              <!-- /ko -->
+            <td>
+                <b data-bind="text: namePayment"></b>
+                <p data-bind="html: descPayment"></p>
             </td>
             <td data-bind="text: timePayment"></td>
             <td><span class="b-price"><span data-bind="text: costPayment" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></span></td>

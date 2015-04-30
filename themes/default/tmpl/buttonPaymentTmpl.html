@@ -62,10 +62,14 @@
     <div class="b-wizard__actions"><a data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a><a data-bind="click: ClickSubmit" class="b-wizard__action btn-next-step">Обновить</a></div><!-- /ko --><!-- ko if: !isPayForm() && !isInData() -->
     <div class="b-wizard__actions"><a data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a><a data-bind="click: ClickRefresh" class="b-wizard__action btn-next-step">Обновить</a></div><!-- /ko --><!-- ko if: isPayForm() -->
     <div class="b-wizard__actions">
-      <div><!-- ko with: payForm -->
-        <form action="" method="" data-bind="attr: {method: method, action: action, target: target, id: cssPayForm}"><!-- ko foreach: field -->
-          <input type="hidden" name="" value="" data-bind="attr: {name: name}, value: value"/><!-- /ko -->
-        </form><!-- /ko -->
+      <div>
+          <!-- ko with: payForm -->
+          <form action="" method="" data-bind="attr: {method: method, action: action, target: target, id: cssPayForm}">
+            <!-- ko foreach: field -->
+               <input type="hidden" name="" value="" data-bind="attr: {name: name}, value: value"/>
+            <!-- /ko -->
+          </form>
+          <!-- /ko -->
       </div><a data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a><a data-bind="click: ClickPay" class="b-wizard__action btn-next-step">Оплатить</a>
     </div><!-- /ko -->
   </div>

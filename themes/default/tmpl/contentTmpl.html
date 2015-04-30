@@ -6,7 +6,9 @@
       <h1 data-bind="text: titleBlock" class="b-catalog__title"></h1>
       <!-- ko template: { name: 'contentFiletrTmpl', data: filters } -->
       <!-- /ko -->
-      <div class="b-catalog__items cards"><!-- ko foreach: content --><!-- ko foreach: str -->
+      <div class="b-catalog__items cards">
+          <!-- ko foreach: content -->
+          <!-- ko foreach: str -->
         <div class="b-catalog__item">
           <div class="b-item with_popover">
             <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods, attr: {id : cssTitleToCart, href: 'http://pokupo.ru/shop#/goods/id=' + id}"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
@@ -23,7 +25,7 @@
                 <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
               </div>
             </div>
-			<!-- ko if: $parent.showCart -->
+			<!-- ko if: $root.showCart -->
             <div class="b-item__order-button">
               <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В корзину</button>
             </div>
@@ -45,7 +47,7 @@
                     <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
                   </div>
                 </div>
-				<!-- ko if: $parent.showCart -->
+				<!-- ko if: $root.showCart -->
                 <div class="b-item__order-button">
                   <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В корзину</button>
                 </div>
@@ -54,7 +56,9 @@
               <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
             </div>
           </div>
-        </div><!-- /ko --><!-- /ko -->
+        </div>
+          <!-- /ko -->
+          <!-- /ko -->
       </div><!-- ko if: paging().length > 1 -->
       <!-- ko template: {name: "contentPaginatetionTmpl"} -->
       <!-- /ko --><!-- /ko -->
