@@ -1,0 +1,83 @@
+<script id="modalMessageConfirmTmpl" type="text/html">
+    <!-- version 1.0-->
+    <div class="modal" id="modal-confirm">
+        <div class="modal-dialog b-modal-info">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-modal btn-circle btn-circle--drop btn-circle--orange" data-bind="click:Click.Close"></span>
+                </div>
+                <div class="modal-body">
+                    <h3 class="b-modal-info__icon icon-warning" data-bind="text: message"></h3>
+                    <div class="b-modal-info__actions">
+                        <button class="btn btn-lg btn-grey close-modal" type="button" data-bind="click: Click.NotConfirm">Нет</button>
+                        <button class="btn btn-lg" type="button" data-bind="click: Click.Confirm">Да</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="modalMessageSuccessTmpl" type="text/html">
+    <!-- version 1.0-->
+    <div class="modal" id="modal-success">
+        <div class="modal-dialog b-modal-info">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-modal btn-circle btn-circle--drop btn-circle--orange" data-bind="click:Click.Confirm"></span>
+                </div>
+                <div class="modal-body">
+                    <h3 class="b-modal-info__icon icon-success"  data-bind="text: message"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="modalMessageErrorTmpl" type="text/html">
+    <!-- version 1.0-->
+    <div class="modal" id="modal-error">
+        <div class="modal-dialog b-modal-info">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-modal btn-circle btn-circle--drop btn-circle--orange" data-bind="click:Click.Confirm"></span>
+                </div>
+                <div class="modal-body">
+                    <h3 class="b-modal-info__icon icon-error"  data-bind="text: message"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="modalMessageMessageTmpl" type="text/html">
+    <!-- version 1.0-->
+    <div class="modal fade" id="modal-message">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><span class="close-modal btn-circle btn-circle--drop btn-circle--orange" data-bind="click:Click.Close"></span>
+                    <h2 class="b-profile__headline">Новое сообщение</h2>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="input-holder">
+                            <input type="text" class="block-input" value="jiexa@tabrisov.ru" name="msg_to" placeholder="Адресат">
+                        </div>
+                        <div class="input-holder">
+                            <input type="text" class="block-input" value="" name="msg_topic" placeholder="Тема беседы">
+                        </div>
+                        <div class="input-holder" style="padding:0">
+                            <textarea rows="5" name="msg_text"></textarea>
+                        </div>
+                        <div class="input-holder">
+                            <input type="checkbox" checked="checked" name="carboncopy" id="carboncopy">
+                            <label for="carboncopy">Выслать копию на e-mail</label>
+                        </div>
+                        <button class="btn btn-lg btn-grey btn-inline close-modal" type="button">Отмена</button>
+                        <button class="btn btn-lg" type="reset">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
