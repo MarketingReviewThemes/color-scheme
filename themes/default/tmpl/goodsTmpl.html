@@ -59,9 +59,6 @@
                 <button type="button" data-bind="click: blocks.main.Buy" class="btn">Купить сразу</button><!-- /ko --><!-- ko if: blocks.main.IsFavorite -->
                 <div class="like_button active"><a href="javascript:void(0);" data-bind="click: blocks.main.ClickFavorites" class="pseudo-link">Избранный товар</a></div><!-- /ko --><!-- ko ifnot: blocks.main.IsFavorite -->
                 <div class="like_button"><a href="javascript:void(0);" data-bind="click:blocks.main.AddFavorites" class="pseudo-link">В избранное</a></div><!-- /ko -->
-                <div id="dialog-form-batch" style="display: none" title="Добавить комментарий к избранному товару.">
-                  <textarea name="comment" rows="10" cols="50" data-bind="value : blocks.main.comment"></textarea>
-                </div>
               </div>
             </div>
           </div>

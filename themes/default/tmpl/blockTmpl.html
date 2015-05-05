@@ -66,7 +66,7 @@
               </div>
             </div>
           </div>
-		  <!-- ko if: $parent.showCart -->
+            <!-- ko if: $root.showCart -->
           <div class="b-item__order-button">
             <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В&nbsp;корзину</button>
           </div>
@@ -89,7 +89,7 @@
                   <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
                 </div>
               </div>
-			  <!-- ko if: $parent.showCart -->
+                <!-- ko if: $root.showCart -->
               <div class="b-item__order-button">
                 <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В&nbsp;корзину</button>
               </div>

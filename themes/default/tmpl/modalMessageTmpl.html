@@ -52,29 +52,19 @@
 
 <script id="modalMessageMessageTmpl" type="text/html">
     <!-- version 1.0-->
-    <div class="modal fade" id="modal-message">
+    <div class="modal" id="modal-message">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header"><span class="close-modal btn-circle btn-circle--drop btn-circle--orange" data-bind="click:Click.Close"></span>
-                    <h2 class="b-profile__headline">Новое сообщение</h2>
+                    <h2 class="b-profile__headline">Добавить комментарий к избранному товару</h2>
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div class="input-holder">
-                            <input type="text" class="block-input" value="jiexa@tabrisov.ru" name="msg_to" placeholder="Адресат">
-                        </div>
-                        <div class="input-holder">
-                            <input type="text" class="block-input" value="" name="msg_topic" placeholder="Тема беседы">
-                        </div>
                         <div class="input-holder" style="padding:0">
-                            <textarea rows="5" name="msg_text"></textarea>
+                            <textarea rows="5" name="msg_text" data-bind="value: message"></textarea>
                         </div>
-                        <div class="input-holder">
-                            <input type="checkbox" checked="checked" name="carboncopy" id="carboncopy">
-                            <label for="carboncopy">Выслать копию на e-mail</label>
-                        </div>
-                        <button class="btn btn-lg btn-grey btn-inline close-modal" type="button">Отмена</button>
-                        <button class="btn btn-lg" type="reset">Отправить</button>
+                        <button class="btn btn-lg btn-grey btn-inline close-modal" type="button" data-bind="click:Click.Close">Отмена</button>
+                        <button class="btn btn-lg" type="button" data-bind="click: Click.GetMessage">Отправить</button>
                     </form>
                 </div>
             </div>
