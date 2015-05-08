@@ -296,15 +296,17 @@
               <div class="error__message">
                 <p data-bind="text: errorRegion"></p>
               </div><!-- /ko -->
-              <input type="text" name="family" value="" placeholder="Регион" data-bind="value: customRegion, attr: {id: cssRegionList}, enable: idCountry" class="block-input"/>
+              <input type="text" name="region" value="" placeholder="Регион" data-bind="value: customRegion, attr: {id: cssRegionList}, enable: idCountry" class="block-input"/>
             </div>
           </div>
           <div class="input-holder">
             <div class="error-msg-wrapper">
-              <div class="error__message">
-                <p data-bind="text: errorCity"></p>
-              </div><!-- /ko -->
-              <input type="text" name="name" value="" placeholder="Город" data-bind="value: customCity, attr: {id: cssCityList}, enable: customRegion" class="block-input"/><!-- ko if: errorCity -->
+                <!-- ko if: errorCity -->
+                  <div class="error__message">
+                    <p data-bind="text: errorCity"></p>
+                  </div>
+                <!-- /ko -->
+              <input type="text" name="city" value="" placeholder="Город" data-bind="value: customCity, attr: {id: cssCityList}, enable: customRegion" class="block-input"/>
             </div>
           </div>
           <div class="input-holder">
