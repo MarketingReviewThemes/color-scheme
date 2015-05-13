@@ -7731,10 +7731,13 @@ article.page-content .b-review__answer:before {
 
 .b-order-table__text {
 	margin-right: 100px;
+	position: relative;
 }
 
 .b-order-table__text .tooltip__trigger {
 	margin-top: 30px;
+	top: 50%;
+	margin-top: -16px;
 }
 
 .b-wizard__holder .b-tech__item,
