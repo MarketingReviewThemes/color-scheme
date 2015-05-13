@@ -34,9 +34,12 @@
                 <!-- /ko -->
             </div>
         </div>
+
+        <!-- ko if: instruction -->
         <div class="pkp-rollup">
-            <a href="#" class="j-pkp-rollup__trigger pkp-rollup__trigger pkp-rollup__trigger_closed">Инструкция для
-                плательщика</a>
+            <a href="#" class="j-pkp-rollup__trigger pkp-rollup__trigger pkp-rollup__trigger_closed">
+                Инструкция для плательщика
+            </a>
 
             <div class="j-pkp-rollup__content pkp-rollup__content_hidden pkp-resize-block-wrapper j-scroll">
                 <div class="pkp-resize-block">
@@ -46,21 +49,45 @@
                 </div>
             </div>
         </div>
+        <!-- /ko -->
+
         <!-- ko if: isPaid() -->
+        <!-- ko if: egoods.length > 0 -->
         <div class="pkp-shopping-list">
             <h3 class="pkp-title">Цифровой товар</h3>
 
             <div class="pkp-shopping-list__item" data-bind="foreach: egoods">
-                <strong class="pkp-shopping-list__title">«Руководство для молодой мамы. Том 1»</strong>
-                <span class="pkp-shopping-list__info"><!-- ko text: count_upload --><!-- /ko --> из <!-- ko text: max_upload --><!-- /ko -->,  доступно до <!-- ko text: expiration --><!-- /ko --></span>
+                <strong class="pkp-shopping-list__title">Цифровой товар</strong>
+                <span class="pkp-shopping-list__info">
+                    <!-- ko text: count_upload --><!-- /ko --> из <!-- ko text: max_upload --><!-- /ko -->,  доступно до <!-- ko text: expiration --><!-- /ko --></span>
 
                 <div class="pkp-upload">
                     <a href="#" class="pkp-btn pkp-btn_upload" data-bind="attr: {href: upload_file}">Загрузить</a>
-                    <span class="pkp-upload__info"><!-- ko text: size_file --><!-- /ko --></span>
+                    <span class="pkp-upload__info">
+                        <!-- ko text: size_file --><!-- /ko -->
+                    </span>
                 </div>
             </div>
         </div>
         <!-- /ko -->
+        <!-- /ko -->
+
+        <div style="display: none">
+            <div data-bind="attr: {id: cssOrder}">
+                <h3 class="pkp-title pkp-title_big">
+                    Оплата счёта № <!-- ko text: orderId --><!-- /ko -->
+                </h3>
+                <table class="pkp-payment-info__table" data-bind="foreach: outData">
+                    <tr>
+                        <td>
+                            <!-- ko text: label --><!-- /ko -->
+                        </td>
+                        <td><!-- ko text: value--><!-- /ko--></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
         <div class="pkp-footer">
             <span class="pkp-span">Работает на основе торговой платформой <a href="#">Pokupo.ru</a></span>
         </div>

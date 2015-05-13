@@ -13,7 +13,7 @@
             <h3 class="pkp-title pkp-title_big">Оплата заказа</h3>
             <!-- ko if: isGoodsId -->
             <span class="pkp-span">Сумма счета</span>
-            <strong class="pkp-strong"><!-- ko text: amount --><!-- /ko --> руб</strong>
+            <strong class="pkp-strong"><!-- ko text: formatAmount --><!-- /ko --> руб</strong>
             <!-- /ko -->
             <span class="pkp-span">Основание платежа</span>
             <strong class="pkp-strong">Оплата «<!-- ko text: title --><!-- /ko -->»</strong>
@@ -39,7 +39,7 @@
                         <!-- ko if: show.errorAmount -->
                         <span class="pkp-error-msg" style="display: inline" data-bind="text: error.amount"></span>
                         <!-- /ko -->
-                        <input class="pkp-input j-pkp-req-input" type="text" data-bind="value: amount">
+                        <input class="pkp-input j-pkp-req-input" type="text" data-bind="value: amount, attr: {id: cssAmount}">
                     </label>
                 <!-- /ko -->
                 <label class="pkp-form__label">
@@ -75,7 +75,6 @@
 
                 <div class="pkp-tooltip__content pkp-tooltip__content_left">
                     <h6 class="pkp-tooltip__title" data-bind="text: namePayment"></h6>
-                    <span data-bind="html: instrPayment"></span>
                     <p data-bind="html: descPayment"></p>
                 </div>
             </div>
