@@ -30,7 +30,7 @@
                         <!-- ko if: show.errorCount -->
                         <span class="pkp-error-msg" style="display: inline" data-bind="text: error.count"></span>
                         <!-- /ko -->
-                        <input class="pkp-input j-pkp-req-input" type="text" data-bind="value: count">
+                        <input class="pkp-input j-pkp-req-input" type="text" data-bind="value: count, attr: {id: cssCount}">
                     </label>
                 <!-- /ko -->
                 <!-- ko if: show.showAmount -->
@@ -95,7 +95,7 @@
 <script type="text/html" id="standalonePaymentPageTmpl">
     <!-- version 1.0 -->
 
-        <div class="pkp-container">
+        <div id="pkp-container">
             <div class="pkp-clearfix">
                 <!-- ko if: showPaymentInfo -->
                     <div class="pkp-payment-method__item pkp-payment-method__item_small">
