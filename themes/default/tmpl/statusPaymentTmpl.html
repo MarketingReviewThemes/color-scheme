@@ -21,16 +21,16 @@
             </table>
             <div class="pkp-payment-info__img">
                 <!-- ko if: isCancel() -->
-                    <img src="images/payf.png" alt=""/>
+                    <img src="/themes/default/images/payment/payf.png" alt=""/>
                 <!-- /ko -->
                 <!-- ko if: isPaid() -->
-                    <img src="images/pays.png" alt=""/>
+                    <img src="/themes/default/images/payment/pays.png" alt=""/>
                 <!-- /ko -->
                 <!-- ko if: isWait() -->
-                    <img src="images/in-treatment.jpg" alt=""/>
+                    <img src="/themes/default/images/payment/in-treatment.jpg" alt=""/>
                 <!-- /ko -->
                 <!-- ko if: isBack() -->
-                    <img src="images/return.jpg" alt=""/>
+                    <img src="/themes/default/images/payment/return.jpg" alt=""/>
                 <!-- /ko -->
             </div>
         </div>
@@ -57,7 +57,7 @@
             <h3 class="pkp-title">Цифровой товар</h3>
 
             <div class="pkp-shopping-list__item" data-bind="foreach: egoods">
-                <strong class="pkp-shopping-list__title">Цифровой товар</strong>
+                <strong class="pkp-shopping-list__title" data-bind="text: name_goods"></strong>
                 <span class="pkp-shopping-list__info">
                     <!-- ko text: count_upload --><!-- /ko --> из <!-- ko text: max_upload --><!-- /ko -->,  доступно до <!-- ko text: expiration --><!-- /ko --></span>
 
