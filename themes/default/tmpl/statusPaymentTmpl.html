@@ -16,7 +16,7 @@
                                 <div class="pkp-tooltip__content pkp-tooltip__content_left" data-bind="html: help"></div>
                             </div>
                         </td>
-                        <td><!-- ko text: value--><!-- /ko--></td>
+                        <td><!-- ko text: value --><!-- /ko --></td>
                     </tr>
             </table>
             <div class="pkp-payment-info__img">
@@ -50,7 +50,6 @@
             </div>
         </div>
         <!-- /ko -->
-
         <!-- ko if: isPaid() -->
         <!-- ko if: egoods.length > 0 -->
         <div class="pkp-shopping-list">
@@ -59,7 +58,14 @@
             <div class="pkp-shopping-list__item" data-bind="foreach: egoods">
                 <strong class="pkp-shopping-list__title" data-bind="text: name_goods"></strong>
                 <span class="pkp-shopping-list__info">
-                    <!-- ko text: count_upload --><!-- /ko --> из <!-- ko text: max_upload --><!-- /ko -->,  доступно до <!-- ko text: expiration --><!-- /ko --></span>
+                    Скачиваний <!-- ko text: count_upload --><!-- /ko -->
+                    <!-- ko if: max_upload -->
+                    из <!-- ko text: max_upload --><!-- /ko -->
+                    <!-- /ko -->
+                    <!-- ko if: expiration -->
+                    ,  доступно до <!-- ko text: expiration --><!-- /ko -->
+                    <!-- /ko -->
+                </span>
 
                 <div class="pkp-upload">
                     <a href="#" class="pkp-btn pkp-btn_upload" data-bind="attr: {href: upload_file}">Загрузить</a>
