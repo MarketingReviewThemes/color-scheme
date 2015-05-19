@@ -47,7 +47,7 @@
                     <!-- ko if: show.errorEmail -->
                     <span class="pkp-error-msg" style="display: inline" data-bind="text: error.email"></span>
                     <!-- /ko -->
-                    <input class="pkp-input j-pkp-req-input" type="text" data-bind="value: mailUser">
+                    <input class="pkp-input j-pkp-req-input" type="email" data-bind="value: mailUser">
                 </label>
 
                 <!-- ko if: payments().length > 0 -->
@@ -104,7 +104,6 @@
                                 <span class="pkp-tooltip__trigger">?</span>
                                 <div class="pkp-tooltip__content">
                                     <h6 class="pkp-tooltip__title" data-bind="text: paymentInfo.namePayment"></h6>
-                                    <span data-bind="html: paymentInfo.instrPayment"></span>
                                     <p data-bind="html: paymentInfo.descPayment"></p>
                                 </div>
                             </div>
