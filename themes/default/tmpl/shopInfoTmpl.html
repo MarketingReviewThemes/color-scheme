@@ -1,0 +1,15 @@
+<script id="shopInfoTmpl" type="text/html">
+    <!-- version 1.0 -->
+    <a href="" class="logo" data-bind="attr: {href: link, title: name}">
+        <!-- ko if: showLogo -->
+        <div class="subheader__cell">
+            <img src="" alt="" data-bind="attr: {src: logo, alt: name}"/>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: showTitle -->
+        <div class="subheader__cell">
+            <span class="logo__title" data-bind="text: name"></span>
+        </div>
+        <!-- /ko -->
+    </a>
+</script>
