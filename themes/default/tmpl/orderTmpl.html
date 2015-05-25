@@ -271,9 +271,9 @@
                 <label for="tr_31" rel="tooltip" title="Выбрать">&nbsp;</label>
               </td>
               <td class="b-order-table__logo"><img src="javascript:void(0);" data-bind="attr: {src: logoShippingCompany}"/></td>
-              <td><b data-bind="text: nameMethodShipping"></b><br/>
-                <!-- ko text: descMethodShipping-->
-                <!-- /ko-->
+              <td>
+                  <b data-bind="text: nameMethodShipping"></b>
+                  <div data-bind="html: descMethodShipping"></div>
               </td>
               <td class="b-order-table__price"><!-- ko if: costShipping --><span class="b-price"><span data-bind="text: costShipping" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р </span></span><!-- /ko -->
               </td>

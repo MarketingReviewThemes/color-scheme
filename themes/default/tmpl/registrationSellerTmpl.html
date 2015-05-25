@@ -101,14 +101,17 @@
                     </div>
                   <!-- /ko -->
                   <input type="text" name="code" value="" placeholder="Ваш e-mail код" data-bind="value: mailToken" class="block-input"/>
+                  <!-- ko ifnot: phoneConfirmLater -->
                   <input id="skip-email" name="skip-email" type="checkbox" checked="" data-bind="checked: mailConfirmLater" class="checkbox"/>
                   <label for="skip-email" class="block-label b-small-text">Подтвердить почтовый ящик позднее</label>
+                  <!-- /ko -->
                   <!-- ko if: mailIsConfirm -->
                     <div class="b-status b-status--done">E-mail подтверждён</div>
                   <!-- /ko -->
                 </div>
               </div>
             <!-- /ko -->
+
             <!-- ko ifnot: isEmptyPhone -->
             <!-- ko ifnot: phoneConfirmLater -->
               <div class="input-holder">
@@ -120,8 +123,10 @@
                       </div>
                     <!-- /ko -->
                   <input type="text" name="code" value="" placeholder="Ваш SMS код" data-bind="value: phoneToken" class="block-input"/>
+                    <!-- ko ifnot: mailConfirmLater -->
                   <input id="skip-phone" name="skip-email" type="checkbox" checked="" data-bind="checked: phoneConfirmLater" class="checkbox"/>
                   <label for="skip-phone" class="block-label b-small-text">Подтвердить телефон позднее</label>
+                    <!-- /ko -->
                   <!-- ko if: phoneIsConfirm -->
                     <div class="b-status b-status--done">Телефон подтверждён</div>
                   <!-- /ko -->
