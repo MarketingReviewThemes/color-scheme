@@ -148,8 +148,11 @@
 <script id="orderDetailTmpl" type="text/html">
   <!-- version 1.1 -->
   <div class="profile">
-    <div class="container"><a href="javascript:void(0);" data-bind="click: Back" class="btn btn-sm btn-thin btn__stepback"><i class="icon icon-back"></i>назад к списку заказов</a>
-      <h2 class="b-profile__headline">Заказ №
+    <div class="container">
+        <!-- ko if: showBackList -->
+        <a href="javascript:void(0);" data-bind="click: Back" class="btn btn-sm btn-thin btn__stepback"><i class="icon icon-back"></i>назад к списку заказов</a>
+        <!-- /ko -->
+        <h2 class="b-profile__headline">Заказ №
         <!-- ko text: id -->
         <!-- /ko --> от
         <!-- ko text: dateCreate -->
