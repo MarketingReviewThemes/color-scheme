@@ -56,9 +56,19 @@
                       <input type="text" value="1" maxlength="3" autocomplete="off" data-bind="value: blocks.main.ordered" class="inline-input b-increment-input__input"/></span><span data-bind="click: blocks.main.ClickPlus" class="b-increment-input__uarr"></span></div><!-- /ko -->
                 </div><!-- ko if: blocks.main.showAddToCart -->
                 <button id="btn_to_cart" type="button" data-bind="click: blocks.main.AddToCart" class="btn"><i class="icon icon-cart"></i>В&nbsp;корзину</button><br/><!-- /ko --><!-- ko if: blocks.main.showBuy -->
-                <button type="button" data-bind="click: blocks.main.Buy" class="btn">Купить сразу</button><!-- /ko --><!-- ko if: blocks.main.IsFavorite -->
-                <div class="like_button active"><a href="javascript:void(0);" data-bind="click: blocks.main.ClickFavorites" class="pseudo-link">Избранный товар</a></div><!-- /ko --><!-- ko ifnot: blocks.main.IsFavorite -->
-                <div class="like_button"><a href="javascript:void(0);" data-bind="click:blocks.main.AddFavorites" class="pseudo-link">В избранное</a></div><!-- /ko -->
+                <button type="button" data-bind="click: blocks.main.Buy" class="btn">Купить сразу</button><!-- /ko -->
+                  <!-- ko if: blocks.main.showFavorites -->
+                      <!-- ko if: blocks.main.IsFavorite -->
+                      <div class="like_button active">
+                          <a href="javascript:void(0);" data-bind="click: blocks.main.ClickFavorites" class="pseudo-link">Избранный товар</a>
+                      </div>
+                      <!-- /ko -->
+                      <!-- ko ifnot: blocks.main.IsFavorite -->
+                      <div class="like_button">
+                          <a href="javascript:void(0);" data-bind="click:blocks.main.AddFavorites" class="pseudo-link">В избранное</a>
+                      </div>
+                      <!-- /ko -->
+                  <!-- /ko -->
               </div>
             </div>
           </div>
