@@ -544,79 +544,85 @@ PKP.UI = {
 	},
 
 	/* Всплываюющие окна */
-	popup: function() {
-		// Форма "задать ворпос"
-		$("#js-join, #js-addReview").click(function() {
-			var request_form = $("#request_form");
+    popup: function() {
+        // Форма "задать ворпос"
+        $("#js-join, #js-addReview").click(function() {
+            var request_form = $("#request_form");
+            request_form.addClass('in');
 
-			// Скрываем результаты отправки, если уже отправляли.
-			// Показываем форму, если была скрыта
-			request_form.find('.send_request_result').hide();
-			request_form.find('#request_form_wrapper').show();
+            // Скрываем результаты отправки, если уже отправляли.
+            // Показываем форму, если была скрыта
+            request_form.find('.send_request_result').hide();
+            request_form.find('#request_form_wrapper').show();
 
-			request_form.show(); //.find("input").eq(0).focus();
-			
-			return false;
-		});
-		
-		$("#js-close_request_form, #js-cancel-request").click(function() {
-			$("#request_form").hide();
-			return false;
-		});
-		
-		// Отправка заявки
-		$("#js-send-request").click(function() {
-			var request_name  = $("#request_name"),
-				request_email = $("#request_email"),
-				request 	  = $("#request_text");
+            request_form.show(); //.find("input").eq(0).focus();
 
-			if (request_name.val().length > 0 && request_email.val().length > 0) {
-				
-				$.ajax({
-					type: 'POST',
-					url: '/api',
-					data: {
-						name: request_name.val(), 
-						email: request_email.val(),
-						text: request.val()
-					},
-					success: function(result){
-						if (result === 'success') {
-							request.val('');
-							request_name.val('');
-							request_email.val('');
-							
-							$('#request_form_wrapper').hide();
-							$("#send_request_success").show();
-						} else {
-							$("#send_request_fail").show();
-						}
-					},
-					error: function (xhr, ajaxOptions, thrownError) {
-						console.error(xhr.status);
-						console.error(thrownError);
-						$('#request_form_wrapper').hide();
-						$("#send_request_fail").show();
-					},
-					dataType: 'html'
-				});
-			
-			} else {
-				request_name.focus(); // addClass('error');
-			}
+            return false;
+        });
 
-			return false;
-		});
-		
-		// Предотвращаем закрытие окна при клике внутри него
-		$(".popup").click(function(event){
-			event.stopPropagation();
-		});
+        $("#js-close_request_form, #js-cancel-request").click(function() {
+            $("#request_form").hide();
+            return false;
+        });
 
-		PKP.$body.click(function() {
-			$("#request_form").hide();
-		});
-	},
+        // Отправка заявки
+        $("#js-send-request").click(function() {
+            var request_name  = $("#request_name"),
+                request_email = $("#request_email"),
+                request 	  = $("#request_text");
+
+            if (request_name.val().length > 0) {
+                if(request_email.val().length > 0){
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/request_partnership',
+                        data: {
+                            name: request_name.val(),
+                            email: request_email.val(),
+                            text: request.val()
+                        },
+                        success: function(result){
+                            if (result === 'success') {
+                                request.val('');
+                                request_name.val('');
+                                request_email.val('');
+
+                                $('#request_form_wrapper').hide();
+                                $("#send_request_success").show();
+                            } else {
+                                $("#send_request_fail").show();
+                            }
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            console.error(xhr.status);
+                            console.error(thrownError);
+                            $('#request_form_wrapper').hide();
+                            $("#send_request_fail").show();
+                        },
+                        dataType: 'html'
+                    });
+                }
+                else{
+                    request_email.focus(); // addClass('error');
+                }
+
+            } else {
+                request_name.focus(); // addClass('error');
+            }
+
+            return false;
+        });
+
+        // Предотвращаем закрытие окна при клике внутри него
+        $(".popup").click(function(event){
+            event.stopPropagation();
+        });
+
+        PKP.$body.click(function() {
+            $("#request_form").hide();
+        });
+    },
 
 	modal: function() {
 		$('.open-modal').click(function() {
