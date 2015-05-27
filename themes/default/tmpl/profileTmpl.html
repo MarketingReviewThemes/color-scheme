@@ -343,8 +343,8 @@
   <div class="profile">
     <div class="container">
       <div class="content">
-        <h2 class="b-profile__headline">Изменить пароль</h2>
-        <form data-bind="attr: {id: cssSequrityForm}" method="POST" target="upload_target" enctype="multipart/form-data">
+        <form data-bind="attr: {id: cssSequrityForm}" method="POST" class="b-profile__security-form" target="upload_target" enctype="multipart/form-data">
+          <h2 class="b-profile__headline">Изменить пароль</h2>
           <div class="input-holder">
             <input id="password" type="password" name="old_password" value="" placeholder="Текущий пароль" data-bind="value: oldPassword, attr : {id: cssOldPassword}" class="block-input"/><!-- ko if: errorOldPassword -->
             <div class="error__message">
