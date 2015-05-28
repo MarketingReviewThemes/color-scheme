@@ -11,7 +11,7 @@
 
         <div id="pkp-container">
             <h3 class="pkp-title pkp-title_big">Оплата заказа</h3>
-            <!-- ko if: isGoodsId -->
+            <!-- ko ifnot: show.showAmount -->
             <span class="pkp-span">Сумма счета</span>
             <strong class="pkp-strong"><!-- ko text: formatAmount --><!-- /ko --> руб</strong>
             <!-- /ko -->

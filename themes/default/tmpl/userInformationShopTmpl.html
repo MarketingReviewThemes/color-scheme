@@ -3,7 +3,12 @@
   <!-- version 1.0 -->
   <div class="logged-in">
     <div class="circles-menu">
-      <div class="circles-menu__item dropdown"><!-- ko if: iconUser --><a href="javascript:void(0);" data-target="profile" data-bind="attr: {style: backgroundImage}" class="icon__profile dropdown__trigger user_information_dropdown__trigger"><!-- ko if: countNewMessage() > 0 --><sup data-bind="text: countNewMessage" class="circles-menu__num"></sup><!-- /ko --></a><!-- /ko --><!-- ko ifnot: iconUser --><a href="javascript:void(0);" data-target="profile" class="with-icon icon__profile dropdown__trigger user_information_dropdown__trigger"><!-- ko if: countNewMessage() > 0 --><sup data-bind="text: countNewMessage" class="circles-menu__num"></sup><!-- /ko --></a><!-- /ko -->
+      <div class="circles-menu__item dropdown">
+          <a href="javascript:void(0);" data-target="profile" data-bind="attr: {style: background}, css: { icon__profile: !iconUser }" class="with-icon dropdown__trigger user_information_dropdown__trigger">
+              <!-- ko if: countNewMessage() > 0 -->
+              <sup data-bind="text: countNewMessage" class="circles-menu__num"></sup>
+              <!-- /ko -->
+          </a>
         <div data-target="profile" class="b-profile-menu dropdown__content hidden user_information_dropdown__content">
           <p data-bind="text: login" class="b-profile-menu__name"></p>
           <ul class="menu">
