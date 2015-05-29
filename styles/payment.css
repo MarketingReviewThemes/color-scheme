@@ -706,6 +706,9 @@
   color: #fff;
   background: #6c6;
 }
+.ie10.pkp_html .pkp_body #pkp-container .pkp-tooltip__content {
+  display: none;
+}
 .pkp_html .pkp_body #pkp-container .pkp-tooltip__content {
   pointer-events: none;
   position: absolute;
@@ -754,6 +757,9 @@
 .pkp_html .pkp_body #pkp-container .pkp-tooltip__content_center_comments:after {
   right: 300px;
 }
+.ie10.pkp_html .pkp_body #pkp-container .pkp-tooltip:hover .pkp-tooltip__content {
+  display: block;
+}
 .pkp_html .pkp_body #pkp-container .pkp-tooltip:hover .pkp-tooltip__content {
   opacity: 1;
   -webkit-transform: translate(0px) rotate(0deg) scale(1);
@@ -782,7 +788,7 @@
 .pkp_html .pkp_body #pkp-container .pkp-resize-block-wrapper {
   resize: vertical;
   overflow: auto;
-  height: 500px;
+  max-height: 500px;
   margin-top: 15px;
   padding-bottom: 10px;
   border: 2px solid #efece7;

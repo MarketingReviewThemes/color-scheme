@@ -83,7 +83,7 @@
 					'line-height'                   : '16px',
 					'height'						: '16px',
 					'font-weight'                   : 'normal',
-					'color'                         : 'rgba(0,0,0,0.2)'
+					'color'                         : 'rgba(0,0,0,0.4)'
 				});
 
 				if( !settings.slideInput ) {                    
@@ -96,7 +96,7 @@
 
 				thisElement.on('blur', function() {
 					thisElement.next('label').css({ 
-						'color' : 'rgba(0,0,0,0.2)' 
+						'color' : 'rgba(0,0,0,0.4)' 
 					}); 
 				});
 

@@ -930,18 +930,18 @@ span.slidedown__trigger:hover {
 }
 
 .password-control__trigger--show:after {
-	background-image: url("../images/sprite.png");
-	background-position: -858px -638px;
-	width: 20px;
-	height: 16px;
-}
-
-.password-control__trigger--hide:after {
 	margin: 2px 0 0 -11px;
 	background-image: url("../images/sprite.png");
 	background-position: -273px -164px;
 	width: 22px;
 	height: 6px;
+}
+
+.password-control__trigger--hide:after {
+	background-image: url("../images/sprite.png");
+	background-position: -858px -638px;
+	width: 20px;
+	height: 16px;
 }
 
 .password-control__trigger.active:after {
