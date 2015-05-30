@@ -190,32 +190,32 @@
             <p data-bind="text: errorCountry"></p>
           </div><!-- /ko -->
         </div>
-        <div class="input-holder">
+        <div class="input-holder" data-bind="css: {'hidden': showRegion()}">
           <input type="text" placeholder="Регион" data-bind="value: customRegion, attr: {id: cssRegionList}, enable: country" class="block-input"/><!-- ko if: errorRegion -->
           <div class="error__message">
             <p data-bind="text: errorRegion"></p>
           </div><!-- /ko -->
         </div>
-        <div class="input-holder">
-          <input type="text" placeholder="Город" data-bind="value: customCity, attr: {id: cssCityList}, enable: customRegion" class="block-input"/><!-- ko if: errorCity -->
+        <div class="input-holder" data-bind="css: {'hidden': showCity()}">
+          <input type="text" placeholder="Населенный пункт" data-bind="value: customCity, attr: {id: cssCityList}, enable: customRegion" class="block-input"/><!-- ko if: errorCity -->
           <div class="error__message">
             <p data-bind="text: errorCity"></p>
           </div><!-- /ko -->
         </div>
-        <div class="input-holder">
+        <div class="input-holder" data-bind="css: {'hidden': showAddress()}">
           <input type="text" placeholder="Улица, дом, квартира" data-bind="value: customAddress, attr: {id: cssAddress}, enable: customCity" class="block-input"/><!-- ko if: errorAddress -->
           <div class="error__message">
             <p data-bind="text: errorAddress"></p>
           </div><!-- /ko -->
         </div>
-        <div class="input-holder">
+        <div class="input-holder" data-bind="css: {'hidden': showPostIndex()}">
           <input type="text" placeholder="Почтовый индекс" data-bind="value: postCode, attr: {id: cssPostCode}" class="block-input"/><!-- ko if: errorPostCode -->
           <div class="error__message">
             <p data-bind="text: errorPostCode"></p>
           </div><!-- /ko -->
         </div>
         <div class="input-holder">
-          <input type="text" placeholder="ФИО получателя" data-bind="value: addressee" class="block-input"/><!-- ko if: errorAddressee -->
+          <input type="text" placeholder="ФИО получателя" data-bind="value: addressee, attr: {id: cssAddressee}" class="block-input"/><!-- ko if: errorAddressee -->
           <div class="error__message">
             <p data-bind="text: errorAddressee"></p>
           </div><!-- /ko -->
