@@ -289,7 +289,7 @@
               <p data-bind="text: errorCountry"></p>
             </div><!-- /ko -->
           </div>
-          <div class="input-holder">
+          <div class="input-holder"  data-bind="css: {'hidden': showRegion()}">
             <div rel="tooltip" title="Введите ваш регион." class="tooltip__trigger">?</div>
             <div class="error-msg-wrapper">
               <!-- ko if: errorRegion -->
@@ -299,7 +299,7 @@
               <input type="text" name="region" value="" placeholder="Регион" data-bind="value: customRegion, attr: {id: cssRegionList}, enable: idCountry" class="block-input"/>
             </div>
           </div>
-          <div class="input-holder">
+          <div class="input-holder" data-bind="css: {'hidden': showCity()}">
             <div class="error-msg-wrapper">
                 <!-- ko if: errorCity -->
                   <div class="error__message">
@@ -309,7 +309,7 @@
               <input type="text" name="city" value="" placeholder="Населенный пункт" data-bind="value: customCity, attr: {id: cssCityList}, enable: customRegion" class="block-input"/>
             </div>
           </div>
-          <div class="input-holder">
+          <div class="input-holder" data-bind="css: {'hidden': showAddress()}">
             <div class="error-msg-wrapper">
               <!-- ko if: errorAddress -->
               <div class="error__message">
@@ -318,7 +318,7 @@
               <input type="text" name="patronymic" value="" placeholder="Улица, дом, квартира" data-bind="value: customAddress, attr: {id: cssAddress}, enable: customCity" class="block-input"/>
             </div>
           </div>
-          <div class="input-holder">
+          <div class="input-holder" data-bind="css: {'hidden': showPostIndex()}">
             <div class="error-msg-wrapper">
               <!-- ko if: errorPostIndex -->
               <div class="error__message">

@@ -8727,9 +8727,7 @@ section.profile-nav {
 	margin-top: 0;
 }
 
-#fullname,
-#address,
-#addAddress {
+#fullname {
 	width: 100%;
 	max-width: 979px;
 	margin-bottom: 20px;
