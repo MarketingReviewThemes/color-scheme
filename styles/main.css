@@ -10045,6 +10045,7 @@ section.advanced-search + .catalog-banner {
 	position: relative;
 	top: -34px;
 	margin: 0 190px -30px 0;
+	min-height: 30px;
 }
 
 .b-thermometer p {
@@ -11649,6 +11650,16 @@ body .b-share-popup__header_first {
 .b-profile-info--personal .b-profile-info__characters-list {
 	margin-top: 16px;
 	color: #666;
+}
+
+/* Форма смены пароля */
+.b-profile__security-form {
+	margin: 0 auto;
+	text-align: center;
+	width: 400px;
+}
+.b-profile__security-form .b-profile__headline {
+	text-align: center;
 }
 
 .h1-with-progress-bar {
