@@ -259,7 +259,14 @@
 <script id="orderDetailGoodsTmpl" type="text/html">
   <!-- version 1.0-->
   <tr class="b-order-table__item">
-    <td class="b-order-table__thumb"><img src="" data-bind="attr: {src: routeImage}"/></td>
+    <td class="b-order-table__thumb">
+        <!-- ko if: routeImage -->
+        <img src="" data-bind="attr: {src: routeImage}"/>
+        <!-- /ko -->
+        <!-- ko ifnot: routeImage -->
+        <img src="/images/catalog/default.png"/>
+        <!-- /ko -->
+    </td>
     <td class="b-order-table__title"><a href="javascript:void(0);" data-bind="text: fullName, click: ClickGoods"></a><!-- ko if: isEgoodsPaid() --><!-- ko foreach: EGoods -->
       <div class="b-order-table__info">
         <p class="b-order-table__label">Скачиваний <b>

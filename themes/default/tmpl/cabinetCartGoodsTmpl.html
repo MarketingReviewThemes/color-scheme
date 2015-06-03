@@ -60,7 +60,14 @@
       <input type="checkbox" data-bind="attr: {id: cssCheckboxGoods}"/>
       <label for="" data-bind="click: ClickOrder"></label>
     </div>
-    <div class="b-order-item__img"><img src="#" data-bind="attr: {src: routeImages, title: fullName }"/></div>
+    <div class="b-order-item__img">
+        <!-- ko if: routeImages -->
+        <img src="#" data-bind="attr: {src: routeImages, title: fullName }"/>
+        <!-- /ko -->
+        <!-- ko ifnot: routeImages -->
+        <img src="/images/catalog/default.png"/>
+        <!-- /ko -->
+    </div>
     <div class="b-order-item__name"><a href="#" data-bind="click: ClickGoods"><span data-bind="text: fullName"></span></a></div>
     <div class="b-order-item__price"><!-- ko if: discount() != 0 -->
       <div class="b-price b-item__price--old"><span data-bind="text: sellEndCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div>
