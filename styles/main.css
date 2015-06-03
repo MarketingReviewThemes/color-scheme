@@ -2685,7 +2685,7 @@ section.subheader .menu-login .not-logged-in a.menu-login__login:hover {
 
 section.subheader.subheader--min {
 	background: #fff;
-	z-index: 10;
+	z-index: 11;
 }
 
 section.subheader.subheader--min .logo__title {
