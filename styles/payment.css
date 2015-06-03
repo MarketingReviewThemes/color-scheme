@@ -706,11 +706,8 @@
   color: #fff;
   background: #6c6;
 }
-.ie10.pkp_html .pkp_body #pkp-container .pkp-tooltip__content {
-  display: none;
-}
 .pkp_html .pkp_body #pkp-container .pkp-tooltip__content {
-  pointer-events: none;
+  display: none;
   position: absolute;
   width: 495px;
   padding: 20px 20px;
@@ -720,17 +717,6 @@
   right: -21px;
   font: 13px 'Open Sans', Arial, sans-serif;
   font-weight: 400;
-  opacity: 0;
-  -webkit-transform: translate(35px) rotate(25deg) scale(1.5);
-  -moz-transform: translate(35px) rotate(25deg) scale(1.5);
-  -o-transform: translate(35px) rotate(25deg) scale(1.5);
-  -ms-transform: translate(35px) rotate(25deg) scale(1.5);
-  transform: translate(35px) rotate(25deg) scale(1.5);
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
   z-index: 99;
   text-align: left;
 }
@@ -757,18 +743,9 @@
 .pkp_html .pkp_body #pkp-container .pkp-tooltip__content_center_comments:after {
   right: 300px;
 }
-.ie10.pkp_html .pkp_body #pkp-container .pkp-tooltip:hover .pkp-tooltip__content {
-  display: block;
-}
 .pkp_html .pkp_body #pkp-container .pkp-tooltip:hover .pkp-tooltip__content {
   opacity: 1;
-  -webkit-transform: translate(0px) rotate(0deg) scale(1);
-  -moz-transform: translate(0px) rotate(0deg) scale(1);
-  -o-transform: translate(0px) rotate(0deg) scale(1);
-  -ms-transform: translate(0px) rotate(0deg) scale(1);
-  transform: translate(0px) rotate(0deg) scale(1);
-  pointer-events: auto;
-  transition: all 0.3s ease-in-out;
+  display: block;
 }
 .pkp_html .pkp_body #pkp-container .pkp-tooltip__title {
   font: 13px 'Open Sans', Arial, sans-serif;
