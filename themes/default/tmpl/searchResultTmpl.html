@@ -3,20 +3,29 @@
   <!-- version 1.0 -->
   <div class="nosidebar">
     <div class="b-catalog">
-      <h1 id="js-nosidebar" class="b-catalog__title"><!-- ko if: countGoods == 1 -->Найден 
-        <!-- ko text: countGoods -->
-        <!-- /ko--> товар<!-- /ko --><!-- ko if: countGoods > 1 && countGoods < 5 -->Найдено 
-        <!-- ko text: countGoods -->
-        <!-- /ko--> товара<!-- /ko --><!-- ko if: countGoods > 4 -->Найдено 
-        <!-- text: countGoods -->
-        <!-- /ko--> товаров<!-- /ko -->
+      <h1 id="js-nosidebar" class="b-catalog__title">
+        <!-- ko if: countGoods == 1 -->
+          Найден <!-- ko text: countGoods --><!-- /ko--> товар
+        <!-- /ko -->
+
+        <!-- ko if: countGoods > 1 && countGoods < 5 -->
+          Найдено <!-- ko text: countGoods --><!-- /ko--> товара
+        <!-- /ko -->
+
+        <!-- ko if: countGoods > 4 -->
+          Найдено <!-- ko text: countGoods --><!-- /ko--> товаров
+        <!-- /ko -->
       </h1>
       <!-- ko template: { name: 'searchResultFiletrTmpl', data: filters } -->
       <!-- /ko -->
       <div class="b-catalog__items cards"><!-- ko foreach: content --><!-- ko foreach: str -->
         <div class="b-catalog__item">
           <div class="b-item with_popover">
-            <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
+            <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods">
+                <!-- ko if: routeImage() -->
+                <img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/>
+                <!-- /ko -->
+            </a></div>
             <div class="responsive-holder">
               <div class="b-item__description">
                 <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>
@@ -38,7 +47,11 @@
             <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
             <div class="b-item__popover">
               <div class="b-item--dublicate">
-                <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
+                <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods">
+                    <!-- ko if: routeImage() -->
+                    <img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/>
+                    <!-- /ko -->
+                </a></div>
                 <div class="responsive-holder">
                   <div class="b-item__description">
                     <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>
@@ -81,7 +94,11 @@
       <div class="b-catalog__items magazine"><!-- ko foreach: content -->
         <div class="b-catalog__item">
           <div class="b-item with_popover">
-            <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
+            <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods">
+                <!-- ko if: routeImage() -->
+                <img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/>
+                <!-- /ko -->
+            </a></div>
             <div class="responsive-holder">
               <div class="b-item__description">
                 <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>
@@ -103,7 +120,11 @@
             <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
             <div class="b-item__popover">
               <div class="b-item--dublicate">
-                <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
+                <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods">
+                    <!-- ko if: routeImage() -->
+                    <img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/>
+                    <!-- /ko -->
+                </a></div>
                 <div class="responsive-holder">
                   <div class="b-item__description">
                     <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>
@@ -146,7 +167,10 @@
       <div class="b-catalog__items titles"><!-- ko foreach: content -->
         <div class="b-catalog__item">
           <div class="b-item with_popover">
-            <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
+            <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods">
+                <!-- ko if: routeImage() -->
+                <img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/>
+                <1!-- /ko -->            </a></div>
             <div class="responsive-holder">
               <div class="b-item__description">
                 <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>
@@ -168,7 +192,11 @@
             <div class="b-item__badges"><span class="bestseller">Хит!</span></div>
             <div class="b-item__popover">
               <div class="b-item--dublicate">
-                <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods"><img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/></a></div>
+                <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods">
+                    <!-- ko if: routeImage() -->
+                    <img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/>
+                    <!-- /ko -->
+                </a></div>
                 <div class="responsive-holder">
                   <div class="b-item__description">
                     <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>

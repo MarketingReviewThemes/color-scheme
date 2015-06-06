@@ -7688,6 +7688,7 @@ article.page-content .b-review__answer:before {
 .b-order-table__logo img {
 	display: inline-block;
 	margin: 0 auto;
+    width: 100%;
 }
 
 .b-order-table__thumb {
