@@ -39,7 +39,7 @@
                 <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
               </div>
             </div>
-			<!-- ko if: $parent.showCart -->
+			<!-- ko if: $root.showCart -->
             <div class="b-item__order-button">
               <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В корзину</button>
             </div>
@@ -65,7 +65,7 @@
                     <div class="b-price"><span data-bind="text: sellCost" class="b-price__number"></span><span class="b-price__thinsp">&nbsp;</span><span class="b-price__rubl">Р</span></div><!-- /ko -->
                   </div>
                 </div>
-				<!-- ko if: $parent.showCart -->
+				<!-- ko if: $root.showCart -->
                 <div class="b-item__order-button">
                   <button type="button" data-bind="click: ClickBuy" class="btn"><i class="icon icon-cart"></i>В корзину</button>
                 </div>
@@ -170,7 +170,8 @@
             <div class="b-item__picture"><a href="javascript:void(0);" data-bind="click: ClickGoods">
                 <!-- ko if: routeImage() -->
                 <img src="" data-bind="attr: {src: routeImage, title: chortName, id : cssToCart}"/>
-                <1!-- /ko -->            </a></div>
+                <!-- /ko -->
+            </a></div>
             <div class="responsive-holder">
               <div class="b-item__description">
                 <h4 class="b-item__title"><a href="javascript:void(0);" data-bind="text:chortName, click: ClickGoods, attr: {id : cssTitleToCart}"></a></h4>
