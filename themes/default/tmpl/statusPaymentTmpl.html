@@ -92,8 +92,15 @@
             </div>
         </div>
 
+        <div class="pkp-btns-holder">
+            <a class="pkp-btn pkp-btn_back" href="#" data-bind="click: ClickBack">Назад</a>
+            <!-- ko if: showRefresh -->
+            <button class="pkp-btn pkp-btn_get-receipt" data-bind="click: ClickRefresh">Обновить</button>
+            <!-- /ko -->
+        </div>
+
         <div class="pkp-footer">
-            <span class="pkp-span">Работает на основе торговой платформой <a href="#">Pokupo.ru</a></span>
+            <span class="pkp-span">Работает на основе торговой платформой <a href="https://pokupo.ru">Pokupo.ru</a></span>
         </div>
     </div>
 </script>

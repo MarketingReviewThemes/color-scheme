@@ -34,6 +34,9 @@
   font-stretch: normal;
   unicode-range: U+0020-25CA;
 }
+.pkp_html .pkp_body{
+    text-align: left;
+}
 .pkp_html .pkp_body #pkp-container h1,
 .pkp_html .pkp_body #pkp-container h2,
 .pkp_html .pkp_body #pkp-container h3,
@@ -771,7 +774,7 @@
   border: 2px solid #efece7;
 }
 .pkp_html .pkp_body #pkp-container .pkp-resize-block {
-  padding: 36px 27px 0 27px;
+  padding: 10px 27px 0 27px;
 }
 .pkp_html .pkp_body #pkp-container .pkp-contributors-intruct {
   padding-top: 4px;
