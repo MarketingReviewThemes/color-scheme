@@ -8551,9 +8551,18 @@ section.profile-nav {
 .profile .btn-circle--trash {
 	width: 40px;
 	height: 40px;
-	margin-left: 0;
+	margin: 7px;
 }
-
+.error__file p {
+    text-align: right;
+    font-size: 12px;
+    color: #ed1c24;
+    font-weight: 600;
+    max-width: 300px;
+    height: auto;
+    white-space: normal;
+    margin-bottom: 10px;
+}
 .profile .btn-circle--drop {
 	border-color: #e23f3f;
 }

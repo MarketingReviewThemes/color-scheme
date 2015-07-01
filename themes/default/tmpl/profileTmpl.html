@@ -18,41 +18,44 @@
   <!-- version 1.0-->
   <form data-bind="attr: {id: cssRegistrationDataForm}" method="POST" target="upload_target" enctype="multipart/form-data">
     <fieldset class="b-fieldset">
-      <div class="b-profile-info b-profile-info--personal">
-          <!-- ko if: errorIconUser -->
-          <div class="error__message">
-              <p data-bind="text: errorIconUser"></p>
-          </div>
-          <!-- /ko -->
-        <div class="b-profile-info__actions">
-            <span id="button_avatar_file" type="button" class="btn btn-xs">
-                <span>Загрузить аватар</span>
-                <input name="avatar" type="file" data-bind="attr: {id: cssIconUser}"/>
-            </span>
-            <span id="button_trash_avatar_file" style="display: none;" class="btn-circle btn-circle--trash"></span>
+        <div class="columns">
+            <div class="first double column">
+                <div class="content">
+                        <!-- ko if: iconUser -->
+                        <div class="b-profile-info__photo">
+                            <img src="javascript:void(0);" data-bind="attr: {src: iconUser}"/>
+                        </div>
+                        <!-- /ko -->
+                        <!-- ko ifnot: iconUser -->
+                        <div class="b-profile-info__photo with-icon"></div>
+                        <!-- /ko -->
+                        <h2 data-bind="text: fullName" class="b-profile__headline b-profile-info__title"></h2>
+                        <ul class="b-profile-info__characters-list"><!-- ko if: dateRegistration -->
+                            <li><span>На сайте с
+                                <!-- ko text: dateRegistration -->
+                                <!-- /ko --></span></li><!-- /ko -->
+                            <li><span class="char">Псевдоним: </span><span data-bind="text: username" class="value"></span></li>
+                            <li><span class="char">Рейтинг: </span><span class="value value--orange"><!-- ko if: rating  -->+<!-- /ko -->
+                            <!-- ko text: rating-->
+                            <!-- /ko --></span></li>
+                        </ul>
+                </div>
+            </div>
+            <div class="third double column">
+                <div class="content">
+                    <span id="button_avatar_file" type="button" class="btn btn-xs">
+                        <span>Загрузить аватар</span>
+                        <input name="avatar" type="file" data-bind="attr: {id: cssIconUser}"/>
+                    </span>
+                    <span id="button_trash_avatar_file" style="display: none;" class="btn-circle btn-circle--trash"></span>
+                    <!-- ko if: errorIconUser -->
+                    <div class="error__file">
+                        <p data-bind="text: errorIconUser"></p>
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
         </div>
-
-        <div class="b-profile-info__summary">
-            <!-- ko if: iconUser -->
-              <div class="b-profile-info__photo">
-                  <img src="javascript:void(0);" data-bind="attr: {src: iconUser}"/>
-              </div>
-            <!-- /ko -->
-            <!-- ko ifnot: iconUser -->
-                <div class="b-profile-info__photo with-icon"></div>
-            <!-- /ko -->
-          <h2 data-bind="text: fullName" class="b-profile__headline b-profile-info__title"></h2>
-          <ul class="b-profile-info__characters-list"><!-- ko if: dateRegistration -->
-            <li><span>На сайте с
-                <!-- ko text: dateRegistration -->
-                <!-- /ko --></span></li><!-- /ko -->
-            <li><span class="char">Псевдоним: </span><span data-bind="text: username" class="value"></span></li>
-            <li><span class="char">Рейтинг: </span><span class="value value--orange"><!-- ko if: rating  -->+<!-- /ko -->
-                <!-- ko text: rating-->
-                <!-- /ko --></span></li>
-          </ul>
-        </div>
-      </div>
     </fieldset><!-- ko if: checkInfo() == 'yes' -->
     <div data-for="fieldset-id" class="b-status b-status--fieldset b-status--done">Данные проверены</div><!-- /ko --><!-- ko if: checkInfo() == 'no' -->
     <div data-for="fieldset-id" class="b-status b-status--fieldset b-status--warning">Данные не проверены</div><!-- /ko -->
