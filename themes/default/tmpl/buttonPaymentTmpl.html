@@ -70,7 +70,9 @@
             <!-- /ko -->
           </form>
           <!-- /ko -->
-      </div><a data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a><a data-bind="click: ClickPay" class="b-wizard__action btn-next-step">Оплатить</a>
+      </div>
+        <a data-bind="click: Back" class="b-wizard__action btn-prev-step">Назад</a>
+        <a data-bind="click: ClickPay, text: title" class="b-wizard__action btn-next-step"></a>
     </div><!-- /ko -->
   </div>
 </script>
