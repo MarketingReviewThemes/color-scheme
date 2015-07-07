@@ -2,7 +2,10 @@
 <script id="catalogTmpl" type="text/html">
   <!-- version 1.0-->
   <aside class="b-sidebar dropdown">
-    <div data-target="sidebar" class="b-sidebar__dropdown"><!-- ko foreach: tab -->
+    <a class="btn btn-menu dropdown__trigger" id="catalogBtn" data-target="sidebar" href="javascript:void(0);">
+        <i class="icon icon-catalog"></i>Каталог
+    </a>
+    <div data-target="sidebar" class="b-sidebar__dropdown hidden"><!-- ko foreach: tab -->
       <h1 data-bind="text: title, css: tabClass, click: ClickTab" class="b-sidebar__title"></h1><!-- /ko --><!-- ko foreach: tab -->
       <ul data-bind="css: listClass, visible: isActive" class="menu"><!-- ko foreach: children --><!-- ko ifnot: hasChildren -->
         <li data-bind="css : liClass" class="menu__item">

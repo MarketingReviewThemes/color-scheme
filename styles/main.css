@@ -10536,9 +10536,9 @@ section.profile .b-order-list__tobepaid .b-order-item__discount {
 	text-align: left;
 }
 
-.b-sidebar .btn {
-	display: none;
-}
+/*.b-sidebar .btn {*/
+	/*display: none;*/
+/*}*/
 
 .b-sidebar__title {
 	font-size: 18px;

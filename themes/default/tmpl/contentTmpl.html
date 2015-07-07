@@ -1,9 +1,9 @@
 
 <script id="contentTileTmpl" type="text/html">
   <!-- version 1.0 -->
-  <div class="nosidebar">
+  <div>
     <div class="b-catalog">
-      <h1 data-bind="text: titleBlock" class="b-catalog__title"></h1>
+      <h1 data-bind="text: titleBlock" class="b-catalog__title" id="js-nosidebar"></h1>
       <!-- ko template: { name: 'contentFiletrTmpl', data: filters } -->
       <!-- /ko -->
       <div class="b-catalog__items cards">
@@ -75,9 +75,9 @@
 </script>
 <script id="contentTableTmpl" type="text/html">
   <!-- version 1.0 -->
-  <div class="nosidebar">
+  <div>
     <div class="b-catalog">
-      <h1 data-bind="text: titleBlock" class="b-catalog__title"></h1>
+      <h1 data-bind="text: titleBlock" class="b-catalog__title" id="js-nosidebar"></h1>
       <!-- ko template: { name: 'contentFiletrTmpl', data: filters } -->
       <!-- /ko -->
       <div class="b-catalog__items magazine"><!-- ko foreach: content -->
@@ -145,9 +145,9 @@
 </script>
 <script id="contentListTmpl" type="text/html">
   <!-- version 1.0 -->
-  <div class="nosidebar">
+  <div>
     <div class="b-catalog">
-      <h1 data-bind="text: titleBlock" class="b-catalog__title"></h1>
+      <h1 data-bind="text: titleBlock" class="b-catalog__title" id="js-nosidebar"></h1>
       <!-- ko template: { name: 'contentFiletrTmpl', data: filters } -->
       <!-- /ko -->
       <div class="b-catalog__items titles"><!-- ko foreach: content -->
@@ -215,7 +215,7 @@
 </script>
 <script id="contentNoResultsTmpl" type="text/html">
   <!-- version 1.0 -->
-  <div class="nosidebar">
+  <div>
     <div class="b-catalog">
       <h1 data-bind="text: titleBlock" class="b-catalog__title"></h1>
       <!-- ko template: { name: 'contentFiletrTmpl', data: filters } -->
