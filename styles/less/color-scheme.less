@@ -1,26 +1,26 @@
-// Name: brown-green
+// Name: black-yellow
 /* Variables */
 
 // Base colors
 @text: #444;
-@baseColor: #82b944;
+@baseColor: #fecc51;
 
 @link: #444;
-@linkActive: @baseColor;
+@linkActive: #444;
 @linkHover: @baseColor;
 
 
 // Additional elements colors
-@panel: #643b1d;
-@panelAdmin: #643b1d;
+@panel: #333;
+@panelAdmin: #333;
 
 @buttonMain: @baseColor;
-@buttonMainHover: #679437;
-@buttonMainActive: #405c22;
+@buttonMainHover: #dfba69;
+@buttonMainActive: #b29454;
 
 @buttonAdd: @baseColor;
 @buttonAddHover: @baseColor;
-@buttonAddActive: #679437;
+@buttonAddActive: #cba341;
 
 @buttonAdd2: #efece7;
 @buttonAdd2Hover: #efece7;
@@ -28,8 +28,8 @@
 
 @numberPrice: #e31837;
 @numberPriceActive: #b53232;
-@shopcartBase: @baseColor;
-@shopcartPrice: @baseColor;
+@shopcartBase: #82b945;
+@shopcartPrice: #633b1c;
 
 
 
@@ -393,15 +393,15 @@ textarea:focus {
 
 .b-increment-group__darr:after {
   border-top-color: @baseColor;
-}
-.b-increment-group__darr:hover:after {
-  border-top-color: @buttonMainActive;
+  &:hover {
+    border-top-color: @buttonMainActive;
+  }
 }
 .b-increment-group__uarr:after {
   border-bottom-color: @baseColor;
-}
-.b-increment-group__uarr:hover:after{
-  border-bottom-color: @buttonMainActive;
+  &:hover {
+    border-top-color: @buttonMainActive;
+  }
 }
 
 /* All links and sorter filters */
