@@ -1,0 +1,427 @@
+// Name: light-blue
+/* Variables */
+
+// Base colors
+@text: #444;
+@baseColor: #00c4e0;
+
+@link: #444;
+@linkActive: @baseColor;
+@linkHover: @baseColor;
+
+
+// Additional elements colors
+@panel: #333;
+@panelAdmin: #333;
+
+@buttonMain: @baseColor;
+@buttonMainHover: #019db4;
+@buttonMainActive: #006e7d;
+
+@buttonAdd: @baseColor;
+@buttonAddHover: @baseColor;
+@buttonAddActive: #019db4;
+
+@buttonAdd2: #efece7;
+@buttonAdd2Hover: #efece7;
+@buttonAdd2Active: #c0bcb9;
+
+@numberPrice: #e31837;
+@numberPriceActive: #b53232;
+@shopcartBase: @baseColor;
+@shopcartPrice: @baseColor;
+
+
+
+/* Color rewrite styles */
+/* _____________________________________________ */
+body {
+  color: @text;
+}
+
+/* Top menu */
+.b-user-navigation .menu__item a:hover,
+.header .menu a:hover, .header .menu a.bordered,
+.b-navigation .menu__item.active > a,
+.b-navigation .menu__item.with-submenu a:hover, .b-navigation .menu__item.with-submenu a.bordered {
+  border-color: @baseColor;
+  color: @baseColor;
+
+  &:hover {
+    border-color: @baseColor;
+    color: @baseColor;
+  }
+}
+.b-navigation .menu__item.with-submenu a:hover:after,
+.b-navigation .menu__item.with-submenu a.bordered:after,
+.b-navigation .menu__item.active > a:after {
+  border-bottom-color: @baseColor;
+}
+.header .menu .submenu__item.active {
+  background-color: @baseColor;
+  a {
+    &:hover {
+      background-color: @baseColor;
+      color: #FFF !important;
+      border-color: #FFF !important;
+    }
+  }
+}
+/* /Top menu */
+
+
+/* Top panel */
+.orange {
+  background-color: @panel;
+}
+.full-width.orange:after,
+.full-width.orange:before,
+.full-width.orange {
+  background-color: @baseColor;
+}
+.grey {
+  background-color: @panelAdmin;
+}
+.b-profile-nav .menu__item.active {
+  background-color: @baseColor;
+}
+.b-profile-nav .menu__item a.icon__profile:before {
+  background-position: -264px -56px;
+}
+
+.b-location__current {
+  color: @text;
+}
+#js-multilocation.part:before {
+  background-color: @baseColor;
+}
+.menu-login .not-logged-in a.menu-login__register {
+  color: @baseColor;
+}
+.b-search__button {
+  background-color: @buttonMain;
+
+  &:hover {
+    background-color: @buttonMainHover;
+  }
+  &:active {
+    background-color: @buttonMainActive;
+  }
+}
+.circles-menu__item > a {
+  border-color: @baseColor;
+}
+section.advanced-search .advanced-search-trigger__text {
+  color: @link;
+  border-color: @link;
+
+  &:hover {
+    color: @linkHover;
+    border-color: @linkHover;
+  }
+}
+.radio-circles .menu__item.active a {
+  background: @baseColor;
+}
+.radio-circles .menu__item a {
+  border-color: @baseColor;
+
+  &:hover {
+    background-color: @baseColor;
+  }
+}
+
+.circles-menu__num {
+  background: @numberPrice;
+}
+/* /Top panel */
+
+
+/* Left Menu */
+.btn.btn-menu {
+  color: @text;
+
+  &:hover, &:active {
+    background-color: transparent;
+  }
+
+}
+
+.b-sidebar .menu__item a,
+.b-sidebar .menu__item u {
+  color: @link;
+
+  &:hover {
+    color: @linkHover;
+  }
+}
+.b-sidebar .menu__item a span,
+.b-sidebar .menu__item u span {
+  border-color: @link;
+}
+.b-sidebar .menu__item a:hover span, .b-sidebar .menu__item u:hover span {
+  border-color: @linkHover;
+}
+
+.b-sidebar .menu__item.current > a,
+.b-sidebar .menu__item.current > u,
+.b-sidebar .submenu__item.active > a {
+  color: @linkActive;
+
+  &:hover {
+    color: @linkActive;
+  }
+}
+.b-sidebar .menu__item.current.with-submenu > a span,
+.b-sidebar .menu__item.current.with-submenu > u span {
+  border-color: @linkActive;
+}
+/* /Left Menu */
+
+
+/* Product card */
+.b-item__price {
+  color: @baseColor;
+}
+.b-item__info:after {
+  border-color: @baseColor;
+}
+.btn {
+  border-color: @buttonAdd;
+  color: @text;
+
+  &:hover {
+    color: @text;
+    background-color: @buttonAddHover;
+    border-color: @buttonAddHover;
+  }
+  &:active {
+    color: @text;
+    background-color: @buttonAddActive;
+    border-color: @buttonAddActive;
+  }
+  &:focus {
+    color: @text;
+  }
+
+  &.btn-grey {
+    border-color: @buttonAdd2;
+
+    &:hover {
+      background-color: @buttonAdd2Hover;
+      border-color: @buttonAdd2Hover;
+    }
+    &:active {
+      background-color: @buttonAdd2Active;
+      border-color: @buttonAdd2Active;
+    }
+  }
+}
+
+
+/* /Product card */
+
+
+/* Registration */
+#progressCircle {
+  border-color: @baseColor;
+}
+.b-wizard ul.b-wizard__steps li a {
+  border-color: @baseColor;
+}
+.tooltip__trigger {
+  border-color: @baseColor;
+
+  &:hover {
+    background-color: @baseColor;
+    border-color: @baseColor;
+  }
+}
+/* /Registration */
+
+/* About */
+.vision i.num {
+  border-color: @baseColor;
+}
+.seo-icon {
+  border-color: @baseColor;
+}
+.price p.incut,
+.price p.incut > span:before,
+.price p.incut > span:after {
+  color: @baseColor;
+  border-color: @baseColor;
+}
+/* /About */
+
+
+/* Shopcart */
+.b-order-item__name span {
+  color: @text;
+}
+.b-cart-menu .b-order-item__name span {
+  color: @shopcartBase;
+}
+.b-order-item__cost,
+.b-order-list__amount .b-price,
+.b-order-list__tobepaid .b-price {
+  color: @baseColor;
+}
+.b-cart-menu .b-order-item__cost,
+.b-cart-menu .b-price__number,
+.b-cart-menu__amount {
+  color: @shopcartPrice;
+}
+.btn.b-cart-menu__order-button {
+  border-color: @shopcartBase;
+
+  &:hover {
+    border-color: @shopcartBase;
+    background: @shopcartBase;
+  }
+}
+.circles-menu__item > a.icon__cart {
+  &:hover {
+    border-color: @shopcartBase;
+  }
+}
+.b-order-item__drop {
+  border-color: @numberPrice;
+  &:hover {
+    border-color: @numberPrice;
+    background-color: @numberPrice;
+  }
+  &:active {
+    border-color: @numberPriceActive;
+    background-color: @numberPriceActive;
+  }
+}
+/* /Shopcart */
+
+/* Profile page */
+.b-profile-nav .menu__item a span {
+  color: #FFF;
+}
+.b-profile-nav .menu__item__num {
+  background: #FFF;
+  color: @numberPrice;
+}
+.b-profile-nav .menu__item.active:hover,
+.b-profile-nav .menu__item:hover {
+  background-color: @baseColor;
+}
+.b-profile-nav .menu__item a.icon__favorites:before {
+  background-image: url("../images/sprite.png");
+  background-position: -858px -588px;
+}
+.b-profile-nav .menu__item a.icon__cart:before {
+  background-image: url("../images/sprite.png");
+  background-position: -858px -513px;
+}
+.b-profile-nav .menu__item a.icon__order:before {
+  background-image: url("../images/sprite.png");
+  background-position: -858px -662px;
+}
+.b-profile-nav .menu__item a.icon__mail:before {
+  background-image: url("../images/sprite.png");
+  background-position: -858px -822px;
+}
+.header .menu .submenu__item a:hover span {
+  border-color: @baseColor;
+}
+.profile-nav .btn {
+  background-color: @baseColor;
+  color: @text;
+}
+.b-profile-info--personal .b-profile-info__photo,
+.profile .btn-circle--trash,
+.b-dialog__userpic .b-profile-info__photo,
+.b-chat .b-dialog.incoming .b-dialog__userpic .b-profile-info__photo {
+  border-color: @baseColor;
+
+  &:hover {
+    border-color: @baseColor;
+    background: @baseColor;
+  }
+}
+.tabs.tabs--withline .tab__trigger.selected {
+  border-color: @baseColor;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border-color: @baseColor;
+}
+.b-profile-info__characters-list .value--green {
+  color: @numberPrice;
+}
+/* /Profile page */
+
+/* Orders */
+.b-order__amount {
+  color: @baseColor;
+}
+.b-wizard__action.btn-next-step {
+  border-color: @buttonAdd;
+
+  &:hover {
+    background: @buttonAddHover;
+  }
+  &:active {
+    border-color: @buttonAddActive;
+    background: @buttonAddActive;
+  }
+}
+.b-wizard ul.b-wizard__steps {
+  border-color: @baseColor;
+}
+.b-page__icon {
+  border-color: @baseColor;
+  color: @baseColor;
+}
+.partnership .btn-huge {
+  &:hover {
+    background-color: @buttonAddHover;
+  }
+  &:active {
+    background-color: @buttonAddActive;
+  }
+}
+/* /Orders */
+
+.b-increment-group__darr:after {
+  border-top-color: @baseColor;
+}
+.b-increment-group__darr:hover:after {
+  border-top-color: @buttonMainActive;
+}
+.b-increment-group__uarr:after {
+  border-bottom-color: @baseColor;
+}
+.b-increment-group__uarr:hover:after{
+  border-bottom-color: @buttonMainActive;
+}
+
+/* All links and sorter filters */
+a,
+.b-thermometer a,
+span.slidedown__trigger,
+.pseudo-link,
+.tabs.tabs--noskin .tab__trigger span,
+.inline-sorter .selector__current,
+.footer a.contact, .footer a,
+.popup footer ul li a,
+.b-profile-menu .menu__item a,
+.tabs.tabs--withline .tab__trigger span,
+.event__title a {
+  color: @link;
+  border-color: @link;
+
+  &:hover {
+    color: @linkHover;
+    border-color: @linkHover;
+  }
+}
+/* /All links and sorter filters */
